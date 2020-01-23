@@ -11,31 +11,45 @@
   <div class="row"> @include('includes.user_dashboard_menu')
     <div class="col-md-9 col-sm-8">
       <div class="myads">
-        <h3>{{__('My Bank Accounts')}}</h3>
-        <ul class="searchList">
-          <!-- job start -->
-          @if(isset($messages) && count($messages))
-          @foreach($messages as $message)
-          @php
-          	$style = (!(bool)$message->is_read)? 'border: 2px solid #FFB233;':'';
-          @endphp
-          <li style="{{$style}}">
-          <a href="{{route('applicant.message.detail', $message->id)}}" title="{{$message->subject}}">
-            <div class="row">
-              <div class="col-md-8">
-              <h4>{{$message->from_name}} - {{$message->from_email}}</h4>
-              {{$message->subject}}
-              </div>
-              <div class="col-md-4 text-right">
-                  {{$message->created_at->format('M d,Y')}}
-              </div>
-            </div>
-            </a>
-          </li>
-          <!-- job end -->
-          @endforeach
-          @endif
-        </ul>
+        <h3>{{__('My Bank Accounts')}}
+                  <small class="pull-left" >
+           <a class="btn btn-info" href="{{ route('my.new.bank.account') }}"><i class="fa fa-file" aria-hidden="true"></i> {{__('New Bank Account')}}</a>
+          </small>
+        </h3>
+             <table  class="table table-bordered text-right"   >
+
+        <tr>
+        <th class="text-right" >رقم  </th>
+        <th class="text-right"> اسم البنك </th>
+        <th class="text-right"> رقم الحساب  </th>
+
+
+
+        <th class="text-right" >خياراتي</th>
+        </tr>
+
+            @forelse($bank_accounts as $bank_account)
+
+          <tr>
+        <td>{{$bank_account->id }}  </td>
+        <td>{{$bank_account->bank_name }}  </td>
+        <td>{{$bank_account->card_number }}  </td>
+
+
+      <td>
+       <a href="{{route('my.edit.front.account', [ 'id' =>$bank_account->id ])}}" ><i class="fa fa-money" ></i> عرض الحساب </a>
+        </td>
+
+     </tr>
+               @empty
+      <tr>
+        <td colspan="9" class="text-center" > لا يوجد بيانات  </td>
+
+        </tr>
+
+@endforelse
+
+        </table>
       </div>
     </div>
   </div>

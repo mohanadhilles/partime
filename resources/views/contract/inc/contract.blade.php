@@ -6,18 +6,34 @@
 {!! Form::open(array('method' => 'post', 'route' => array('company.store.front.contract'), 'class' => 'form')) !!}
 @endif
 <div class="row">
-    <div class="col-md-12">
-    <div class="formrow {!! APFrmErrHelp::hasError($errors, 'subject') !!}">
-     {!! Form::text('subject', null, array('class'=>'form-control', 'id'=>'subject', 'placeholder'=>__('contract'))) !!}
-      {!! APFrmErrHelp::showErrors($errors, 'subject') !!} </div>
+
+
+
+
+           <div class="col-md-6">
+    <div class="formrow {!! APFrmErrHelp::hasError($errors, 'date_from') !!}">
+    {!! Form::text('date_from', null, array('class'=>'form-control text-right datepicker', 'id'=>'date_from', 'placeholder'=>__('date_from'), 'autocomplete'=>'off')) !!}
+      {!! APFrmErrHelp::showErrors($errors, 'date_from') !!} </div>
+  </div>
+
+           <div class="col-md-6">
+    <div class="formrow {!! APFrmErrHelp::hasError($errors, 'date_to') !!}">
+    {!! Form::text('date_to', null, array('class'=>'form-control text-right datepicker', 'id'=>'date_to', 'placeholder'=>__('date_to'), 'autocomplete'=>'off')) !!}
+      {!! APFrmErrHelp::showErrors($errors, 'date_to') !!} </div>
+  </div>           
+
+          <div class="col-md-6">
+    <div class="formrow {!! APFrmErrHelp::hasError($errors, 'contract_days') !!}">
+     {!! Form::text('contract_days', null, array('class'=>'form-control', 'id'=>'hourly_rate', 'placeholder'=>__('contract_days'))) !!}
+      {!! APFrmErrHelp::showErrors($errors, 'contract_days') !!} </div>
   </div>
 
 
-
-
-
-
-
+            <div class="col-md-6">
+    <div class="formrow {!! APFrmErrHelp::hasError($errors, 'hourly_rate') !!}">
+     {!! Form::text('hourly_rate', null, array('class'=>'form-control', 'id'=>'hourly_rate', 'placeholder'=>__('hourly_rate'))) !!}
+      {!! APFrmErrHelp::showErrors($errors, 'hourly_rate') !!} </div>
+  </div>
 
 
 
@@ -30,7 +46,25 @@
 {!! Form::close() !!}
 <hr>
 
+@push('styles')
+<style type="text/css">
+.datepicker>div {
+    display: block;
+}
+</style>
+@endpush
 @push('scripts')
-@include('admin.shared.tinyMCEFront')
+
+<script type="text/javascript">
+$(document).ready(function() {
+
+
+	$(".datepicker").datepicker({
+		autoclose: true,
+		format:'yyyy-m-d'
+	});
+	});
+
+</script>
 
 @endpush

@@ -14,10 +14,10 @@
 
     <!-- title end -->
 
-    
+     @if($video)
 
     <p>{{$video->video_text}}</p>
 
     <a href="{{$video->video_link}}" target="_blank"><i class="fa fa-play-circle-o" aria-hidden="true"></i></a> </div>
-
+     @endif
 </div>

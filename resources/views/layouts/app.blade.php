@@ -44,36 +44,36 @@ if (!isset($seo)) {
 *,html,body , h1 , h2 , h3, h4, h5 {
   font-family: 'Droid Arabic Kufi', serif;
 
-
+  
   word-spacing: 1px;
 }
     </style>
 </head>
 <body>
-@yield('content')
-<!-- Bootstrap's JavaScript -->
-<script src="{{asset('/')}}js/jquery-2.1.4.min.js"></script>
-<script src="{{asset('/')}}js/bootstrap.min.js"></script>
-<!-- Owl carousel -->
-<script src="{{asset('/')}}js/owl.carousel.js"></script>
-<script src="{{ asset('/') }}admin_assets/global/plugins/bootstrap-datepicker/js/bootstrap-datepicker.min.js" type="text/javascript"></script>
-<script src="{{ asset('/') }}admin_assets/global/plugins/Bootstrap-3-Typeahead/bootstrap3-typeahead.min.js" type="text/javascript"></script>
-<!-- END PAGE LEVEL PLUGINS -->
-<script src="{{ asset('/') }}admin_assets/global/plugins/select2/js/select2.full.min.js" type="text/javascript"></script>
+@yield('content') 
+<!-- Bootstrap's JavaScript --> 
+<script src="{{asset('/')}}js/jquery-2.1.4.min.js"></script> 
+<script src="{{asset('/')}}js/bootstrap.min.js"></script> 
+<!-- Owl carousel --> 
+<script src="{{asset('/')}}js/owl.carousel.js"></script> 
+<script src="{{ asset('/') }}admin_assets/global/plugins/bootstrap-datepicker/js/bootstrap-datepicker.min.js" type="text/javascript"></script> 
+<script src="{{ asset('/') }}admin_assets/global/plugins/Bootstrap-3-Typeahead/bootstrap3-typeahead.min.js" type="text/javascript"></script> 
+<!-- END PAGE LEVEL PLUGINS --> 
+<script src="{{ asset('/') }}admin_assets/global/plugins/select2/js/select2.full.min.js" type="text/javascript"></script> 
 
-<!-- Custom js -->
-<script src="{{asset('/')}}js/script.js"></script>
-<script src="{{ asset('/') }}admin_assets/global/plugins/jquery.scrollTo.min.js" type="text/javascript"></script>
+<!-- Custom js --> 
+<script src="{{asset('/')}}js/script.js"></script> 
+<script src="{{ asset('/') }}admin_assets/global/plugins/jquery.scrollTo.min.js" type="text/javascript"></script> 
 {!! NoCaptcha::renderJs() !!}
 
-@stack('scripts')
+@stack('scripts') 
 <script type="text/JavaScript">
 	$(document).ready(function(){
 	$(document).scrollTo('.has-error', 2000);
 	});
-	function showProcessingForm(btn_id){
+	function showProcessingForm(btn_id){		
 	$("#"+btn_id).val( 'Processing .....' );
-	$("#"+btn_id).attr('disabled','disabled');
+	$("#"+btn_id).attr('disabled','disabled');		
 	}
 </script>
 </body>

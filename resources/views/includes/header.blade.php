@@ -48,21 +48,20 @@
                 </ul>
               </li>
               @endif @if(!Auth::user() && !Auth::guard('company')->user())
-              <li class="dropdown"><a href="{{route('login')}}">{{__('Sign in')}} <span class="caret"></span></a> 
-                
+              <li class="dropdown"><a href="{{route('login')}}">{{__('Sign in')}} <span class="caret"></span></a>
+
                 <!-- dropdown start -->
-                
+
                 <ul class="dropdown-menu">
                   <li><a href="{{route('login')}}">{{__('Sign in')}}</a> </li>
                   <li><a href="{{route('register')}}">{{__('Register')}}</a> </li>
                   <li><a href="{{route('password.request')}}">{{__('Forgot Password')}}?</a> </li>
                 </ul>
-                
-                <!-- dropdown end --> 
-                
+
+                <!-- dropdown end -->
               </li>
               @endif
-               <li class="dropdown userbtn"><a href="{{url('/')}}"><img src="{{asset('/')}}images/lang.png" alt="" class="userimg" /></a>
+            <!--   <li class="dropdown userbtn"><a href="{{url('/')}}"><img src="{{asset('/')}}images/lang.png" alt="" class="userimg" /></a>
                 <ul class="dropdown-menu">
                   @foreach($siteLanguages as $siteLang)
                   <li><a href="javascript:;" onclick="event.preventDefault(); document.getElementById('locale-form-{{$siteLang->iso_code}}').submit();">{{$siteLang->native}}</a>
@@ -75,11 +74,11 @@
                   </li>
                   @endforeach
                 </ul>
-              </li>
+              </li>-->
             </ul>
-            
-            <!-- Nav collapes end --> 
-            
+
+            <!-- Nav collapes end -->
+
           </div>
           <div class="clearfix"></div>
         </div>

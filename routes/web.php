@@ -18,15 +18,13 @@
 $real_path = realpath(__DIR__).DIRECTORY_SEPARATOR.'front_routes'.DIRECTORY_SEPARATOR;
 
 
-/********** web *************/
-Route::get('webapp', function(){
-    return view("web");
-});
+
 
 
 
 /********** IndexController *************/
 Route::get('/', 'IndexController@index')->name('index');
+
 Route::post('set-locale', 'IndexController@setLocale')->name('set.locale');
 
 /********** HomeController *************/

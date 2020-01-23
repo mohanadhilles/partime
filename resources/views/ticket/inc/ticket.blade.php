@@ -18,7 +18,7 @@
          {!! Form::select('contract_id', ['' => __('Select Contract Num')]+$contracts, null, array('class'=>'form-control', 'id'=>'contract_id')) !!}
 
 
-     </span> {!! APFrmErrHelp::showErrors($errors, 'department_id') !!} </div>
+     </span> {!! APFrmErrHelp::showErrors($errors, 'contract_id') !!} </div>
   </div>
 
   <div class="col-md-4">

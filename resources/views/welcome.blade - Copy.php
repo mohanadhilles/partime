@@ -5,8 +5,7 @@
 
 <!-- Header start -->
 @include('includes.header')
-<!-- Header end --> 
-
+<!-- Header end -->
 <!-- Search start -->
 @include('includes.search')
 <!-- Search End --> 

@@ -71,7 +71,7 @@ trait EmployeeTrait
         ;
     }
 
-    public function storeFrontEmployee(employeeFrontFormRequest $request)
+    public function storeFrontEmployee(EmployeeFrontFormRequest $request)
     {
 		$company = Auth::guard('company')->user();
 
@@ -117,30 +117,16 @@ trait EmployeeTrait
 
     }
 
-    public function updateFrontEmployee($id, employeeFrontFormRequest $request)
+    public function updateFrontEmployee($id, EmployeeFrontFormRequest $request)
     {
         $employee = Employee::findOrFail($id);
-        $employee->id = $request->input('id');
-               $employee->subject = $request->input('subject');
-        $employee->priority_id = $request->input('priority_id');
-        $employee->department_id = $request->input('department_id');
-        $employee->status_id = $request->input('status_id');
-        $employee->notes = $request->input('notes');
-      //  $job = $this->assignJobValues($job, $request);
-		/**********************************/
-	  //	$job->slug = str_slug($job->title, '-').'-'.$job->id;
-		/**********************************/
 
-		/*         * ************************************ */
+        $employee->name = $request->input('name');
+
         $employee->update();
-		/*         * ************************************ */
-       // $this->storeJobSkills($request, $job->id);
-		/*         * ************************************ */
-	  //	$this->updateFullTextSearch($job);
-		/*         * ************************************ */
 
         flash('employee has been updated!')->success();
-        return \Redirect::route('edit.front.employee', array($employee->id));
+        return \Redirect::route('company.edit.front.employee', array($employee->id));
     }
 	
 

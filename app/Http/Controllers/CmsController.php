@@ -28,21 +28,26 @@ class CmsController extends Controller
     public function getPage($slug)
     {
 		$cms = Cms::where('page_slug', 'like', $slug)->first();
-		if(null === $cmsContent = CmsContent::getContentByPageId($cms->id))
+		if((!$cms) || null === $cmsContent = CmsContent::getContentByPageId($cms->id))
 		{
 			echo 'No Content';exit;
 		}
-		
+
 		$seo = (object) array(
                     'seo_title' => $cms->seo_title,
                     'seo_description' => $cms->seo_description,
                     'seo_keywords' => $cms->seo_keywords,
                     'seo_other' => $cms->seo_other
         );
-		
+
 		return view('cms.cms_page')
 						->with('cmsContent', $cmsContent)
 						->with('seo', $seo);
+    }
+       public function termsOfUse(Request $request)
+    {
+    return $this->getPage('terms-of-use');
+
     }
 
 }

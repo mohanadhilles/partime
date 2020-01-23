@@ -15,10 +15,14 @@ use App\User;
 use App\ApplicantMessage;
 use App\Payslip;
 use App\Payroll;
+use App\ProfileExperience;
+use App\ProfileEducation;
+use App\SiteSetting;
 use App\Ticket;
 use App\Company;
 use App\FavouriteCompany;
 use App\Gender;
+
 use App\MaritalStatus;
 use App\Country;
 use App\State;
@@ -28,6 +32,7 @@ use App\JobApply;
 use App\Contract;
 use App\CareerLevel;
 use App\Industry;
+use App\Order;
 use App\FunctionalArea;
 use App\Http\Requests;
 use Illuminate\Http\Request;
@@ -41,8 +46,15 @@ use App\Traits\ProfileExperienceTrait;
 use App\Traits\ProfileEducationTrait;
 use App\Traits\ProfileSkillTrait;
 use App\Traits\ProfileLanguageTrait;
+
+use App\Traits\UserTicketTrait;
+use App\Traits\UserOrderTrait;
+use App\Traits\UserOfferTrait;
+use App\Traits\UserBankAccountTrait;
+ use App\ProfileLanguage;
 use App\Traits\Skills;
 use App\Http\Requests\Front\UserFrontFormRequest;
+
 use App\Helpers\DataArrayHelper;
 
 class UserController extends Controller
@@ -51,6 +63,10 @@ class UserController extends Controller
     use CommonUserFunctions;
 	use ProfileSummaryTrait;
 	use ProfileCvsTrait;
+	use UserTicketTrait;
+	use UserOrderTrait;
+	use UserOfferTrait;
+	use UserBankAccountTrait;
 	use ProfileProjectsTrait;
 	use ProfileExperienceTrait;
 	use ProfileEducationTrait;
@@ -92,12 +108,61 @@ class UserController extends Controller
 		$careerLevels = DataArrayHelper::langCareerLevelsArray();
 		$industries = DataArrayHelper::langIndustriesArray();
 		$functionalAreas = DataArrayHelper::langFunctionalAreasArray();
+		$degreeLevels = DataArrayHelper::langDegreeLevelsArray();
+        $languageLevels = DataArrayHelper::langLanguageLevelsArray();
+        $jobShifts = DataArrayHelper::langJobShiftsArray();
+        $malls = DataArrayHelper::langMallsArray();
+        $workTimes = DataArrayHelper::langWorkTimesArray();
+
+        $ask = [0 => 'لا' , 1 => 'نعم'];
+
+        $siteSetting = SiteSetting::first();
 
 		$upload_max_filesize = UploadedFile::getMaxFilesize() / (1048576);
 
         $user = User::findOrFail(Auth::user()->id);
+        $profileLanguages = $user->profileLanguages;
+
+
+
+           $ProfileExperience = ProfileExperience::orderby('id','DESC')->whereUserId($user->id)->first();
+        $last_job_position = (isset($ProfileExperience->id)) ? $ProfileExperience->title:NULL ;
+        $is_currently_working = (isset($ProfileExperience->id)) ? $ProfileExperience->is_currently_working:NULL ;
+        $company = (isset($ProfileExperience->id)) ? $ProfileExperience->company:NULL ;
+        $description = (isset($ProfileExperience->id)) ? $ProfileExperience->description:NULL ;
+        $time_from = (isset($ProfileExperience->id)) ? $ProfileExperience->time_from:NULL ;
+        $time_to = (isset($ProfileExperience->id)) ? $ProfileExperience->time_to:NULL ;
+        $mall_id = (isset($ProfileExperience->id)) ? $ProfileExperience->mall_id:NULL ;
+
+
+           $ProfileEducation = ProfileEducation::whereUserId($user->id)->first();
+        $degree_level_id = (isset($ProfileEducation->id)) ? $ProfileEducation->degree_level_id:NULL ;
+
+               $ProfileLanguage = ProfileLanguage::whereUserId($user->id)->whereLanguageId(44)->first();
+        $language_level_id = (isset($ProfileLanguage->id)) ? $ProfileLanguage->language_level_id:NULL ;
+
+        $country_id = (isset($user->country_id) && $user->country_id != NULL) ? $user->country_id: $siteSetting->default_country_id;
+                $cities = DataArrayHelper::AllCitiesArray($country_id);
+
+
+           $user->last_job_position = $last_job_position;
+           $user->is_currently_working = $is_currently_working;
+           $user->company = $company;
+           $user->description = $description;
+           $user->time_to = $time_to;
+           $user->time_from = $time_from;
+           $user->mall_id = $mall_id;
         return view('user.edit_profile')
+                         ->with('languageLevels', $languageLevels)
+                        ->with('language_level_id', $language_level_id)
+                        ->with('cities', $cities)
+                        ->with('ask', $ask)
+                        ->with('degree_level_id', $degree_level_id)
+                        ->with('malls', $malls)
+                        ->with('workTimes', $workTimes)
+                        ->with('jobShifts', $jobShifts)
                         ->with('genders', $genders)
+                        ->with('degreeLevels', $degreeLevels)
                         ->with('maritalStatuses', $maritalStatuses)
                         ->with('nationalities', $nationalities)
                         ->with('countries', $countries)
@@ -112,6 +177,7 @@ class UserController extends Controller
     public function updateMyProfile(UserFrontFormRequest $request)
     {
 
+         // dd($request->all());
         $user = User::findOrFail(Auth::user()->id);
         /*         * **************************************** */
         if ($request->hasFile('image')) {
@@ -141,10 +207,17 @@ class UserController extends Controller
         $user->nationality_id = $request->input('nationality_id');
         $user->national_id_card_number = $request->input('national_id_card_number');
         $user->country_id = $request->input('country_id');
-        $user->state_id = $request->input('state_id');
-        $user->city_id = $request->input('city_id');
+
+    $user->city_id = $request->input('city_id');
+
+    $city = City::find($request->input('city_id'));
+
+     $user->state_id = (isset($city) && isset($city->state_id)) ? $city->state_id : NULL;
+
         $user->phone = $request->input('phone');
         $user->mobile_num = $request->input('mobile_num');
+        $user->neighborhood = $request->input('neighborhood');
+        //$user->degree_level_id = $request->input('degree_level_id');
         $user->job_experience_id = $request->input('job_experience_id');
         $user->career_level_id = $request->input('career_level_id');
         $user->industry_id = $request->input('industry_id');
@@ -153,15 +226,123 @@ class UserController extends Controller
         $user->expected_salary = $request->input('expected_salary');
         $user->salary_currency = $request->input('salary_currency');
         $user->street_address = $request->input('street_address');
+        $user->linkedin_link = $request->input('linkedin_link');
+        $user->appropriate_work_time_id = $request->input('appropriate_work_time_id');
+        $user->work_time_id = $request->input('work_time_id');
+           $user->have_you_a_car = $request->input('have_you_a_car');
+        $user->have_you_computer = $request->input('have_you_computer');
+
+         if($request->apply_job == 1){
+             $order = new Order();
+        $order->user_id = $user->id;
+        $order->is_immediate_available = $user->is_immediate_available;
+        $order->appropriate_work_time_id = $user->appropriate_work_time_id;
+        $order->work_time_id = $user->work_time_id;
+
+        $order->appropriate_work_time_from_1 = $request->input('appropriate_work_time_from_1');
+        $order->appropriate_work_time_from_2 = $request->input('appropriate_work_time_from_2');
+        $order->appropriate_work_time_from_3 = $request->input('appropriate_work_time_from_3');
+        $order->appropriate_work_time_to_1 = $request->input('appropriate_work_time_to_1');
+        $order->appropriate_work_time_to_2 = $request->input('appropriate_work_time_to_2');
+        $order->appropriate_work_time_to_3 = $request->input('appropriate_work_time_to_3');
+        $order->expected_join_date = $request->input('expected_join_date');
+        $order->interested_job = $request->input('interested_job');
+        $order->current_salary = $request->input('current_salary');
+        $order->expected_salary = $request->input('expected_salary');
+        $order->salary_currency = $request->input('salary_currency');
+        $order->notes = $request->input('notes');
+        $order->save();
+
+        $user->appropriate_work_time_from_1 = $request->input('appropriate_work_time_from_1');
+        $user->appropriate_work_time_from_2 = $request->input('appropriate_work_time_from_2');
+        $user->appropriate_work_time_from_3 = $request->input('appropriate_work_time_from_3');
+        $user->appropriate_work_time_to_1 = $request->input('appropriate_work_time_to_1');
+        $user->appropriate_work_time_to_2 = $request->input('appropriate_work_time_to_2');
+        $user->appropriate_work_time_to_3 = $request->input('appropriate_work_time_to_3');
+        $user->expected_join_date = $request->input('expected_join_date');
+        $user->interested_job = $request->input('interested_job');
+        $user->notes = $request->input('notes');
+
+        }
+
 
         $user->update();
 
+
+        $ProfileEducation = ProfileEducation::whereUserId($user->id)->first();
+
+        if(!isset($ProfileEducation->id)){
+        $ProfileEducation = new ProfileEducation();
+		$ProfileEducation->user_id = $user->id;
+		$ProfileEducation->degree_level_id =  $request->input('degree_level_id');
+        $ProfileEducation->country_id = $user->country_id;
+        $ProfileEducation->city_id = $user->city_id;
+        $ProfileEducation->state_id = $user->state_id;
+        $ProfileEducation->save();
+        }else{
+         $ProfileEducation->degree_level_id =  $request->input('degree_level_id');
+        $ProfileEducation->country_id = $user->country_id;
+        $ProfileEducation->city_id = $user->city_id;
+        $ProfileEducation->state_id = $user->state_id;
+        $ProfileEducation->update();
+        }
+
+
+        $ProfileLanguage = ProfileLanguage::whereUserId($user->id)->whereLanguageId(44)->first();
+
+        if(!isset($ProfileLanguage->id)){
+        $ProfileLanguage = new ProfileLanguage();
+		$ProfileLanguage->user_id = $user->id;
+		$ProfileLanguage->language_level_id =  $request->input('language_level_id');
+        $ProfileLanguage->language_id = 44;
+          $ProfileLanguage->save();
+        }else{
+         $ProfileLanguage->language_level_id =  $request->input('language_level_id');
+        $ProfileLanguage->language_id = 44;
+          $ProfileLanguage->update();
+        }
+
+         $ProfileExperience  = ProfileExperience::orderby('id','DESC')->whereUserId($user->id)->first();
+
+        if(!isset($ProfileExperience->id)){
+           $ProfileExperience = new ProfileExperience();
+		$ProfileExperience->user_id = $user->id;
+		$ProfileExperience->title =  $request->input('last_job_position');
+ 		$ProfileExperience->description =  $request->input('description');
+ 		$ProfileExperience->time_from =  $request->input('time_from');
+ 		$ProfileExperience->time_to =  $request->input('time_to');
+		$ProfileExperience->is_currently_working =  $request->input('is_currently_working');
+		$ProfileExperience->company =  $request->input('company');
+		$ProfileExperience->mall_id =  $request->input('mall_id');
+         $ProfileExperience->country_id = $user->country_id;
+        $ProfileExperience->city_id = $user->city_id;
+        $ProfileExperience->state_id = $user->state_id;
+          $ProfileExperience->save();
+         }else{
+
+         if($request->input('last_job_position') != NULL){$ProfileExperience->title =  $request->input('last_job_position'); }
+         if($request->input('description') != NULL){$ProfileExperience->description =  $request->input('description'); }
+         if($request->input('is_currently_working') != NULL){$ProfileExperience->is_currently_working =  $request->input('is_currently_working'); }
+         if($request->input('company') != NULL){$ProfileExperience->company =  $request->input('company'); }
+         if($request->input('mall_id') != NULL){$ProfileExperience->mall_id =  $request->input('mall_id'); }
+         if($request->input('time_from') != NULL){$ProfileExperience->time_from =  $request->input('time_from'); }
+         if($request->input('time_to') != NULL){$ProfileExperience->time_to =  $request->input('time_to'); }
+
+
+        $ProfileExperience->update();
+        }
+
+
 		$this->updateUserFullTextSearch($user);
 
-        flash(__('You have updated your profile successfully'))->success();
-        return \Redirect::route('my.profile');
+        if($request->apply_job == 1){
+     flash(__('You have apply_job successfully'))->success();
+        }   else {
+     flash(__('You have updated your profile successfully'))->success();
+        }
+        return back();
     }
-	
+
 	public function addToFavouriteCompany(Request $request, $company_slug)
     {
 		$data['company_slug'] = $company_slug;
@@ -208,13 +389,13 @@ class UserController extends Controller
   	public function myBankAccounts()
     {
         $user = User::findOrFail(Auth::user()->id);
-		$bank_accounts = ApplicantMessage::where('user_id', '=', $user->id)
-						->orderBy('is_read', 'asc')
+		$bank_accounts = BankAccount::where('user_id', '=', $user->id)
+
 						->orderBy('created_at', 'desc')
 						->get();
 
 		return view('user.bank_accounts')
-                        ->with('user', $user)
+
 						->with('bank_accounts', $bank_accounts);
     }
 
@@ -226,7 +407,6 @@ class UserController extends Controller
         ,'jobs.title as job_title'
         ,'contract_statuses.contract_status'
         ,'contract_statuses.code as color_code'
-
         ,'companies.name as company_name')->
         where('contracts.user_id', '=', $user->id)
           ->join('companies' , 'companies.id' , '=' ,'contracts.company_id')
@@ -264,18 +444,7 @@ class UserController extends Controller
 						->with('payrolls', $payrolls);
     }
 
-      	public function myTickets()
-    {
-        $user = User::findOrFail(Auth::user()->id);
-		$tickets = Ticket::where('user_id', '=', $user->id)
- 						->orderBy('created_at', 'desc')
-						->get();
-
-		return view('user.tickets')
-                        ->with('user', $user)
-						->with('tickets', $tickets);
-    }
-
+ 
 
 
 
@@ -284,7 +453,7 @@ class UserController extends Controller
         $user = User::findOrFail(Auth::user()->id);
 		$message = ApplicantMessage::findOrFail($message_id);
 		$message->update(['is_read'=>1]);
-				
+
 		return view('user.applicant_message_detail')
                         ->with('user', $user)
 						->with('message', $message);

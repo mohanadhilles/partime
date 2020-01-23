@@ -12,7 +12,6 @@
     <div class="col-md-9 col-sm-8">
       <div class="myads">
         <h3>{{__('My Tickets')}}
-
          <small class="pull-left" >
            <a class="btn btn-info" href="{{ route('my.new.ticket') }}"><i class="fa fa-file" aria-hidden="true"></i> {{__('New Ticket')}}</a>
           </small>

@@ -52,16 +52,12 @@
         <th class="text-right"> المرشحين </th>
         <th class="text-right" >خياراتي</th>
         </tr>
-                @if(isset($jobs) && count($jobs))
-
-            @foreach($jobs as $job)
-
+        @forelse($jobs as $job)
             @php $company = $job->getCompany(); @endphp
             @php $getAppliedUserIdsArray = $job->getAppliedUserIdsArray() @endphp
             @php $getFavouriteAppliedUserIdsArray = $job->getFavouriteAppliedUserIdsArray() @endphp
 
-            @if(null !== $company)
-
+        
           <tr>
 
 
@@ -77,11 +73,13 @@
         {{count($getAppliedUserIdsArray)}} {{ __('Candidates')}}</a></td>
         <td><a href="{{route('edit.front.job', [$job->id])}}" title="{{__('Edit')}}" ><i class="fa fa-edit"></i></a></td>
         </tr>
-             @endif
+                          @empty
+      <tr>
+        <td colspan="9" class="text-center" > لا يوجد بيانات  </td>
 
-            @endforeach
+        </tr>
 
-            @endif
+@endforelse
 
         </table>
 

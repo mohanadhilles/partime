@@ -15,7 +15,9 @@ use App\Country;
 use App\CountryDetail;
 use App\State;
 use App\City;
+use App\User;
 use App\CareerLevel;
+use App\JobApply;
 use App\FunctionalArea;
 use App\JobType;
 use App\JobShift;
@@ -192,11 +194,13 @@ trait JobTrait
 		$languages = DataArrayHelper::languagesArray();
 		$languageLevels = DataArrayHelper::langLanguageLevelsArray();
          $nationalities = DataArrayHelper::langNationalitiesArray();
+         $users = DataArrayHelper::usersArray();
 
 
         $job = Job::findOrFail($id);
 		$jobSkillIds = $job->getJobSkillsArray();
-        return view('admin.job.edit')
+         return view('admin.job.edit')
+                         ->with('users', $users)
                          ->with('contractPeriods', $contractPeriods)
                         ->with('languages', $languages)
                         ->with('languageLevels', $languageLevels)
@@ -220,7 +224,10 @@ trait JobTrait
 
     public function updateJob($id, JobFormRequest $request)
     {
+
+
         $job = Job::findOrFail($id);
+
         $job->id = $request->input('id');
         $job->company_id = $request->input('company_id');
         $job = $this->assignJobValues($job, $request);
@@ -235,6 +242,7 @@ trait JobTrait
         $job->update();
 		/*         * ************************************ */
         $this->storeJobSkills($request, $job->id);
+        $this->storeUsers($request, $job->id);
 		/*         * ************************************ */
 		$this->updateFullTextSearch($job);
 		/*         * ************************************ */
@@ -472,5 +480,31 @@ trait JobTrait
 	public function scopeNotExpire($query)
     {
         return $query->whereDate('expiry_date', '>', Carbon::now());//where('expiry_date', '>=', date('Y-m-d'));
+    }
+
+
+
+        private function storeUsers($request, $job_id)
+    {
+        if ($request->has('user_id')) {
+           // JobSkillManager::where('job_id', '=', $job_id)->delete();
+            $users = $request->input('user_id');
+
+
+
+
+          //	foreach ($users as $user) {
+                $job_apply = new JobApply();
+                $job_apply->job_id = $job_id;
+                $job_apply->user_id = $users;
+               $save =  $job_apply->save();
+
+               if($save){
+                       $job = Job::findOrFail($request->id);
+              $job->job_status_id = 2;
+              $job->update();
+               }
+          //  }
+        }
     }
 }

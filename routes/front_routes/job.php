@@ -16,6 +16,5 @@ Route::delete('delete-front-job', 'Job\JobPublishController@deleteJob')->name('d
 Route::get('job-seekers', 'Job\JobSeekerController@jobSeekersBySearch')->name('job.seeker.list');
 
 
-Route::get('my-receive-job-applications', 'Job\JobController@myReceiveJobApplications')->name('my.receive.job.applications');
+
 Route::get('new-job-application', 'Job\JobController@newJobApplication')->name('new.job.application');
-Route::get('new-apply-job', 'Job\JobController@newApplyJobApplication')->name('new.apply.job');

@@ -14,7 +14,8 @@ class Kernel extends ConsoleKernel
      */
     protected $commands = [
         'App\Console\Commands\CallRoute',
-    ];
+        
+     ];
 
     /**
      * Define the application's command schedule.
@@ -28,7 +29,7 @@ class Kernel extends ConsoleKernel
         //          ->hourly();
 		$schedule->command('queue:work --stop-when-empty')->everyFiveMinutes()->withoutOverlapping(5)->sendOutputTo(storage_path() . '/logs/queue-jobs.log');
 		$schedule->command('route:call check-package-validity')->daily()->withoutOverlapping(5)->sendOutputTo(storage_path() . '/logs/queue-jobs.log');
-        
+
     }
 
     /**

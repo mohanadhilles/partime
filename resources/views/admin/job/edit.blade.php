@@ -23,13 +23,15 @@
                         <div class="caption font-red-sunglo"> <i class="icon-settings font-red-sunglo"></i> <span class="caption-subject bold uppercase">Job Form</span> </div>
                     </div>
                     <div class="portlet-body form">          
-                        <ul class="nav nav-tabs">              
+                        <ul class="nav nav-tabs">
                             <li class="active"> <a href="#Details" data-toggle="tab" aria-expanded="false"> Details </a> </li>
+                            <li  > <a href="#apply" data-toggle="tab" aria-expanded="false"> ترشيح بارتايمرز </a> </li>
                         </ul>
                         {!! Form::model($job, array('method' => 'put', 'route' => array('update.job', $job->id), 'class' => 'form', 'files'=>true)) !!}
                         {!! Form::hidden('id', $job->id) !!}            
                         <div class="tab-content">              
                             <div class="tab-pane fade active in" id="Details"> @include('admin.job.forms.form') </div>
+                            <div class="tab-pane fade  " id="apply"> @include('admin.job.forms.apply') </div>
                         </div>
                         {!! Form::close() !!}
                     </div>

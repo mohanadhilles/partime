@@ -58,11 +58,12 @@ class CompanyController extends Controller
     {
         return view('company_home');
     }
-	
+
 	public function companyProfile()
     {
         $countries = DataArrayHelper::defaultCountriesArray();
         $industries = DataArrayHelper::defaultIndustriesArray();
+        $ownershipTypes = DataArrayHelper::defaultOwnershipTypesArray();
         $ownershipTypes = DataArrayHelper::defaultOwnershipTypesArray();
 
         $company = Company::findOrFail(Auth::guard('company')->user()->id);
@@ -341,9 +342,9 @@ class CompanyController extends Controller
 	public function listAppliedUsers(Request $request, $job_id)
     {
 
-
+       
 		$job_applications = JobApply::where('job_id', '=', $job_id)->get();
-		
+
 		return view('job.job_applications')
         ->with('job_id',$job_id)
 				->with('job_applications', $job_applications);

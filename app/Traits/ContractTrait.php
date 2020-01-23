@@ -99,48 +99,28 @@ trait ContractTrait
     public function editFrontContract($id)
     {
 
-
          $contract = Contract::findOrFail($id);
-   	   //	$contractDepartments = DataArrayHelper::langContractDepartmentsArray();
-	   //	$contractStatuses = DataArrayHelper::langContractStatusesArray();
-	   //	$contractPriorites = DataArrayHelper::langContractPrioritesArray();
-
-
-        return view('contract.add_edit_contract')
-
-                        ->with('contract', $contract)
-                    //    ->with('ContractDepartments', $contractDepartments)
-                     //   ->with('ContractStatuses', $contractStatuses)
-                     //   ->with('ContractPriorites', $contractPriorites)
-
-        ;
+        return view('contract.add_edit_contract')->with('contract', $contract);
 
     }
 
     public function updateFrontContract($id, ContractFrontFormRequest $request)
     {
-        $contract = Contract::findOrFail($id);
-        $contract->id = $request->input('id');
-               $contract->subject = $request->input('subject');
-        $contract->priority_id = $request->input('priority_id');
-        $contract->department_id = $request->input('department_id');
-        $contract->status_id = $request->input('status_id');
-        $contract->notes = $request->input('notes');
-      //  $job = $this->assignJobValues($job, $request);
-		/**********************************/
-	  //	$job->slug = str_slug($job->title, '-').'-'.$job->id;
-		/**********************************/
 
-		/*         * ************************************ */
+    	$now = Carbon::now();
+        $expires_at =  $now->addDays($request->input('contract_days'));
+        $contract = Contract::findOrFail($id);
+        $contract->date_from = $request->input('date_from');
+        $contract->date_to =  $request->input('date_to');
+        $contract->contract_days =   $request->input('contract_days');
+        $contract->hourly_rate =  $request->input('hourly_rate');
+        $contract->expires_at =  $expires_at;
+
+        //	 reminig_days
         $contract->update();
-		/*         * ************************************ */
-       // $this->storeJobSkills($request, $job->id);
-		/*         * ************************************ */
-	  //	$this->updateFullTextSearch($job);
-		/*         * ************************************ */
 
         flash('Contract has been updated!')->success();
-        return \Redirect::route('edit.front.Contract', array($contract->id));
+        return \Redirect::route('company.edit.front.contract', array($contract->id));
     }
 
 

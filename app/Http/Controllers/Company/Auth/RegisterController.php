@@ -69,8 +69,8 @@ use VerifiesUsers;
         $company->name = $request->input('name');
 		$company->email = $request->input('email');
         $company->password = bcrypt($request->input('password'));
-        $company->is_active = 0;
-        $company->verified = 0;
+        $company->is_active = 1;
+        $company->verified = 1;
         $company->save();		
 		/***********************/
 		$company->slug = str_slug($company->name, '-').'-'.$company->id;
@@ -79,21 +79,21 @@ use VerifiesUsers;
 
 
 
-         $package = \App\Package::find(6);
+
 		$now = Carbon::now();
-		$company->package_id = $package->id;
+		$company->package_id = 6;
 		$company->package_start_date = $now;
-		$company->package_end_date = $now->addDays($package->package_num_days);
-		$company->jobs_quota = $package->package_num_listings;
+		$company->package_end_date = $now->addDays(360);
+		$company->jobs_quota = 1000;
 		$company->availed_jobs_quota = 0;
 		$company->update();
 
 		
-        event(new Registered($company));
-		event(new CompanyRegistered($company));
+      //  event(new Registered($company));
+	   //	event(new CompanyRegistered($company));
         $this->guard()->login($company);
-        UserVerification::generate($company);
-        UserVerification::send($company, 'Company Verification', config('mail.recieve_to.address'), config('mail.recieve_to.name'));
+      //  UserVerification::generate($company);
+       // UserVerification::send($company, 'Company Verification', config('mail.recieve_to.address'), config('mail.recieve_to.name'));
         return $this->registered($request, $company) ?: redirect($this->redirectPath());
     }
 

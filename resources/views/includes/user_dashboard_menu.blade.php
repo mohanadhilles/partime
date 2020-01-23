@@ -34,7 +34,8 @@
 	  <!--	<li><a href="{{ route('view.public.profile', Auth::user()->id) }}"><i class="fa fa-eye" aria-hidden="true"></i> {{__('View Public Profile')}}</a>
 		</li>-->
          <li><a href="{{ route('new.job.application') }}"><i class="fa fa-plus" aria-hidden="true"></i> {{__('New Job Application')}}</a></li>
-         <li><a href="{{ route('my.receive.job.applications') }}"><i class="fa fa-get-pocket" aria-hidden="true"></i> {{__('Part Time job applications')}}</a></li>
+         <li><a href="{{ route('my.offers') }}"><i class="fa fa-get-pocket" aria-hidden="true"></i> {{__('Part Time job applications')}}</a></li>
+         <li><a href="{{ route('my.orders') }}"><i class="fa fa-file-text-o" aria-hidden="true"></i> {{__('My Orders')}}</a></li>
 	  <!--	<li><a href="{{ route('my.job.applications') }}"><i class="fa fa-desktop" aria-hidden="true"></i> {{__('My Job Applications')}}</a></li> -->
 	      <li><a href="{{ route('my.bank.accounts') }}"><i class="fa fa-bank" aria-hidden="true"></i> {{__('My Bank Accounts')}}</a></li>
           <li><a href="{{ route('my.contracts') }}"><i class="fa fa-file" aria-hidden="true"></i> {{__('My Contracts')}}</a></li>

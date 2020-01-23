@@ -13,9 +13,43 @@ Route::get('remove-from-favourite-company/{company_slug}', 'UserController@remov
 
 Route::get('my-followings', 'UserController@myFollowings')->name('my.followings');
 Route::get('my-messages', 'UserController@myMessages')->name('my.messages');
-Route::get('my-bank-accounts', 'UserController@myBankAccounts')->name('my.bank.accounts');
-Route::get('my-tickets', 'UserController@myTickets')->name('my.tickets');
-Route::get('my-new-ticket', 'UserController@myTickets')->name('my.new.ticket');
+Route::get('my-bank-accounts', 'UserController@indexBankAccount')->name('my.bank.accounts');
+
+
+
+
+
+Route::get('my-offers', 'UserController@indexOffer')->name('my.offers');  // create
+
+
+
+// bank account
+Route::get('my-bank-accounts', 'UserController@indexFrontBankAccount')->name('my.bank.accounts');  // index
+Route::get('my-new-bank-account', 'UserController@createFrontBankAccount')->name('my.new.bank.account');  // crearte
+Route::post('my-store-front-account', 'UserController@storeFrontBankAccount')->name('my.store.front.account');  // store
+Route::get('my-edit-front-account/{id}', 'UserController@editFrontBankAccount')->name('my.edit.front.account');
+Route::put('my-update-front-account/{id}', 'UserController@updateFrontBankAccount')->name('my.update.front.account');
+Route::delete('my-delete-front-account', 'UserController@deleteFrontBankAccount')->name('my.delete.front.account');
+
+
+
+Route::get('my-tickets', 'UserController@indexTicket')->name('my.tickets');  // index
+Route::get('my-new-ticket', 'UserController@createTicket')->name('my.new.ticket');  // crearte
+Route::post('my-store-front-ticket', 'UserController@storeFrontTicket')->name('my.store.front.ticket');  // store
+Route::get('my-edit-front-ticket/{id}', 'UserController@editFrontTicket')->name('my.edit.front.ticket');
+Route::put('my-update-front-ticket/{id}', 'UserController@updateFrontTicket')->name('my.update.front.ticket');
+Route::delete('my-delete-front-ticket', 'UserController@deleteTicket')->name('my.delete.front.ticket');
+
+
+
+Route::get('my-orders', 'UserController@indexOrder')->name('my.orders');  // index
+Route::post('my-store-front-order', 'UserController@storeFrontOrder')->name('my.store.front.order');  // store
+Route::get('my-edit-front-order/{id}', 'UserController@editFrontOrder')->name('my.edit.front.order');
+Route::put('my-update-front-order/{id}', 'UserController@updateFrontOrder')->name('my.update.front.order');
+Route::delete('my-delete-front-order', 'UserController@deleteOrder')->name('my.delete.front.order');
+
+
+
 Route::get('my-contracts', 'UserController@myContracts')->name('my.contracts');
 Route::get('my-payrolls', 'UserController@myPayrolls')->name('my.payrolls');
 Route::get('my-documents', 'UserController@myDocuments')->name('my.documents');

@@ -111,15 +111,15 @@
     <div class="formrow {!! APFrmErrHelp::hasError($errors, 'city_id') !!}" id="city_id_div"> <span id="default_city_dd">
      {!! Form::select('city_id', ['' => __('Select City')]+$cities, null, array('class'=>'form-control', 'id'=>'city_id')) !!}
      </span> {!! APFrmErrHelp::showErrors($errors, 'city_id') !!} </div>
-  </div>
+
   @else
          <div class="formrow {!! APFrmErrHelp::hasError($errors, 'city_id') !!}" id="city_id_div"> <span id="default_city_dd">
      {!! Form::select('city_id', ['' => __('Select City')], null, array('class'=>'form-control', 'id'=>'city_id')) !!}
      </span> {!! APFrmErrHelp::showErrors($errors, 'city_id') !!} </div>
-  </div>
+
   @endif
 
-
+     </div>
 
 
 

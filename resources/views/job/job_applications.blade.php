@@ -42,7 +42,7 @@
              $company = $job->getCompany();
              $profileCv = $job_application->getProfileCv();
             @endphp
-            @if(null !== $job_application && null !== $user && null !== $job && null !== $company && null !== $profileCv)
+            @if(null !== $job_application && null !== $user && null !== $job && null !== $company)
             <li>
 
             <div class="row">

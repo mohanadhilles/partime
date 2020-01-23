@@ -5,6 +5,7 @@
               <div class="col-md-6">
                 <div class="formrow"> {{ ImgUploader::print_image("user_images/$user->image", 100, 100) }} </div>
               </div>
+
               <div class="col-md-6">
                 <div class="formrow">
                   <div id="thumbnail"></div>
@@ -55,13 +56,18 @@
               </div>
 
               <div class="col-md-6">
+            <?php $city_id = old('city_id', (isset($user) && (int)$user->city_id > 0)? $user->city_id: NULL);
+
+
+             ?>
+
                 <div class="formrow {!! APFrmErrHelp::hasError($errors, 'city_id') !!}">
-                <span id="city_dd"> {!! Form::select('city_id', [''=>__('Select City')], null, array('class'=>'form-control', 'id'=>'city_id')) !!} </span> {!! APFrmErrHelp::showErrors($errors, 'city_id') !!} </div>
+                <span id="city_dd"> {!! Form::select('city_id', [''=>__('Select City')]+$cities, $city_id, array('class'=>'form-control', 'id'=>'city_id')) !!} </span> {!! APFrmErrHelp::showErrors($errors, 'city_id') !!} </div>
               </div>
                <div class="col-md-6">
-                <div class="formrow {!! APFrmErrHelp::hasError($errors, 'father_name') !!}">
-                 {!! Form::text('father_name', null, array('class'=>'form-control', 'id'=>'father_name', 'placeholder'=> 'حي السكن'  ))!!}
-                  {!! APFrmErrHelp::showErrors($errors, 'father_name') !!} </div>
+                <div class="formrow {!! APFrmErrHelp::hasError($errors, 'neighborhood') !!}">
+                 {!! Form::text('neighborhood', null, array('class'=>'form-control', 'id'=>'neighborhood', 'placeholder'=> 'حي السكن'  ))!!}
+                  {!! APFrmErrHelp::showErrors($errors, 'neighborhood') !!} </div>
               </div>
               <div class="col-md-6">
                 <div class="formrow {!! APFrmErrHelp::hasError($errors, 'nationality_id') !!}"> {!! Form::select('nationality_id', [''=>__('Select Nationality')]+$nationalities, null, array('class'=>'form-control', 'id'=>'nationality_id')) !!}
@@ -86,15 +92,23 @@
                  {!! Form::text('mobile_num', null, array('class'=>'form-control', 'id'=>'mobile_num', 'placeholder'=>__('Mobile Number'))) !!}
                   {!! APFrmErrHelp::showErrors($errors, 'mobile_num') !!} </div>
               </div>
-              <div class="col-md-6">
+              <div class="col-md-4">
                 <div class="formrow {!! APFrmErrHelp::hasError($errors, 'job_experience_id') !!}">
                 {!! Form::select('job_experience_id', [''=>__('Select Experience')]+$jobExperiences, null, array('class'=>'form-control', 'id'=>'job_experience_id')) !!}
                   {!! APFrmErrHelp::showErrors($errors, 'job_experience_id') !!} </div>
               </div>
-              <div class="col-md-6">
-                <div class="formrow {!! APFrmErrHelp::hasError($errors, 'career_level_id') !!}">
-                 {!! Form::select('career_level_id', [''=> 'المستوى التعليمي']+$careerLevels, null, array('class'=>'form-control', 'id'=>'career_level_id')) !!}
-                  {!! APFrmErrHelp::showErrors($errors, 'career_level_id') !!} </div>
+
+
+                <div class="col-md-4">
+    <div class="formrow {!! APFrmErrHelp::hasError($errors, 'degree_level_id') !!}" id="degree_level_id_div">
+     {!! Form::select('degree_level_id', ['' =>__('Select Required Degree Level')]+$degreeLevels, $degree_level_id, array('class'=>'form-control', 'id'=>'degree_level_id')) !!}
+      {!! APFrmErrHelp::showErrors($errors, 'degree_level_id') !!} </div>
+  </div>
+    <div class="col-md-4">
+                <div class="formrow {!! APFrmErrHelp::hasError($errors, 'language_level_id') !!}">
+                 {!! Form::select('language_level_id', [''=>__(' مستوى اللغة الانجليزية ')]+$languageLevels,
+                 $language_level_id, array('class'=>'form-control', 'id'=>'language_level_id')) !!}
+                  {!! APFrmErrHelp::showErrors($errors, 'language_level_id') !!} </div>
               </div>
               <div class="col-md-6">
                 <div class="formrow {!! APFrmErrHelp::hasError($errors, 'industry_id') !!}"> {!! Form::select('industry_id', [''=>__('Select Industry')]+$industries, null, array('class'=>'form-control', 'id'=>'industry_id')) !!}
@@ -115,7 +129,11 @@
                  {!! Form::text('expected_salary', null, array('class'=>'form-control', 'id'=>'expected_salary', 'placeholder'=> 'الراتب المتوقع (عمل جزئي) ' )) !!}
                   {!! APFrmErrHelp::showErrors($errors, 'expected_salary') !!} </div>
               </div>
-
+                 <div class="col-md-4">
+                <div class="formrow {!! APFrmErrHelp::hasError($errors, 'last_job_position') !!}">
+                 {!! Form::text('last_job_position', null, array('class'=>'form-control', 'id'=>'last_job_position', 'placeholder'=> 'أخر مسمى وظيفي ' )) !!}
+                  {!! APFrmErrHelp::showErrors($errors, 'last_job_position') !!} </div>
+              </div>
 
                   {!! Form::hidden('salary_currency', 'SAR', array('class'=>'form-control', 'id'=>'salary_currency', 'placeholder'=>__('Select Salary Currency'))) !!}
       {!! APFrmErrHelp::showErrors($errors, 'salary_currency') !!}
@@ -129,232 +147,47 @@
               </div>
 
                   <div class="col-md-12">
-                <div class="formrow {!! APFrmErrHelp::hasError($errors, 'expected_salary') !!}">
-                 {!! Form::text('expected_salary', null, array('class'=>'form-control', 'id'=>'expected_salary', 'placeholder'=> 'ادخل عنوان رابط بروفايلك في www.linkedin.com ' )) !!}
-                  {!! APFrmErrHelp::showErrors($errors, 'expected_salary') !!} </div>
-              </div>
-
-
-
-                    <div class="col-md-6">
-                <div class="formrow {!! APFrmErrHelp::hasError($errors, 'functional_area_id') !!}">
-                 {!! Form::select('functional_area_id', [''=>__(' مستوى اللغة الانجليزية ')]+$functionalAreas, null, array('class'=>'form-control', 'id'=>'functional_area_id')) !!}
-                  {!! APFrmErrHelp::showErrors($errors, 'functional_area_id') !!} </div>
-              </div>
-
-                 <div class="col-md-6">
-                <div class="formrow {!! APFrmErrHelp::hasError($errors, 'expected_salary') !!}">
-                 {!! Form::text('expected_salary', null, array('class'=>'form-control', 'id'=>'expected_salary', 'placeholder'=> 'أخر مسمى وظيفي ' )) !!}
-                  {!! APFrmErrHelp::showErrors($errors, 'expected_salary') !!} </div>
-              </div>
-
-
-
-                <div class="col-md-12">
-                <div class="formrow {!! APFrmErrHelp::hasError($errors, 'expected_salary') !!}">
-                 {!! Form::text('expected_salary', null, array('class'=>'form-control', 'id'=>'expected_salary', 'placeholder'=> ' اسم الشركة التي تعمل بها حاليا ' )) !!}
-                  {!! APFrmErrHelp::showErrors($errors, 'expected_salary') !!} </div>
-              </div>
-
-                <div class="col-md-6">
-                <div class="formrow {!! APFrmErrHelp::hasError($errors, 'expected_salary') !!}">
-                 {!! Form::text('expected_salary', null, array('class'=>'form-control', 'id'=>'expected_salary', 'placeholder'=> 'نوع النشاط التجاري' )) !!}
-                  {!! APFrmErrHelp::showErrors($errors, 'expected_salary') !!} </div>
+                <div class="formrow {!! APFrmErrHelp::hasError($errors, 'linkedin_link') !!}">
+                 {!! Form::url('linkedin_link', null, array('class'=>'form-control', 'id'=>'linkedin_link', 'placeholder'=> 'ادخل عنوان رابط بروفايلك في www.linkedin.com ' )) !!}
+                  {!! APFrmErrHelp::showErrors($errors, 'linkedin_link') !!} </div>
               </div>
 
 
 
 
 
-                        <div class="col-md-12">
-              <div class="panel panel-default">
-   <div class="panel-body">
-  <div class="col-md-12">
-              <div class="panel panel-default">
-  <div class="panel-heading">{!! Form::label('hide_salary', __('هل تعمل حاليا'), ['class' => '']) !!} </div>
-  <div class="panel-body">
-
-          <div class="col-md-12">
-    <div class="formrow {!! APFrmErrHelp::hasError($errors, 'hide_salary') !!}">
-      <div class="radio-list">
-        <?php
-            $hide_salary_1 = '';
-            $hide_salary_2 = 'checked="checked"';
-            if (old('hide_salary', ((isset($user)) ? $user->hide_salary : 0)) == 1) {
-                $hide_salary_1 = 'checked="checked"';
-                $hide_salary_2 = '';
-            }
-            ?>
-        <label class="radio-inline">
-          <input id="hide_salary_yes" name="hide_salary" type="radio" value="1" {{$hide_salary_1}}>
-        &nbsp; &nbsp;&nbsp;{{__('Yes')}}&nbsp; &nbsp;&nbsp;</label>
-        <label class="radio-inline">
-          <input id="hide_salary_no" name="hide_salary" type="radio" value="0" {{$hide_salary_2}}>
-         &nbsp;&nbsp;&nbsp; {{__('No')}} &nbsp;&nbsp;&nbsp; </label>
-      </div>
-      {!! APFrmErrHelp::showErrors($errors, 'hide_salary') !!} </div>
-  </div>
-  </div>
-  </div>
-  </div>
-                        <div class="col-md-12">
-              <div class="panel panel-default">
-  <div class="panel-heading">فترة عملك الحالي (من....) (الي...)</div>
-  <div class="panel-body">
-                 <div class="col-md-2">
-                 <div class="formrow">من :</div>
-                 </div>
-                 <div class="col-md-4">
-                <div class="formrow {!! APFrmErrHelp::hasError($errors, 'expected_salary') !!}">
-                 {!! Form::time('expected_salary', null, array('class'=>'form-control', 'id'=>'expected_salary', 'placeholder'=> 'فترة عملك الحالي (من....)' )) !!}
-                  {!! APFrmErrHelp::showErrors($errors, 'expected_salary') !!} </div>
-              </div>
-                <div class="col-md-2">
-                 <div class="formrow">الي : </div>
-                 </div>
-                 <div class="col-md-4">
-                <div class="formrow {!! APFrmErrHelp::hasError($errors, 'expected_salary') !!}">
-                 {!! Form::time('expected_salary', null, array('class'=>'form-control', 'id'=>'expected_salary', 'placeholder'=> 'فترة عملك الحالي (الي....)' )) !!}
-                  {!! APFrmErrHelp::showErrors($errors, 'expected_salary') !!} </div>
-              </div>
-
-
-               <div class="col-md-12">
-                <div class="formrow {!! APFrmErrHelp::hasError($errors, 'functional_area_id') !!}">
-                 {!! Form::select('functional_area_id', [''=>__('إذا عملك الحالي بمجمع تجاري إختر اسم المجمع')]+$functionalAreas, null, array('class'=>'form-control', 'id'=>'functional_area_id')) !!}
-                  {!! APFrmErrHelp::showErrors($errors, 'functional_area_id') !!} </div>
-              </div>
-              </div>
-              </div>
-              </div>
 
 
 
-              </div>
-              </div>
-              </div>
 
-
-
-                   <div class="col-md-6">
-                <div class="formrow {!! APFrmErrHelp::hasError($errors, 'functional_area_id') !!}">
-                 {!! Form::select('functional_area_id', [''=>__('فترة العمل (بارتايم) المناسبة لك')]+$functionalAreas, null, array('class'=>'form-control', 'id'=>'functional_area_id')) !!}
-                  {!! APFrmErrHelp::showErrors($errors, 'functional_area_id') !!} </div>
+              <div class="col-md-6">
+                <div class="formrow {!! APFrmErrHelp::hasError($errors, 'appropriate_work_time_id') !!}">
+                 {!! Form::select('appropriate_work_time_id', [''=>__('فترة العمل (بارتايم) المناسبة لك')]+$jobShifts,
+                  null, array('class'=>'form-control', 'id'=>'appropriate_work_time_id')) !!}
+                  {!! APFrmErrHelp::showErrors($errors, 'appropriate_work_time_id') !!} </div>
               </div>
-
                      <div class="col-md-6">
-                <div class="formrow {!! APFrmErrHelp::hasError($errors, 'functional_area_id') !!}">
-                 {!! Form::select('functional_area_id', [''=>__('عدد الساعات العمل بارتايم')]+$functionalAreas, null, array('class'=>'form-control', 'id'=>'functional_area_id')) !!}
-                  {!! APFrmErrHelp::showErrors($errors, 'functional_area_id') !!} </div>
+                <div class="formrow {!! APFrmErrHelp::hasError($errors, 'work_time_id') !!}">
+                 {!! Form::select('work_time_id', [''=>__('عدد الساعات العمل بارتايم')]+$workTimes,
+                  null, array('class'=>'form-control', 'id'=>'work_time_id')) !!}
+                  {!! APFrmErrHelp::showErrors($errors, 'work_time_id') !!} </div>
               </div>
 
-                         <div class="col-md-12">
-              <div class="panel panel-default">
-  <div class="panel-heading">حدد اوقات العمل بارتايم المفضله </div>
-  <div class="panel-body">
 
-         <div class="col-md-12">
-                  <div class="col-md-2">
-                 <div class="formrow">من :</div>
-                 </div>
-                 <div class="col-md-4">
-                <div class="formrow {!! APFrmErrHelp::hasError($errors, 'expected_salary') !!}">
-                 {!! Form::time('expected_salary', null, array('class'=>'form-control', 'id'=>'expected_salary', 'placeholder'=> 'فترة عملك الحالي (من....)' )) !!}
-                  {!! APFrmErrHelp::showErrors($errors, 'expected_salary') !!} </div>
-              </div>
-                <div class="col-md-2">
-                 <div class="formrow">الي : </div>
-                 </div>
-                 <div class="col-md-4">
-                <div class="formrow {!! APFrmErrHelp::hasError($errors, 'expected_salary') !!}">
-                 {!! Form::time('expected_salary', null, array('class'=>'form-control', 'id'=>'expected_salary', 'placeholder'=> 'فترة عملك الحالي (الي....)' )) !!}
-                  {!! APFrmErrHelp::showErrors($errors, 'expected_salary') !!} </div>
-              </div>
-              </div>
-               <div class="col-md-12">
-                  <div class="col-md-2">
-                 <div class="formrow">من :</div>
-                 </div>
-                 <div class="col-md-4">
-                <div class="formrow {!! APFrmErrHelp::hasError($errors, 'expected_salary') !!}">
-                 {!! Form::time('expected_salary', null, array('class'=>'form-control', 'id'=>'expected_salary', 'placeholder'=> 'فترة عملك الحالي (من....)' )) !!}
-                  {!! APFrmErrHelp::showErrors($errors, 'expected_salary') !!} </div>
-              </div>
-                <div class="col-md-2">
-                 <div class="formrow">الي : </div>
-                 </div>
-                 <div class="col-md-4">
-                <div class="formrow {!! APFrmErrHelp::hasError($errors, 'expected_salary') !!}">
-                 {!! Form::time('expected_salary', null, array('class'=>'form-control', 'id'=>'expected_salary', 'placeholder'=> 'فترة عملك الحالي (الي....)' )) !!}
-                  {!! APFrmErrHelp::showErrors($errors, 'expected_salary') !!} </div>
-              </div>
-              </div>
-
-                  <div class="col-md-12">
-                  <div class="col-md-2">
-                 <div class="formrow">من :</div>
-                 </div>
-                 <div class="col-md-4">
-                <div class="formrow {!! APFrmErrHelp::hasError($errors, 'expected_salary') !!}">
-                 {!! Form::time('expected_salary', null, array('class'=>'form-control', 'id'=>'expected_salary', 'placeholder'=> 'فترة عملك الحالي (من....)' )) !!}
-                  {!! APFrmErrHelp::showErrors($errors, 'expected_salary') !!} </div>
-              </div>
-                <div class="col-md-2">
-                 <div class="formrow">الي : </div>
-                 </div>
-                 <div class="col-md-4">
-                <div class="formrow {!! APFrmErrHelp::hasError($errors, 'expected_salary') !!}">
-                 {!! Form::time('expected_salary', null, array('class'=>'form-control', 'id'=>'expected_salary', 'placeholder'=> 'فترة عملك الحالي (الي....)' )) !!}
-                  {!! APFrmErrHelp::showErrors($errors, 'expected_salary') !!} </div>
-              </div>
-              </div>
-  </div>
-</div>
-</div>
 
                   <div class="col-md-6">
-                <div class="formrow {!! APFrmErrHelp::hasError($errors, 'functional_area_id') !!}">
-                 {!! Form::select('functional_area_id', [''=>__('هل متوفر لديك سيارة')]+$functionalAreas, null, array('class'=>'form-control', 'id'=>'functional_area_id')) !!}
-                  {!! APFrmErrHelp::showErrors($errors, 'functional_area_id') !!} </div>
+                <div class="formrow {!! APFrmErrHelp::hasError($errors, 'have_you_a_car') !!}">
+                 {!! Form::select('have_you_a_car', [''=>__('هل متوفر لديك سيارة')]+$ask, null, array('class'=>'form-control', 'id'=>'have_you_a_car')) !!}
+                  {!! APFrmErrHelp::showErrors($errors, 'have_you_a_car') !!} </div>
               </div>
-
                   <div class="col-md-6">
-                <div class="formrow {!! APFrmErrHelp::hasError($errors, 'functional_area_id') !!}">
-                 {!! Form::select('functional_area_id', [''=>__('  هل متوفر جهاز حاسب الى وانترنت')]+$functionalAreas, null, array('class'=>'form-control', 'id'=>'functional_area_id')) !!}
-                  {!! APFrmErrHelp::showErrors($errors, 'functional_area_id') !!} </div>
+                <div class="formrow {!! APFrmErrHelp::hasError($errors, 'have_you_computer') !!}">
+                 {!! Form::select('have_you_computer', [''=>__('  هل متوفر جهاز حاسب الى وانترنت')]+$ask, null, array('class'=>'form-control', 'id'=>'have_you_computer')) !!}
+                  {!! APFrmErrHelp::showErrors($errors, 'have_you_computer') !!} </div>
               </div>
-
-
-
-               <div class="col-md-6">
-                <div class="formrow {!! APFrmErrHelp::hasError($errors, 'expected_salary') !!}">
-                 {!! Form::text('expected_salary', null, array('class'=>'form-control', 'id'=>'expected_salary', 'placeholder'=> 'التاريخ المتوقع للإنضمام' )) !!}
-                  {!! APFrmErrHelp::showErrors($errors, 'expected_salary') !!} </div>
-              </div>
-            <div class="col-md-12">
-                <div class="formrow {!! APFrmErrHelp::hasError($errors, 'expected_salary') !!}">
-                 {!! Form::text('expected_salary', null, array('class'=>'form-control', 'id'=>'expected_salary', 'placeholder'=> 'ما هو المسمى الوظيفي (بارتايم) المهتم به ' )) !!}
-                  {!! APFrmErrHelp::showErrors($errors, 'expected_salary') !!} </div>
-              </div>
-
-
-
-              <div class="col-md-12">
-                <div class="formrow {!! APFrmErrHelp::hasError($errors, 'expected_salary') !!}">
-                 {!! Form::textarea('expected_salary', null, array('class'=>'form-control', 'id'=>'expected_salary', 'placeholder'=> 'ملاحظات' )) !!}
-                  {!! APFrmErrHelp::showErrors($errors, 'expected_salary') !!} </div>
-              </div>
-
-
               <div class="col-md-12">
                 <div class="formrow"><button type="submit" class="btn">{{__('Update Profile and Save')}}  <i class="fa fa-arrow-circle-left" aria-hidden="true"></i></button></div>
               </div>
-
-
-
-
-
-
             </div>
             {!! Form::close() !!}
             <hr>
@@ -383,7 +216,7 @@ $(document).ready( function() {
     e.preventDefault();
     filterLangAllCities();
     });
-    filterLangAllCities();
+
 
 
 	/*******************************/

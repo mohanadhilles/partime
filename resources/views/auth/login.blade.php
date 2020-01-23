@@ -1,99 +1,171 @@
-@extends('layouts.app')
+@extends('layouts.webapp')
 
 @section('content')
-<!-- Header start -->
-@include('includes.header')
-<!-- Header end --> 
+<?php $c_or_e = old('candidate_or_employer', 'candidate');  ?>
+<section  class="features-section" >
+<div class="container">
+     <ul class="nav nav-tabs" role="tablist">
+    <li class="nav-item">
+      <a class="nav-link {{($c_or_e == 'candidate')? 'active':''}}" data-toggle="tab" href="#home">{{ __('Candidate') }} </a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link {{($c_or_e == 'employer')? 'active':''}}" data-toggle="tab" href="#menu1">{{ __('Employer') }}</a>
+    </li>
+  </ul>
 
-<!-- Inner Page Title start -->
-@include('includes.inner_page_title', ['page_title'=>__('Login')])
-<!-- Inner Page Title end -->
-<div class="listpgWraper">
-  <div class="container">
-  @include('flash::message')
-    <div class="row">
-      <div class="col-md-6 col-md-offset-3">
-        <div class="userccount">
-          <div class="userbtns">
-            <ul class="nav nav-tabs">
-            <?php
-            $c_or_e = old('candidate_or_employer', 'candidate');
-			?>
-              <li class="{{($c_or_e == 'candidate')? 'active':''}}"><a data-toggle="tab" href="#candidate" aria-expanded="true">{{__('Candidate')}}</a></li>
-              <li class="{{($c_or_e == 'employer')? 'active':''}}"><a data-toggle="tab" href="#employer" aria-expanded="false">{{__('Employer')}}</a></li>
-            </ul>
-          </div>
-          <div class="tab-content">
-            <div id="candidate" class="formpanel tab-pane fade {{($c_or_e == 'candidate')? 'active in':''}}">
-            <!--<div class="socialLogin">
-                        <h5>{{__('Login Or Register with Social')}}</h5>
-                        <a href="{{ url('login/jobseeker/facebook')}}" class="fb"><i class="fa fa-facebook" aria-hidden="true"></i></a> <a href="{{ url('login/jobseeker/google')}}" class="gp"><i class="fa fa-google-plus" aria-hidden="true"></i></a> <a href="{{ url('login/jobseeker/twitter')}}" class="tw"><i class="fa fa-twitter" aria-hidden="true"></i></a> </div>-->
-              <form class="form-horizontal" method="POST" action="{{ route('login') }}">
-                        {{ csrf_field() }}
-                        <input type="hidden" name="candidate_or_employer" value="candidate" />
-          <div class="formpanel">
-            <div class="formrow{{ $errors->has('email') ? ' has-error' : '' }}">
-            <input id="email" type="email" class="form-control" name="email" value="{{ old('email') }}" required autofocus placeholder="{{__('Email Address')}}">
-              @if ($errors->has('email'))
-              <span class="help-block">
-                  <strong>{{ $errors->first('email') }}</strong>
-              </span>
-              @endif
-            </div>
-            <div class="formrow{{ $errors->has('password') ? ' has-error' : '' }}">
-            <input id="password" type="password" class="form-control" name="password" value="" required placeholder="{{__('Password')}}">
-              @if ($errors->has('password'))
-              <span class="help-block">
-                  <strong>{{ $errors->first('password') }}</strong>
-              </span>
-              @endif
-            </div>            
-            <input type="submit" class="btn" value="{{__('Login')}}">
-          </div>
-          <!-- login form  end--> 
-          </form>
-            </div>
-            <div id="employer" class="formpanel tab-pane fade {{($c_or_e == 'employer')? 'active in':''}}">
-            <!--<div class="socialLogin">
-                        <h5>{{__('Login Or Register with Social')}}</h5>
-                        <a href="{{ url('login/employer/facebook')}}" class="fb"><i class="fa fa-facebook" aria-hidden="true"></i></a> <a href="{{ url('login/employer/google')}}" class="gp"><i class="fa fa-google-plus" aria-hidden="true"></i></a> <a href="{{ url('login/employer/twitter')}}" class="tw"><i class="fa fa-twitter" aria-hidden="true"></i></a> </div>-->
-              <form class="form-horizontal" method="POST" action="{{ route('company.login') }}">
-                        {{ csrf_field() }}
-                        <input type="hidden" name="candidate_or_employer" value="employer" />
-          <div class="formpanel">
-            <div class="formrow{{ $errors->has('email') ? ' has-error' : '' }}">
-            <input id="email" type="email" class="form-control" name="email" value="{{ old('email') }}" required autofocus placeholder="{{__('Email Address')}}">
-              @if ($errors->has('email'))
-              <span class="help-block">
-                  <strong>{{ $errors->first('email') }}</strong>
-              </span>
-              @endif
-            </div>
-            <div class="formrow{{ $errors->has('password') ? ' has-error' : '' }}">
-            <input id="password" type="password" class="form-control" name="password" value="" required placeholder="{{__('Password')}}">
-              @if ($errors->has('password'))
-              <span class="help-block">
-                  <strong>{{ $errors->first('password') }}</strong>
-              </span>
-              @endif
-            </div>            
-            <input type="submit" class="btn" value="{{__('Login')}}">
-          </div>
-          <!-- login form  end--> 
-          </form>
-            </div>
-          </div>
-          <!-- login form -->
+  <!-- Tab panes -->
+  <div class="tab-content">
+    <div id="home" class="container tab-pane {{($c_or_e == 'candidate')? 'active':''}}"><br>
+          <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="card">
+                <div class="card-header">{{ __('Candidate') }}      </div>
+                <div class="card-body">
+                    <form method="POST" action="{{ route('login') }}" aria-label="{{ __('Candidate') }}">
+                        @csrf
+                         <input type="hidden" name="candidate_or_employer" value="candidate" />
+                        <div class="form-group row">
+                            <label for="email" class="col-sm-4 col-form-label text-md-right">{{ __('E-Mail Address') }}</label>
 
-          <!-- sign up form -->
+                            <div class="col-md-6">
+                                <input id="email" type="email" placeholder="{{ __('E-Mail Address') }}" class="form-control{{ $errors->has('email') ? ' is-invalid' : '' }} text-right"   name="email" value="{{ old('email') }}" required autofocus>
+
+                                @if ($errors->has('email'))
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $errors->first('email') }}</strong>
+                                    </span>
+                                @endif
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label for="password" class="col-md-4 col-form-label text-md-right">{{ __('Password') }}</label>
+
+                            <div class="col-md-6">
+                                <input id="password" type="password" placeholder="{{ __('Password') }}" class="form-control{{ $errors->has('password') ? ' is-invalid' : '' }} text-right" name="password" required>
+
+                                @if ($errors->has('password'))
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $errors->first('password') }}</strong>
+                                    </span>
+                                @endif
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <div class="col-md-6 offset-md-4">
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }}>
+
+                                    <label class="form-check-label" for="remember">
+                                        {{ __('Remember Me') }}
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-group row mb-0">
+                            <div class="col-md-8 offset-md-4">
+                                <button type="submit" class="btn btn-primary">
+                                    {{ __('Login') }}
+                                </button>
+
+                                <a class="btn btn-link text-right" href="{{ route('password.request') }}">
+                                    {{ __('Forgot Your Password') }}
+                                </a>
+                            </div>
+                        </div>
+                    </form>
+
+                    <hr>
+
+
+                              <!-- sign up form -->
           <div class="newuser"><i class="fa fa-user" aria-hidden="true"></i> {{__('New User')}}? <a href="{{route('register')}}">{{__('Register Here')}}</a></div>
-          <div class="newuser"><i class="fa fa-user" aria-hidden="true"></i> {{__('Forgot Your Password')}}? <a href="{{ route('password.request') }}">{{__('Click here')}}</a></div>
-          <!-- sign up form end--> 
-          
+           <!-- sign up form end-->
+                </div>
+            </div>
         </div>
-      </div>
     </div>
+
+    </div>
+    <div id="menu1" class="container tab-pane fade {{($c_or_e == 'employer')? 'active':''}}"><br>
+     <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="card">
+                <div class="card-header">{{ __('Employer') }}      </div>
+
+                <div class="card-body">
+                    <form method="POST" action="{{ route('company.login') }}" aria-label="{{ __('Employer') }}">
+                        @csrf
+                         <input type="hidden" name="candidate_or_employer" value="employer" />
+                        <div class="form-group row">
+                            <label for="email" class="col-sm-4 col-form-label text-md-right">{{ __('E-Mail Address') }}</label>
+
+                            <div class="col-md-6">
+                                <input id="email" type="email" placeholder="{{ __('E-Mail Address') }}" class="form-control{{ $errors->has('email') ? ' is-invalid' : '' }} text-right"   name="email" value="{{ old('email') }}" required autofocus>
+
+                                @if ($errors->has('email'))
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $errors->first('email') }}</strong>
+                                    </span>
+                                @endif
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label for="password" class="col-md-4 col-form-label text-md-right">{{ __('Password') }}</label>
+
+                            <div class="col-md-6">
+                                <input id="password" type="password" placeholder="{{ __('Password') }}" class="form-control{{ $errors->has('password') ? ' is-invalid' : '' }} text-right" name="password" required>
+
+                                @if ($errors->has('password'))
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $errors->first('password') }}</strong>
+                                    </span>
+                                @endif
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <div class="col-md-6 offset-md-4">
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }}>
+
+                                    <label class="form-check-label" for="remember">
+                                        {{ __('Remember Me') }}
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-group row mb-0">
+                            <div class="col-md-8 offset-md-4">
+                                <button type="submit" class="btn btn-primary">
+                                    {{ __('Login') }}
+                                </button>
+
+                                <a class="btn btn-link text-right" href="{{ route('password.request') }}">
+                                    {{ __('Forgot Your Password') }}
+                                </a>
+                            </div>
+                        </div>
+                    </form>
+
+                    <hr>
+
+
+                              <!-- sign up form -->
+          <div class="newuser"><i class="fa fa-user" aria-hidden="true"></i> {{__('New User')}}? <a href="{{route('register')}}">{{__('Register Here')}}</a></div>
+           <!-- sign up form end-->
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+
   </div>
+
 </div>
-@include('includes.footer')
+</section>
 @endsection

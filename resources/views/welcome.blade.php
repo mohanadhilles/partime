@@ -5,9 +5,7 @@
 @include('includes.header')
 <!-- Header end -->
 
-
-
-
+ 
 
 @include('includes.footer')
 

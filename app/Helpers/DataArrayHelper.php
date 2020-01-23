@@ -13,6 +13,8 @@ use App\Country;
 use App\CountryDetail;
 use App\State;
 use App\City;
+use App\Mall;
+use App\WorkTime;
 use App\TicketDepartment;
 use App\TicketStatus;
 use App\TicketPriority;
@@ -242,6 +244,23 @@ class DataArrayHelper
         return $array;
     }
 
+     	public static function langMallsArray()
+    {
+
+        $array = Mall::select('malls.mall', 'malls.mall_id')
+       // ->where('company_id',$company_id)
+        ->pluck('malls.mall', 'malls.mall_id')->toArray();
+        return $array;
+    }
+
+        	public static function langWorkTimesArray()
+    {
+
+        $array = WorkTime::select('work_times.work_time', 'work_times.work_time_id')
+       // ->where('company_id',$company_id)
+        ->pluck('work_times.work_time', 'work_times.work_time_id')->toArray();
+        return $array;
+    }
 
 	
 	public static function langFunctionalAreasArray()

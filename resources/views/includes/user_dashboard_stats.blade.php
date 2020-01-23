@@ -12,7 +12,7 @@
           </li>
 
            <li class="col-md-4 col-sm-4 col-xs-6">
-            <a href="{{route('my.receive.job.applications')}}"> <div class="inbox"> <i class="fa fa-get-pocket" aria-hidden="true"></i>
+            <a href="{{route('my.offers')}}"> <div class="inbox"> <i class="fa fa-get-pocket" aria-hidden="true"></i>
 
               <strong>{{__('Part Time job applications')}}</strong> </div> </a>
           </li>

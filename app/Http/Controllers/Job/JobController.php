@@ -24,7 +24,10 @@ use App\JobShift;
 use App\Gender;
 use App\JobExperience;
 use App\DegreeLevel;
+use App\SiteSetting;
+use Illuminate\Http\UploadedFile;
 use App\ProfileCv;
+use App\User;
 use App\Helpers\MiscHelper;
 use App\Helpers\DataArrayHelper;
 use App\Http\Requests;
@@ -37,14 +40,39 @@ use App\Http\Controllers\Controller;
 use App\Traits\FetchJobs;
 use App\Events\JobApplied;
 
+
+use App\Traits\CommonUserFunctions;
+use App\Traits\ProfileSummaryTrait;
+use App\Traits\ProfileCvsTrait;
+use App\Traits\ProfileProjectsTrait;
+use App\Traits\ProfileExperienceTrait;
+use App\Traits\ProfileEducationTrait;
+use App\Traits\ProfileSkillTrait;
+use App\Traits\ProfileLanguageTrait;
+use App\Traits\UserTicketTrait;
+use App\ProfileExperience;
+use App\ProfileLanguage;
+use App\ProfileEducation;
+
+
 class JobController extends Controller
 {
 	//use Skills;
 	use FetchJobs;
-	
+        use CommonUserFunctions;
+	use ProfileSummaryTrait;
+	use ProfileCvsTrait;
+	use UserTicketTrait;
+	use ProfileProjectsTrait;
+	use ProfileExperienceTrait;
+	use ProfileEducationTrait;
+	use ProfileSkillTrait;
+	use ProfileLanguageTrait;
+   //	use Skills;
+
 	private $functionalAreas = '';
     private $countries = '';
-	
+
     /**
      * Create a new controller instance.
      *
@@ -53,11 +81,11 @@ class JobController extends Controller
     public function __construct()
     {
 		$this->middleware('auth', ['except' => ['jobsBySearch', 'jobDetail']]);
-		
+
         $this->functionalAreas = DataArrayHelper::langFunctionalAreasArray();
         $this->countries = DataArrayHelper::langCountriesArray();
     }
-	
+
     public function jobsBySearch(Request $request)
     {
 
@@ -85,80 +113,80 @@ class JobController extends Controller
 		$limit = 10;
 
         $jobs = $this->fetchJobs($search, $job_titles, $company_ids, $industry_ids, $job_skill_ids, $functional_area_ids, $country_ids, $state_ids, $city_ids, $is_freelance, $career_level_ids, $job_type_ids, $job_shift_ids, $gender_ids, $degree_level_ids, $job_experience_ids, $salary_from, $salary_to, $salary_currency, $is_featured, $order_by, $limit);
-		
+
 		/*****************************************************/
-		
+
 		$jobTitlesArray = $this->fetchIdsArray($search, $job_titles, $company_ids, $industry_ids, $job_skill_ids,$functional_area_ids, $country_ids, $state_ids, $city_ids, $is_freelance, $career_level_ids, $job_type_ids, $job_shift_ids, $gender_ids, $degree_level_ids, $job_experience_ids, $salary_from, $salary_to, $salary_currency, $is_featured, 'jobs.title');
-		
+
 		/****************************************************/
-		
+
 		$jobIdsArray = $this->fetchIdsArray($search, $job_titles, $company_ids, $industry_ids, $job_skill_ids,$functional_area_ids, $country_ids, $state_ids, $city_ids, $is_freelance, $career_level_ids, $job_type_ids, $job_shift_ids, $gender_ids, $degree_level_ids, $job_experience_ids, $salary_from, $salary_to, $salary_currency, $is_featured, 'jobs.id');
-		
+
 		/*****************************************************/
-		
+
 		$skillIdsArray = $this->fetchSkillIdsArray($jobIdsArray);
-		
+
 		/*****************************************************/
-		
+
 		$countryIdsArray = $this->fetchIdsArray($search, $job_titles, $company_ids, $industry_ids, $job_skill_ids,$functional_area_ids, $country_ids, $state_ids, $city_ids, $is_freelance, $career_level_ids, $job_type_ids, $job_shift_ids, $gender_ids, $degree_level_ids, $job_experience_ids, $salary_from, $salary_to, $salary_currency, $is_featured, 'jobs.country_id');
-		
+
 		/*****************************************************/
-		
+
 		$stateIdsArray = $this->fetchIdsArray($search, $job_titles, $company_ids, $industry_ids, $job_skill_ids,$functional_area_ids, $country_ids, $state_ids, $city_ids, $is_freelance, $career_level_ids, $job_type_ids, $job_shift_ids, $gender_ids, $degree_level_ids, $job_experience_ids, $salary_from, $salary_to, $salary_currency, $is_featured, 'jobs.state_id');
-		
+
 		/*****************************************************/
-		
+
 		$cityIdsArray = $this->fetchIdsArray($search, $job_titles, $company_ids, $industry_ids, $job_skill_ids,$functional_area_ids, $country_ids, $state_ids, $city_ids, $is_freelance, $career_level_ids, $job_type_ids, $job_shift_ids, $gender_ids, $degree_level_ids, $job_experience_ids, $salary_from, $salary_to, $salary_currency, $is_featured, 'jobs.city_id');
-		
+
 		/*****************************************************/
-		
+
 		$companyIdsArray = $this->fetchIdsArray($search, $job_titles, $company_ids, $industry_ids, $job_skill_ids,$functional_area_ids, $country_ids, $state_ids, $city_ids, $is_freelance, $career_level_ids, $job_type_ids, $job_shift_ids, $gender_ids, $degree_level_ids, $job_experience_ids, $salary_from, $salary_to, $salary_currency, $is_featured, 'jobs.company_id');
-		
+
 		/*****************************************************/
-		
+
 		$industryIdsArray = $this->fetchIndustryIdsArray($companyIdsArray);
-		
+
 		/*****************************************************/
-		
-		
+
+
 		/*****************************************************/
-		
+
 		$functionalAreaIdsArray = $this->fetchIdsArray($search, $job_titles, $company_ids, $industry_ids, $job_skill_ids,$functional_area_ids, $country_ids, $state_ids, $city_ids, $is_freelance, $career_level_ids, $job_type_ids, $job_shift_ids, $gender_ids, $degree_level_ids, $job_experience_ids, $salary_from, $salary_to, $salary_currency, $is_featured, 'jobs.functional_area_id');
-		
+
 		/*****************************************************/
-		
+
 		$careerLevelIdsArray = $this->fetchIdsArray($search, $job_titles, $company_ids, $industry_ids, $job_skill_ids,$functional_area_ids, $country_ids, $state_ids, $city_ids, $is_freelance, $career_level_ids, $job_type_ids, $job_shift_ids, $gender_ids, $degree_level_ids, $job_experience_ids, $salary_from, $salary_to, $salary_currency, $is_featured, 'jobs.career_level_id');
-		
+
 		/*****************************************************/
-		
+
 		$jobTypeIdsArray = $this->fetchIdsArray($search, $job_titles, $company_ids, $industry_ids, $job_skill_ids,$functional_area_ids, $country_ids, $state_ids, $city_ids, $is_freelance, $career_level_ids, $job_type_ids, $job_shift_ids, $gender_ids, $degree_level_ids, $job_experience_ids, $salary_from, $salary_to, $salary_currency, $is_featured, 'jobs.job_type_id');
-		
+
 		/*****************************************************/
-		
+
 		$jobShiftIdsArray = $this->fetchIdsArray($search, $job_titles, $company_ids, $industry_ids, $job_skill_ids,$functional_area_ids, $country_ids, $state_ids, $city_ids, $is_freelance, $career_level_ids, $job_type_ids, $job_shift_ids, $gender_ids, $degree_level_ids, $job_experience_ids, $salary_from, $salary_to, $salary_currency, $is_featured, 'jobs.job_shift_id');
-		
+
 		/*****************************************************/
-		
+
 		$genderIdsArray = $this->fetchIdsArray($search, $job_titles, $company_ids, $industry_ids, $job_skill_ids,$functional_area_ids, $country_ids, $state_ids, $city_ids, $is_freelance, $career_level_ids, $job_type_ids, $job_shift_ids, $gender_ids, $degree_level_ids, $job_experience_ids, $salary_from, $salary_to, $salary_currency, $is_featured, 'jobs.gender_id');
-		
+
 		/*****************************************************/
-		
+
 		$degreeLevelIdsArray = $this->fetchIdsArray($search, $job_titles, $company_ids, $industry_ids, $job_skill_ids,$functional_area_ids, $country_ids, $state_ids, $city_ids, $is_freelance, $career_level_ids, $job_type_ids, $job_shift_ids, $gender_ids, $degree_level_ids, $job_experience_ids, $salary_from, $salary_to, $salary_currency, $is_featured, 'jobs.degree_level_id');
-		
+
 		/*****************************************************/
-		
+
 		$jobExperienceIdsArray = $this->fetchIdsArray($search, $job_titles, $company_ids, $industry_ids, $job_skill_ids,$functional_area_ids, $country_ids, $state_ids, $city_ids, $is_freelance, $career_level_ids, $job_type_ids, $job_shift_ids, $gender_ids, $degree_level_ids, $job_experience_ids, $salary_from, $salary_to, $salary_currency, $is_featured, 'jobs.job_experience_id');
-		
+
 		/*****************************************************/
-		
+
 		$seoArray = $this->getSEO($functional_area_ids, $country_ids, $state_ids, $city_ids, $career_level_ids, $job_type_ids, $job_shift_ids, $gender_ids, $degree_level_ids, $job_experience_ids);
-		
+
 		/*****************************************************/
-        
+
 		$currencies = DataArrayHelper::currenciesArray();
-		
+
 		/*****************************************************/
-		
+
 		$seo = (object) array(
                     'seo_title' => $seoArray['description'],
                     'seo_description' => $seoArray['description'],
@@ -171,10 +199,10 @@ class JobController extends Controller
                         ->with('currencies', array_unique($currencies))
 						->with('jobs', $jobs)
 						->with('jobTitlesArray',$jobTitlesArray)
-						->with('skillIdsArray',$skillIdsArray)						
+						->with('skillIdsArray',$skillIdsArray)
 						->with('countryIdsArray', $countryIdsArray)
 						->with('stateIdsArray', $stateIdsArray)
-						->with('cityIdsArray', $cityIdsArray)						
+						->with('cityIdsArray', $cityIdsArray)
 						->with('companyIdsArray', $companyIdsArray)
 						->with('industryIdsArray', $industryIdsArray)
 						->with('functionalAreaIdsArray',$functionalAreaIdsArray)
@@ -186,11 +214,11 @@ class JobController extends Controller
 						->with('jobExperienceIdsArray',$jobExperienceIdsArray)
                         ->with('seo', $seo);
     }
-	
+
 	public function jobDetail(Request $request, $job_slug)
-	{		
-    
-	        $job = Job::where('slug', 'like', $job_slug)->firstOrFail();        	
+	{
+
+	        $job = Job::where('slug', 'like', $job_slug)->firstOrFail();
 			/*****************************************************/
 			$search = '';
 			$job_titles = array();
@@ -214,10 +242,10 @@ class JobController extends Controller
 			$is_featured = 2;
 			$order_by = 'id';
 			$limit = 5;
-	
+
 			$relatedJobs = $this->fetchJobs($search, $job_titles, $company_ids, $industry_ids, $job_skill_ids, $functional_area_ids, $country_ids, $state_ids, $city_ids, $is_freelance, $career_level_ids, $job_type_ids, $job_shift_ids, $gender_ids, $degree_level_ids, $job_experience_ids, $salary_from, $salary_to, $salary_currency, $is_featured, $order_by, $limit);
 			/********************************************/
-		
+
 			$seoArray = $this->getSEO((array)$job->functional_area_id, (array)$job->country_id, (array)$job->state_id, (array)$job->city_id, (array)$job->career_level_id, (array)$job->job_type_id, (array)$job->job_shift_id, (array)$job->gender_id, (array)$job->degree_level_id, (array)$job->job_experience_id);
 			/*****************************************************/
 			$seo = (object) array(
@@ -230,10 +258,10 @@ class JobController extends Controller
                         ->with('job', $job)
 						->with('relatedJobs', $relatedJobs)
 						->with('seo', $seo);
-    
-	 	
+
+
 	}
-	
+
 	/*     * ************************************************** */
 
     public function addToFavouriteJob(Request $request, $job_slug)
@@ -246,18 +274,18 @@ class JobController extends Controller
     }
 
     public function removeFromFavouriteJob(Request $request, $job_slug)
-    {	
+    {
 		$user_id = Auth::user()->id;
         FavouriteJob::where('job_slug', 'like', $job_slug)->where('user_id', $user_id)->delete();
-		
+
 		flash(__('Job has been removed from favorites list'))->success();
         return \Redirect::route('job.detail', $job_slug);
     }
-	
+
 	public function applyJob(Request $request, $job_slug)
     {
 		$user = Auth::user();
-		$job = Job::where('slug', 'like', $job_slug)->first();	
+		$job = Job::where('slug', 'like', $job_slug)->first();
 
 		if((bool)config('jobseeker.is_jobseeker_package_active')){
 			if(
@@ -277,21 +305,21 @@ class JobController extends Controller
 			return \Redirect::route('job.detail', $job_slug);
 			exit;
 		}
-		
+
 		$myCvs = ProfileCv::where('user_id', '=', $user->id)->pluck('title', 'id')->toArray();
-		
+
 		return view('job.apply_job_form')
 		->with('job_slug', $job_slug)
 		->with('job', $job)
-		->with('myCvs', $myCvs);		
+		->with('myCvs', $myCvs);
     }
-	
+
 	public function postApplyJob(ApplyJobFormRequest $request, $job_slug)
     {
         $user = Auth::user();
 		$user_id = $user->id;
 		$job = Job::where('slug', 'like', $job_slug)->first();
-			
+
 		$jobApply = new JobApply();
 		$jobApply->user_id = $user_id;
 		$jobApply->job_id = $job->id;
@@ -300,7 +328,7 @@ class JobController extends Controller
 		$jobApply->expected_salary = $request->post('expected_salary');
 		$jobApply->salary_currency = $request->post('salary_currency');
 		$jobApply->save();
-		
+
 		/**********************************/
 		if((bool)config('jobseeker.is_jobseeker_package_active')){
 			$user->availed_jobs_quota = $user->availed_jobs_quota + 1;
@@ -308,11 +336,11 @@ class JobController extends Controller
 		}
 		/**********************************/
 		event(new JobApplied($job, $jobApply));
-		
+
 		flash(__('You have successfully applied for this job'))->success();
-        return \Redirect::route('job.detail', $job_slug);		
+        return \Redirect::route('job.detail', $job_slug);
     }
-	
+
 	public function myJobApplications(Request $request)
     {
 		$myAppliedJobIds = Auth::user()->getAppliedJobIdsArray();
@@ -331,6 +359,81 @@ class JobController extends Controller
 
      	public function newJobApplication(Request $request)
     {
+
+
+     $genders = DataArrayHelper::langGendersArray();
+        $maritalStatuses = DataArrayHelper::langMaritalStatusesArray();
+        $nationalities = DataArrayHelper::langNationalitiesArray();
+		$countries = DataArrayHelper::langCountriesArray();
+		$jobExperiences = DataArrayHelper::langJobExperiencesArray();
+		$careerLevels = DataArrayHelper::langCareerLevelsArray();
+		$industries = DataArrayHelper::langIndustriesArray();
+		$functionalAreas = DataArrayHelper::langFunctionalAreasArray();
+		$degreeLevels = DataArrayHelper::langDegreeLevelsArray();
+        $languageLevels = DataArrayHelper::langLanguageLevelsArray();
+        $jobShifts = DataArrayHelper::langJobShiftsArray();
+        $malls = DataArrayHelper::langMallsArray();
+        $workTimes = DataArrayHelper::langWorkTimesArray();
+
+        $ask = [0 => 'لا' , 1 => 'نعم'];
+
+        $siteSetting = SiteSetting::first();
+
+		$upload_max_filesize = UploadedFile::getMaxFilesize() / (1048576);
+
+        $user = User::findOrFail(Auth::user()->id);
+        $profileLanguages = $user->profileLanguages;
+
+
+
+           $ProfileExperience = ProfileExperience::orderby('id','DESC')->whereUserId($user->id)->first();
+        $last_job_position = (isset($ProfileExperience->id)) ? $ProfileExperience->title:NULL ;
+        $is_currently_working = (isset($ProfileExperience->id)) ? $ProfileExperience->is_currently_working:NULL ;
+        $company = (isset($ProfileExperience->id)) ? $ProfileExperience->company:NULL ;
+        $description = (isset($ProfileExperience->id)) ? $ProfileExperience->description:NULL ;
+        $time_from = (isset($ProfileExperience->id)) ? $ProfileExperience->time_from:NULL ;
+        $time_to = (isset($ProfileExperience->id)) ? $ProfileExperience->time_to:NULL ;
+        $mall_id = (isset($ProfileExperience->id)) ? $ProfileExperience->mall_id:NULL ;
+
+
+           $ProfileEducation = ProfileEducation::whereUserId($user->id)->first();
+        $degree_level_id = (isset($ProfileEducation->id)) ? $ProfileEducation->degree_level_id:NULL ;
+
+               $ProfileLanguage = ProfileLanguage::whereUserId($user->id)->whereLanguageId(44)->first();
+        $language_level_id = (isset($ProfileLanguage->id)) ? $ProfileLanguage->language_level_id:NULL ;
+
+        $country_id = (isset($user->country_id) && $user->country_id != NULL) ? $user->country_id: $siteSetting->default_country_id;
+                $cities = DataArrayHelper::AllCitiesArray($country_id);
+
+
+           $user->last_job_position = $last_job_position;
+           $user->is_currently_working = $is_currently_working;
+           $user->company = $company;
+           $user->description = $description;
+           $user->time_to = $time_to;
+           $user->time_from = $time_from;
+           $user->mall_id = $mall_id;
+        return view('job.apply_new_job_form')
+                         ->with('languageLevels', $languageLevels)
+                        ->with('language_level_id', $language_level_id)
+                        ->with('cities', $cities)
+                        ->with('ask', $ask)
+                        ->with('degree_level_id', $degree_level_id)
+                        ->with('malls', $malls)
+                        ->with('workTimes', $workTimes)
+                        ->with('jobShifts', $jobShifts)
+                        ->with('genders', $genders)
+                        ->with('degreeLevels', $degreeLevels)
+                        ->with('maritalStatuses', $maritalStatuses)
+                        ->with('nationalities', $nationalities)
+                        ->with('countries', $countries)
+                        ->with('jobExperiences', $jobExperiences)
+                        ->with('careerLevels', $careerLevels)
+                        ->with('industries', $industries)
+                        ->with('functionalAreas', $functionalAreas)
+                        ->with('user', $user)
+						->with('upload_max_filesize', $upload_max_filesize);
+
 	   //	$myAppliedJobIds = Auth::user()->getAppliedJobIdsArray();
 
 	  //	$jobs = Job::whereIn('id', $myAppliedJobIds)->paginate(10);
@@ -339,7 +442,7 @@ class JobController extends Controller
                 ;
     }
 
-	
+
 	public function myFavouriteJobs(Request $request)
     {
 		$myFavouriteJobSlugs = Auth::user()->getFavouriteJobSlugsArray();

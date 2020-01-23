@@ -3,6 +3,7 @@
 namespace App\Providers;
 
 use DB;
+use Schema;
 use View;
 use App\Language;
 use App\SiteSetting;
@@ -14,8 +15,10 @@ class ComposerServiceProvider extends ServiceProvider
 
     public function boot()
     {
-		$siteLanguages = Language::where('is_active','=',1)->get();
-        $siteSetting = SiteSetting::findOrFail(1272);
+        if(Schema::hasTable('languages')){
+	    $siteLanguages = Language::where('is_active','=',1)->get();
+        $siteSetting = SiteSetting::find(1272);
+
         $show_in_top_menu = Cms::where('show_in_top_menu', 1)->get();
         $show_in_footer_menu = Cms::where('show_in_footer_menu', 1)->get();
 
@@ -29,6 +32,7 @@ class ComposerServiceProvider extends ServiceProvider
                     'show_in_footer_menu' => $show_in_footer_menu
                 ]
         );
+        }
     }
 
     public function register()

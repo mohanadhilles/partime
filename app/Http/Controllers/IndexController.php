@@ -44,6 +44,7 @@ class IndexController extends Controller
      */
     public function index()
     {
+		
 		$topCompanyIds = $this->getCompanyIdsAndNumJobs(16);
 		$topFunctionalAreaIds = $this->getFunctionalAreaIdsAndNumJobs(32);
 		$topIndustryIds = $this->getIndustryIdsFromCompanies(32);
@@ -57,7 +58,7 @@ class IndexController extends Controller
 		$countries = DataArrayHelper::langCountriesArray();
 		
         $seo = SEO::where('seo.page_title', 'like', 'front_index_page')->first();
-        return view('layouts.web')
+        return view('web')
                         ->with('topCompanyIds', $topCompanyIds)
 						->with('topFunctionalAreaIds', $topFunctionalAreaIds)
 						->with('topCityIds', $topCityIds)

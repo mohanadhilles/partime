@@ -1,5 +1,4 @@
 <?php
-
 namespace App\Traits;
 
 use Auth;
@@ -40,14 +39,11 @@ trait TicketTrait
 {
 
 
+
        	public function indexTicket(Request $request)
     {
 
-
 		$tickets = Auth::guard('company')->user()->tickets()->paginate(10);
-
-
-
 		return view('ticket.company_tickets')
 				->with('tickets', $tickets);
     }
@@ -56,8 +52,6 @@ trait TicketTrait
 	public function createTicket()
     {
 		$company = Auth::guard('company')->user();
-
-
 		if(
 			($company->package_end_date === null) ||
 			($company->package_end_date->lt(Carbon::now())) ||
@@ -82,7 +76,6 @@ trait TicketTrait
                         ->with('ticketStatuses', $ticketStatuses)
                         ->with('ticketPriorites', $ticketPriorites)
                         ->with('contracts', $contracts)
-
         ;
     }
 
@@ -233,7 +226,7 @@ trait TicketTrait
 			}
 		}
 	}
-	
+
 	public function scopeNotExpire($query)
     {
         return $query->whereDate('expiry_date', '>', Carbon::now());//where('expiry_date', '>=', date('Y-m-d'));

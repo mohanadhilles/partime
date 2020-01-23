@@ -4,6 +4,7 @@ namespace App\Providers;
 
 use App\SiteSetting;
 use App\Language;
+use Schema;
 use Illuminate\Support\ServiceProvider;
 
 class CustomConfigServiceProvider extends ServiceProvider
@@ -16,8 +17,16 @@ class CustomConfigServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-		if ($settings = SiteSetting::findOrFail(1272)) {
-			
+		if (Schema::hasTable('site_settings')) {
+
+         $settings = SiteSetting::find(1272);
+
+         if(!isset($settings->id)) {
+             $settings = new SiteSetting();
+             $settings->id = 1272;
+             $settings->save();
+
+         }
 
             $this->app['config']['mail'] = [
                 'driver' => $settings->mail_driver,
@@ -55,8 +64,8 @@ class CustomConfigServiceProvider extends ServiceProvider
                     'region' => $settings->ses_region, // e.g. us-east-1
                 ],
             ];
-        
-			
+
+
 
             $this->app['config']['captcha'] = [
                 'sitekey' => $settings->nocaptcha_sitekey,
@@ -82,7 +91,7 @@ class CustomConfigServiceProvider extends ServiceProvider
                 ],
             ];
 
-            $this->app['config']['paypal'] = [ 
+            $this->app['config']['paypal'] = [
 				'client_id' => env('PAYPAL_CLIENT_ID',$settings->paypal_client_id),
 				'secret' => env('PAYPAL_SECRET',$settings->paypal_secret),
 				'settings' => array(
@@ -93,20 +102,20 @@ class CustomConfigServiceProvider extends ServiceProvider
 					'log.LogLevel' => 'ERROR'
 				),
 			];
-			
-			$this->app['config']['stripe'] = [ 
+
+			$this->app['config']['stripe'] = [
 				'stripe_key' => env('stripe_key',$settings->stripe_key),
 				'stripe_secret' => env('stripe_secret',$settings->stripe_secret),
 			];
-			
-			$this->app['config']['jobseeker'] = [ 
+
+			$this->app['config']['jobseeker'] = [
 				'is_jobseeker_package_active' => $settings->is_jobseeker_package_active,
-			];									
-        
+			];
+
 		}
 
         $this->app['config']['default_lang'] = 'en';
-        if(null !== $lang = Language::where('is_default', '=', 1)->first()){
+        if(Schema::hasTable('languages') && null !== $lang = Language::where('is_default', '=', 1)->first()){
 			if ($lang !== null) {
 				$this->app['config']['default_lang'] = $lang->iso_code;
 			}
