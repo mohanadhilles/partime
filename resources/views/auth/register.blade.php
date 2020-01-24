@@ -112,10 +112,15 @@
                             <div class="col-md-6 offset-md-4">
                                 <div class="form-check">
                                     <input class="form-check-input" type="checkbox" name="terms_of_use" id="terms_of_use" {{ old('terms_of_use') ? 'checked' : '' }}>
-
+                                           @if ($errors->has('terms_of_use'))
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $errors->first('terms_of_use') }}</strong>
+                                    </span>
+                                @endif
                                     <label class="form-check-label" for="terms_of_use">
                                         {{ __('I accept Terms of Use') }}
                                     </label>
+
                                 </div>
                             </div>
                         </div>
@@ -212,7 +217,11 @@
                             <div class="col-md-6 offset-md-4">
                                 <div class="form-check">
                                     <input class="form-check-input" type="checkbox" name="terms_of_use" id="terms_of_use" {{ old('terms_of_use') ? 'checked' : '' }}>
-
+                                               @if ($errors->has('terms_of_use'))
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $errors->first('terms_of_use') }}</strong>
+                                    </span>
+                                @endif
                                     <label class="form-check-label" for="terms_of_use">
                                         {{ __('I accept Terms of Use') }}
                                     </label>
