@@ -1,9 +1,7 @@
 @extends('layouts.webapp')
 
 @section('content')
-<?php $c_or_e = old('candidate_or_employer', 'candidate');  echo "<pre>";
-    print_r($errors);
-    echo "</pre>";?>
+<?php $c_or_e = old('candidate_or_employer', 'candidate');      ?>
 <section  class="features-section" >
 <div class="container">
      <ul class="nav nav-tabs" role="tablist">
@@ -222,7 +220,7 @@
                             </div>
                         </div>
 
-                        
+
                         <div class="form-group row mb-0">
                             <div class="col-md-6 offset-md-4">
                                 <button type="submit" class="btn btn-primary">
