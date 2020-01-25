@@ -88,6 +88,8 @@ trait JobTrait
         $job->country_id = $request->input('country_id');
        // $job->state_id = $request->input('state_id');
         $job->city_id = $request->input('city_id');
+
+       
       //  $job->is_freelance = $request->input('is_freelance');
        // $job->career_level_id = $request->input('career_level_id');
         $job->salary = $request->input('salary');

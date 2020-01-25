@@ -12,7 +12,7 @@
                               ?>
 
 
-             {{ $siteSetting->site_name }}. {{__('All Rights Reserved')}}. {{__('Design by')}}: <a href="https://www.linkedin.com/in/haniusif/" target="_blank">Hani Usif</a></div>
+             {{ $siteSetting->site_name }}. {{__('All Rights Reserved')}}. {{__('Design by')}}: <a href="https://www.linkedin.com/in/haniusif/" target="_blank">Par Time</a></div>
 		</div>
 		<div class="col-md-4">
 			<div class="paylogos"><img src="{{asset('/')}}images/payment-icons.png" alt="" /></div>

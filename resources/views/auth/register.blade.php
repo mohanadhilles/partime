@@ -111,7 +111,7 @@
                               <div class="form-group row">
                             <div class="col-md-6 offset-md-4">
                                 <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" name="terms_of_use" id="terms_of_use" {{ old('terms_of_use') ? 'checked' : '' }}>
+                                    <input class="form-check-input" type="checkbox" name="terms_of_use" id="terms_of_use" {{ old('terms_of_use') ? 'checked' : '' }} required>
                                            @if ($errors->has('terms_of_use'))
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $errors->first('terms_of_use') }}</strong>
@@ -216,7 +216,7 @@
                              <div class="form-group row">
                             <div class="col-md-6 offset-md-4">
                                 <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" name="terms_of_use" id="terms_of_use" {{ old('terms_of_use') ? 'checked' : '' }}>
+                                    <input class="form-check-input" type="checkbox" name="terms_of_use" id="terms_of_use" {{ old('terms_of_use') ? 'checked' : '' }} required>
                                                @if ($errors->has('terms_of_use'))
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $errors->first('terms_of_use') }}</strong>

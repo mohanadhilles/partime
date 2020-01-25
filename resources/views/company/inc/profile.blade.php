@@ -2,7 +2,7 @@
 {!! Form::model($company, array('method' => 'put', 'route' => array('update.company.profile'), 'class' => 'form', 'files'=>true)) !!}
 <h6>{{__('Company Logo')}}</h6>
 <div class="row">
- 
+          
   <div class="col-md-6">
     <div class="formrow"> {{ ImgUploader::print_image("company_logos/$company->logo", 100, 100) }} </div>
   </div>
