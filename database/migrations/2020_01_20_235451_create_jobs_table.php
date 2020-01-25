@@ -48,8 +48,8 @@ class CreateJobsTable extends Migration {
 			$table->boolean('is_active')->nullable()->default(1);
 			$table->boolean('is_featured')->nullable()->default(0);
 			$table->timestamps();
-			$table->text('search')->nullable()->index('full_search');
-			$table->string('slug', 210)->nullable();
+			$table->text('search')->nullable();
+			$table->string('slug')->nullable();
 		});
 	}
 

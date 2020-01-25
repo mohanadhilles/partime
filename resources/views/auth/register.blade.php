@@ -1,6 +1,6 @@
 @extends('layouts.webapp')
 
-@section('content')
+@section('guest')
 <?php $c_or_e = old('candidate_or_employer', 'candidate');      ?>
 <section  class="features-section" >
 <div class="container">

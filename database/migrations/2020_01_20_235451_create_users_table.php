@@ -18,7 +18,7 @@ class CreateUsersTable extends Migration
             $table->string('first_name', 100)->nullable();
 			$table->string('middle_name', 100)->nullable();
 			$table->string('last_name', 100)->nullable();
-			$table->string('name', 250)->nullable();
+			$table->string('name', 191)->nullable();
 			$table->string('email', 100)->nullable()->unique();
 			$table->string('father_name', 100)->nullable();
 			$table->date('date_of_birth')->nullable();
@@ -59,8 +59,8 @@ class CreateUsersTable extends Migration
 			$table->dateTime('package_end_date')->nullable();
 			$table->integer('jobs_quota')->nullable()->default(0);
 			$table->integer('availed_jobs_quota')->nullable()->default(0);
-			$table->text('search')->nullable()->index('full_search');
-			$table->string('neighborhood', 200)->nullable();
+			$table->text('search')->nullable();
+			$table->string('neighborhood', 191)->nullable();
             $table->integer('appropriate_work_time_id')->nullable();  
             $table->unsignedInteger('work_time_id')->nullable(); $table->foreign('work_time_id')->references('id')->on('work_times');
 

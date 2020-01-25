@@ -58,7 +58,7 @@ class IndexController extends Controller
 		$countries = DataArrayHelper::langCountriesArray();
 		
         $seo = SEO::where('seo.page_title', 'like', 'front_index_page')->first();
-        return view('web')
+        return view('guest')
                         ->with('topCompanyIds', $topCompanyIds)
 						->with('topFunctionalAreaIds', $topFunctionalAreaIds)
 						->with('topCityIds', $topCityIds)

@@ -1,6 +1,6 @@
 @extends('layouts.webapp')
 
-@section('content')
+@section('guest')
 <!--   <a href="{{ url('login/jobseeker/linkedin')}}" class="btn btn-info"><i class="fa fa-linkedin" aria-hidden="true"></i></a>
 --><?php $c_or_e = old('candidate_or_employer', 'candidate');  ?>
 <section  class="features-section" >
