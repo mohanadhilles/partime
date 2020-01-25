@@ -14,6 +14,7 @@ class CreateJobTitlesTable extends Migration {
 	{
 		Schema::create('job_titles', function(Blueprint $table)
 		{
+		    
 			$table->increments('id');
 			$table->integer('job_title_id')->nullable()->default(0);
 			$table->string('job_title', 200)->nullable();

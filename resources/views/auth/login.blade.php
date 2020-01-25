@@ -1,7 +1,8 @@
 @extends('layouts.webapp')
 
 @section('content')
-<?php $c_or_e = old('candidate_or_employer', 'candidate');  ?>
+<!--   <a href="{{ url('login/jobseeker/linkedin')}}" class="btn btn-info"><i class="fa fa-linkedin" aria-hidden="true"></i></a>
+--><?php $c_or_e = old('candidate_or_employer', 'candidate');  ?>
 <section  class="features-section" >
 <div class="container">
      <ul class="nav nav-tabs" role="tablist">

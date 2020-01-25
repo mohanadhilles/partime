@@ -30,6 +30,7 @@ class CreateApplicantMessagesTable extends Migration {
 			$table->text('message_txt')->nullable();
 			$table->string('subject', 200)->nullable();
 			$table->boolean('is_read')->nullable()->default(0);
+            
 			$table->timestamps();
 		});
 	}

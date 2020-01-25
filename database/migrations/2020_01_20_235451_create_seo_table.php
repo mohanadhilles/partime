@@ -20,6 +20,7 @@ class CreateSeoTable extends Migration {
 			$table->text('seo_description')->nullable();
 			$table->text('seo_keywords')->nullable();
 			$table->text('seo_other')->nullable();
+            
 			$table->timestamps();
 		});
 	}

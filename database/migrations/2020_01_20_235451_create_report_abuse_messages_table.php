@@ -17,7 +17,7 @@ class CreateReportAbuseMessagesTable extends Migration {
 			$table->increments('id');
 			$table->string('your_name', 100)->nullable();
 			$table->string('your_email', 100)->nullable();
-			$table->text('job_url', 16777215)->nullable();
+			$table->text('job_url')->nullable();
 			$table->timestamps();
 		});
 	}

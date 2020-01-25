@@ -14,6 +14,7 @@ class CreateMajorSubjectsTable extends Migration {
 	{
 		Schema::create('major_subjects', function(Blueprint $table)
 		{
+		    
 			$table->increments('id');
 			$table->integer('major_subject_id')->nullable()->default(0);
 			$table->string('major_subject', 200)->nullable();

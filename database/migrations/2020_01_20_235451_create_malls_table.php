@@ -16,7 +16,7 @@ class CreateMallsTable extends Migration {
 		{
 			$table->increments('id');
 			$table->integer('mall_id')->nullable();
-			$table->string('mall', 200)->nullable();
+			$table->string('mall', 255)->nullable();
 			$table->timestamps();
 		});
 	}

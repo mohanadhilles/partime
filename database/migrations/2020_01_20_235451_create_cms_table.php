@@ -18,10 +18,10 @@ class CreateCmsTable extends Migration {
 			$table->string('page_slug', 250)->nullable();
 			$table->boolean('show_in_top_menu')->nullable()->default(0);
 			$table->boolean('show_in_footer_menu')->nullable()->default(0);
-			$table->text('seo_title', 65535)->nullable();
-			$table->text('seo_description', 65535)->nullable();
-			$table->text('seo_keywords', 65535)->nullable();
-			$table->text('seo_other', 65535)->nullable();
+			$table->text('seo_title')->nullable();
+			$table->text('seo_description')->nullable();
+			$table->text('seo_keywords')->nullable();
+			$table->text('seo_other')->nullable();
 			$table->timestamps();
 		});
 	}

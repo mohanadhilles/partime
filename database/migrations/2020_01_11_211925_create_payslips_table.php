@@ -15,14 +15,13 @@ class CreatePayslipsTable extends Migration
     {
         Schema::create('payslips', function (Blueprint $table) {
             $table->increments('id');
-            	$table->integer('payslip_status_id')->default(1); 
+            	$table->integer('payslip_status_id')->default(1);
              $table->integer('payroll_id');
              $table->integer('user_id');
              $table->integer('company_id');
              $table->integer('job_id');
             $table->string('month');
             $table->integer('year');
-
             //allowance
             $table->double('generalAllowance');
             $table->double('overtime');

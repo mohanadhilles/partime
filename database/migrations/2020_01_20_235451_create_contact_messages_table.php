@@ -18,9 +18,10 @@ class CreateContactMessagesTable extends Migration {
 			$table->string('full_name', 100)->nullable();
 			$table->string('email', 100)->nullable();
 			$table->string('phone', 20)->nullable();
-			$table->text('message_txt', 16777215)->nullable();
+			$table->text('message_txt')->nullable();
 			$table->string('subject', 200)->nullable();
 			$table->timestamps();
+
 		});
 	}
 

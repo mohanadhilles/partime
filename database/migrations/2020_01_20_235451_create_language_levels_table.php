@@ -16,7 +16,7 @@ class CreateLanguageLevelsTable extends Migration {
 		{
 			$table->increments('id');
 			$table->integer('language_level_id')->nullable()->default(0);
-			$table->string('language_level', 40);
+			$table->string('language_level', 100);
 			$table->integer('is_default')->nullable()->default(0);
 			$table->integer('is_active')->default(1);
 			$table->integer('sort_order')->default(9999);

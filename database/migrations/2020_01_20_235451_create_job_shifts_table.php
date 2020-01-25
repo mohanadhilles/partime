@@ -14,6 +14,7 @@ class CreateJobShiftsTable extends Migration {
 	{
 		Schema::create('job_shifts', function(Blueprint $table)
 		{
+		    
 			$table->increments('id');
 			$table->integer('job_shift_id')->nullable()->default(0);
 			$table->string('job_shift', 200)->nullable();

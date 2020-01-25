@@ -15,8 +15,8 @@ class ComposerStaticInit4b6539ab7d8b70a63e8329e951c18478
         'a0edc8309cc5e1d60e3047b5df6b7052' => __DIR__ . '/..' . '/guzzlehttp/psr7/src/functions_include.php',
         'c964ee0ededf28c96ebd9db5099ef910' => __DIR__ . '/..' . '/guzzlehttp/promises/src/functions_include.php',
         '2c102faa651ef8ea5874edb585946bce' => __DIR__ . '/..' . '/swiftmailer/swiftmailer/lib/swift_required.php',
-        'f18cc91337d49233e5754e93f3ed9ec3' => __DIR__ . '/..' . '/laravelcollective/html/src/helpers.php',
         '37a3dc5111fe8f707ab4c132ef1dbc62' => __DIR__ . '/..' . '/guzzlehttp/guzzle/src/functions_include.php',
+        'f18cc91337d49233e5754e93f3ed9ec3' => __DIR__ . '/..' . '/laravelcollective/html/src/helpers.php',
         'abede361264e2ae69ec1eee813a101af' => __DIR__ . '/..' . '/markbaker/complex/classes/src/functions/abs.php',
         '21a5860fbef5be28db5ddfbc3cca67c4' => __DIR__ . '/..' . '/markbaker/complex/classes/src/functions/acos.php',
         '1546e3f9d127f2a9bb2d1b6c31c26ef1' => __DIR__ . '/..' . '/markbaker/complex/classes/src/functions/acosh.php',
@@ -59,12 +59,12 @@ class ComposerStaticInit4b6539ab7d8b70a63e8329e951c18478
         '883af48563631547925fa4c3b48ead07' => __DIR__ . '/..' . '/markbaker/complex/classes/src/operations/multiply.php',
         'f190e3308e6ca23234a2875edc985c03' => __DIR__ . '/..' . '/markbaker/complex/classes/src/operations/divideby.php',
         'ac9e33ce6841aa5bf5d16d465a2f03a7' => __DIR__ . '/..' . '/markbaker/complex/classes/src/operations/divideinto.php',
-        '6124b4c8570aa390c21fafd04a26c69f' => __DIR__ . '/..' . '/myclabs/deep-copy/src/DeepCopy/deep_copy.php',
         'f0906e6318348a765ffb6eb24e0d0938' => __DIR__ . '/..' . '/laravel/framework/src/Illuminate/Foundation/helpers.php',
         '58571171fd5812e6e447dce228f52f4d' => __DIR__ . '/..' . '/laravel/framework/src/Illuminate/Support/helpers.php',
+        '6124b4c8570aa390c21fafd04a26c69f' => __DIR__ . '/..' . '/myclabs/deep-copy/src/DeepCopy/deep_copy.php',
         '801c31d8ed748cfa537fa45402288c95' => __DIR__ . '/..' . '/psy/psysh/src/functions.php',
-        'e23faeee409e941dc9b4c80386209c39' => __DIR__ . '/..' . '/laracasts/flash/src/Laracasts/Flash/functions.php',
         '34122c0574b76bf21c9a8db62b5b9cf3' => __DIR__ . '/..' . '/cakephp/chronos/src/carbon_compat.php',
+        'e23faeee409e941dc9b4c80386209c39' => __DIR__ . '/..' . '/laracasts/flash/src/Laracasts/Flash/functions.php',
     );
 
     public static $prefixLengthsPsr4 = array (
@@ -190,15 +190,15 @@ class ComposerStaticInit4b6539ab7d8b70a63e8329e951c18478
         'phpDocumentor\\Reflection\\' => 
         array (
             0 => __DIR__ . '/..' . '/phpdocumentor/reflection-common/src',
-            1 => __DIR__ . '/..' . '/phpdocumentor/type-resolver/src',
-            2 => __DIR__ . '/..' . '/phpdocumentor/reflection-docblock/src',
+            1 => __DIR__ . '/..' . '/phpdocumentor/reflection-docblock/src',
+            2 => __DIR__ . '/..' . '/phpdocumentor/type-resolver/src',
         ),
         'Yajra\\DataTables\\' => 
         array (
-            0 => __DIR__ . '/..' . '/yajra/laravel-datatables-fractal/src',
-            1 => __DIR__ . '/..' . '/yajra/laravel-datatables-oracle/src',
+            0 => __DIR__ . '/..' . '/yajra/laravel-datatables-buttons/src',
+            1 => __DIR__ . '/..' . '/yajra/laravel-datatables-fractal/src',
             2 => __DIR__ . '/..' . '/yajra/laravel-datatables-html/src',
-            3 => __DIR__ . '/..' . '/yajra/laravel-datatables-buttons/src',
+            3 => __DIR__ . '/..' . '/yajra/laravel-datatables-oracle/src',
         ),
         'XdgBaseDir\\' => 
         array (
@@ -477,11 +477,13 @@ class ComposerStaticInit4b6539ab7d8b70a63e8329e951c18478
     );
 
     public static $classMap = array (
+        'AdminTableSeeder' => __DIR__ . '/../..' . '/database/seeds/AdminTableSeeder.php',
         'Anhskohbo\\NoCaptcha\\Facades\\NoCaptcha' => __DIR__ . '/..' . '/anhskohbo/no-captcha/src/Facades/NoCaptcha.php',
         'Anhskohbo\\NoCaptcha\\NoCaptcha' => __DIR__ . '/..' . '/anhskohbo/no-captcha/src/NoCaptcha.php',
         'Anhskohbo\\NoCaptcha\\NoCaptchaServiceProvider' => __DIR__ . '/..' . '/anhskohbo/no-captcha/src/NoCaptchaServiceProvider.php',
         'App\\Admin' => __DIR__ . '/../..' . '/app/Admin.php',
         'App\\ApplicantMessage' => __DIR__ . '/../..' . '/app/ApplicantMessage.php',
+        'App\\BankAccount' => __DIR__ . '/../..' . '/app/BankAccount.php',
         'App\\CareerLevel' => __DIR__ . '/../..' . '/app/CareerLevel.php',
         'App\\City' => __DIR__ . '/../..' . '/app/City.php',
         'App\\Cms' => __DIR__ . '/../..' . '/app/Cms.php',
@@ -609,11 +611,15 @@ class ComposerStaticInit4b6539ab7d8b70a63e8329e951c18478
         'App\\Http\\Requests\\EmailToFriendFormRequest' => __DIR__ . '/../..' . '/app/Http/Requests/EmailToFriendFormRequest.php',
         'App\\Http\\Requests\\FaqFormRequest' => __DIR__ . '/../..' . '/app/Http/Requests/FaqFormRequest.php',
         'App\\Http\\Requests\\Front\\ApplyJobFormRequest' => __DIR__ . '/../..' . '/app/Http/Requests/Front/ApplyJobFormRequest.php',
+        'App\\Http\\Requests\\Front\\BankAccountFrontFormRequest' => __DIR__ . '/../..' . '/app/Http/Requests/Front/BankAccountFrontFormRequest.php',
         'App\\Http\\Requests\\Front\\CompanyFrontFormRequest' => __DIR__ . '/../..' . '/app/Http/Requests/Front/CompanyFrontFormRequest.php',
         'App\\Http\\Requests\\Front\\CompanyFrontRegisterFormRequest' => __DIR__ . '/../..' . '/app/Http/Requests/Front/CompanyFrontRegisterFormRequest.php',
         'App\\Http\\Requests\\Front\\ContactFormRequest' => __DIR__ . '/../..' . '/app/Http/Requests/Front/ContactFormRequest.php',
+        'App\\Http\\Requests\\Front\\ContractFrontFormRequest' => __DIR__ . '/../..' . '/app/Http/Requests/Front/ContractFrontFormRequest.php',
         'App\\Http\\Requests\\Front\\EmailToFriendFormRequest' => __DIR__ . '/../..' . '/app/Http/Requests/Front/EmailToFriendFormRequest.php',
+        'App\\Http\\Requests\\Front\\EmployeeFrontFormRequest' => __DIR__ . '/../..' . '/app/Http/Requests/Front/EmployeeFrontFormRequest.php',
         'App\\Http\\Requests\\Front\\JobFrontFormRequest' => __DIR__ . '/../..' . '/app/Http/Requests/Front/JobFrontFormRequest.php',
+        'App\\Http\\Requests\\Front\\OrderFrontFormRequest' => __DIR__ . '/../..' . '/app/Http/Requests/Front/OrderFrontFormRequest.php',
         'App\\Http\\Requests\\Front\\ReportAbuseCompanyFormRequest' => __DIR__ . '/../..' . '/app/Http/Requests/Front/ReportAbuseCompanyFormRequest.php',
         'App\\Http\\Requests\\Front\\ReportAbuseFormRequest' => __DIR__ . '/../..' . '/app/Http/Requests/Front/ReportAbuseFormRequest.php',
         'App\\Http\\Requests\\Front\\TicketFrontFormRequest' => __DIR__ . '/../..' . '/app/Http/Requests/Front/TicketFrontFormRequest.php',
@@ -687,7 +693,9 @@ class ComposerStaticInit4b6539ab7d8b70a63e8329e951c18478
         'App\\Mall' => __DIR__ . '/../..' . '/app/Mall.php',
         'App\\MaritalStatus' => __DIR__ . '/../..' . '/app/MaritalStatus.php',
         'App\\Notifications\\AdminResetPassword' => __DIR__ . '/../..' . '/app/Notifications/AdminResetPassword.php',
+        'App\\Offer' => __DIR__ . '/../..' . '/app/Offer.php',
         'App\\Order' => __DIR__ . '/../..' . '/app/Order.php',
+        'App\\OrderStatus' => __DIR__ . '/../..' . '/app/OrderStatus.php',
         'App\\OwnershipType' => __DIR__ . '/../..' . '/app/OwnershipType.php',
         'App\\Package' => __DIR__ . '/../..' . '/app/Package.php',
         'App\\Payment' => __DIR__ . '/../..' . '/app/Payment.php',
@@ -755,6 +763,8 @@ class ComposerStaticInit4b6539ab7d8b70a63e8329e951c18478
         'App\\Traits\\Skills' => __DIR__ . '/../..' . '/app/Traits/Skills.php',
         'App\\Traits\\Sorted' => __DIR__ . '/../..' . '/app/Traits/Sorted.php',
         'App\\Traits\\TicketTrait' => __DIR__ . '/../..' . '/app/Traits/TicketTrait.php',
+        'App\\Traits\\UserBankAccountTrait' => __DIR__ . '/../..' . '/app/Traits/UserBankAccountTrait.php',
+        'App\\Traits\\UserOfferTrait' => __DIR__ . '/../..' . '/app/Traits/UserOfferTrait.php',
         'App\\Traits\\UserOrderTrait' => __DIR__ . '/../..' . '/app/Traits/UserOrderTrait.php',
         'App\\Traits\\UserTicketTrait' => __DIR__ . '/../..' . '/app/Traits/UserTicketTrait.php',
         'App\\User' => __DIR__ . '/../..' . '/app/User.php',
@@ -2440,6 +2450,7 @@ class ComposerStaticInit4b6539ab7d8b70a63e8329e951c18478
         'Laravel\\Socialite\\Two\\BitbucketProvider' => __DIR__ . '/..' . '/laravel/socialite/src/Two/BitbucketProvider.php',
         'Laravel\\Socialite\\Two\\FacebookProvider' => __DIR__ . '/..' . '/laravel/socialite/src/Two/FacebookProvider.php',
         'Laravel\\Socialite\\Two\\GithubProvider' => __DIR__ . '/..' . '/laravel/socialite/src/Two/GithubProvider.php',
+        'Laravel\\Socialite\\Two\\GitlabProvider' => __DIR__ . '/..' . '/laravel/socialite/src/Two/GitlabProvider.php',
         'Laravel\\Socialite\\Two\\GoogleProvider' => __DIR__ . '/..' . '/laravel/socialite/src/Two/GoogleProvider.php',
         'Laravel\\Socialite\\Two\\InvalidStateException' => __DIR__ . '/..' . '/laravel/socialite/src/Two/InvalidStateException.php',
         'Laravel\\Socialite\\Two\\LinkedInProvider' => __DIR__ . '/..' . '/laravel/socialite/src/Two/LinkedInProvider.php',

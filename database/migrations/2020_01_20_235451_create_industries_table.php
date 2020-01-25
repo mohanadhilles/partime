@@ -22,6 +22,7 @@ class CreateIndustriesTable extends Migration {
 			$table->string('lang', 10)->nullable()->default('ar');
 			$table->boolean('is_default')->nullable()->default(0);
 			$table->timestamps();
+            
 		});
 	}
 

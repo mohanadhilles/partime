@@ -24,6 +24,7 @@ class CreateProfileEducationsTable extends Migration {
 			$table->integer('city_id')->nullable();
 			$table->string('date_completion', 15)->nullable();
 			$table->string('institution', 150)->nullable();
+            
 			$table->string('degree_result', 20)->nullable();
 			$table->integer('result_type_id')->nullable();
 			$table->timestamps();

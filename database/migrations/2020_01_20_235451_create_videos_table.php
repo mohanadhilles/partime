@@ -17,8 +17,8 @@ class CreateVideosTable extends Migration {
 			$table->increments('id');
 			$table->integer('video_id')->nullable()->default(0);
 			$table->text('video_title')->nullable();
-			$table->text('video_text', 65535)->nullable();
-			$table->text('video_link', 65535)->nullable();
+			$table->text('video_text')->nullable();
+			$table->text('video_link')->nullable();
 			$table->boolean('is_default')->nullable()->default(0);
 			$table->boolean('is_active')->nullable();
 			$table->integer('sort_order')->nullable()->default(99999);

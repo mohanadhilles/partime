@@ -20,6 +20,7 @@ class CreateEmployeesTable extends Migration {
 			$table->string('name', 200)->nullable();
 			$table->integer('employee_status_id')->default(1);
 			$table->timestamps();
+            
 		});
 	}
 

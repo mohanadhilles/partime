@@ -18,7 +18,7 @@ class CreateProfileProjectsTable extends Migration {
 			$table->integer('user_id')->nullable();
 			$table->string('name', 100)->nullable();
 			$table->string('image', 120)->nullable();
-			$table->text('description', 65535)->nullable();
+			$table->text('description')->nullable();
 			$table->text('url')->nullable();
 			$table->dateTime('date_start')->nullable();
 			$table->dateTime('date_end')->nullable();

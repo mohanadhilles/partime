@@ -18,6 +18,7 @@ class CreateFavouritesCompanyTable extends Migration {
 			$table->integer('user_id')->nullable();
 			$table->string('company_slug', 150)->nullable();
 			$table->timestamps();
+            
 		});
 	}
 

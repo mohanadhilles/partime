@@ -14,6 +14,7 @@ class CreateJobStatusesTable extends Migration {
 	{
 		Schema::create('job_statuses', function(Blueprint $table)
 		{
+		    
 			$table->increments('id');
 			$table->integer('job_status_id')->nullable()->default(0);
 			$table->string('job_status', 200)->nullable();

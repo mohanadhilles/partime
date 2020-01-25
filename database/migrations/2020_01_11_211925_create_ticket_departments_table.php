@@ -22,6 +22,8 @@ class CreateTicketDepartmentsTable extends Migration {
 			$table->integer('sort_order')->default(99);
 			$table->string('lang', 10)->default('ar');
 			$table->integer('created_at');
+
+            
 			$table->integer('updated_at');
 		});
 	}

@@ -17,6 +17,7 @@ class CreateCompanyPasswordResetsTable extends Migration {
 			$table->string('email', 191)->index('password_resets_email_index');
 			$table->string('token', 191);
 			$table->dateTime('created_at')->nullable();
+            
 		});
 	}
 

@@ -20,7 +20,7 @@ class CreateCompaniesTable extends Migration {
 			$table->string('ceo', 60)->nullable();
 			$table->integer('industry_id')->nullable()->default(0);
 			$table->integer('ownership_type_id')->nullable()->default(0);
-			$table->text('description', 16777215)->nullable();
+			$table->text('description')->nullable();
 			$table->string('location', 155)->nullable();
 			$table->integer('no_of_offices')->nullable();
 			$table->string('website', 155)->nullable();
@@ -39,7 +39,7 @@ class CreateCompaniesTable extends Migration {
 			$table->string('verification_token')->nullable();
 			$table->string('password', 100)->nullable();
 			$table->string('remember_token', 100)->nullable();
-			$table->text('map', 65535)->nullable();
+			$table->text('map')->nullable();
 			$table->timestamps();
 			$table->string('facebook', 250)->nullable();
 			$table->string('twitter', 250)->nullable();

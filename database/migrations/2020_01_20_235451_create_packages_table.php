@@ -20,6 +20,7 @@ class CreatePackagesTable extends Migration {
 			$table->integer('package_num_days')->nullable()->default(0);
 			$table->integer('package_num_listings')->nullable()->default(0);
 			$table->enum('package_for', array('job_seeker','employer'))->nullable()->default('job_seeker');
+            
 			$table->timestamps();
 		});
 	}

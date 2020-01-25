@@ -14,6 +14,7 @@ class CreateOwnershipTypesTable extends Migration {
 	{
 		Schema::create('ownership_types', function(Blueprint $table)
 		{
+		    
 			$table->increments('id');
 			$table->integer('ownership_type_id')->nullable()->default(0);
 			$table->string('ownership_type', 200)->nullable();

@@ -14,7 +14,8 @@ class CreateServicesTable extends Migration {
 	{
 		Schema::create('services', function(Blueprint $table)
 		{
-			$table->increments('id');
+		 	$table->increments('id');
+            
 			$table->string('name', 100);
 			$table->string('en_name', 100)->nullable();
 			$table->integer('is_active')->default(1);

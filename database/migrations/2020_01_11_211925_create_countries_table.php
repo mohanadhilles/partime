@@ -22,6 +22,7 @@ class CreateCountriesTable extends Migration {
 			$table->boolean('is_active')->nullable()->default(0);
 			$table->integer('sort_order')->nullable()->default(9999);
 			$table->string('lang', 10)->nullable()->default('ar');
+            
 			$table->timestamps();
 		});
 	}

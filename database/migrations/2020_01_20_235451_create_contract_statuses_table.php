@@ -23,6 +23,7 @@ class CreateContractStatusesTable extends Migration {
 			$table->integer('sort_order')->nullable()->default(1);
 			$table->string('lang', 10)->nullable()->default('ar');
 			$table->timestamps();
+            
 		});
 	}
 

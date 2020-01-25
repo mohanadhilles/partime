@@ -30,6 +30,7 @@ class CreateInvoicesTable extends Migration {
 			$table->integer('created_by')->nullable()->default(0);
 			$table->integer('updated_by')->nullable()->default(0);
 			$table->timestamps();
+            
 		});
 	}
 

@@ -14,11 +14,12 @@ class CreateJobsTable extends Migration {
 	{
 		Schema::create('jobs', function(Blueprint $table)
 		{
+
 			$table->increments('id');
 			$table->integer('company_id')->nullable();
 			$table->integer('job_status_id')->default(1);
 			$table->string('title', 200)->nullable();
-			$table->text('description', 65535)->nullable();
+			$table->text('description')->nullable();
 			$table->integer('country_id')->nullable();
 			$table->integer('state_id')->nullable();
 			$table->integer('city_id')->nullable();
@@ -47,7 +48,7 @@ class CreateJobsTable extends Migration {
 			$table->boolean('is_active')->nullable()->default(1);
 			$table->boolean('is_featured')->nullable()->default(0);
 			$table->timestamps();
-			$table->text('search', 65535)->nullable()->index('full_search');
+			$table->text('search')->nullable()->index('full_search');
 			$table->string('slug', 210)->nullable();
 		});
 	}

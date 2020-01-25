@@ -17,6 +17,7 @@ class CreateProfileEducationMajorSubjectsTable extends Migration {
 			$table->increments('id');
 			$table->integer('profile_education_id')->nullable();
 			$table->integer('major_subject_id')->nullable();
+            
 			$table->timestamps();
 		});
 	}

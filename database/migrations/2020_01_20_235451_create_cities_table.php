@@ -18,8 +18,8 @@ class CreateCitiesTable extends Migration {
 			$table->integer('city_id')->nullable()->default(0);
 			$table->string('city', 30);
 
-    $table->unsignedInteger('state_id');
-    $table->foreign('state_id')->references('id')->on('states');
+     $table->unsignedInteger('state_id');
+     $table->foreign('state_id')->references('id')->on('states');
 
 			$table->boolean('is_default')->nullable()->default(0);
 			$table->boolean('is_active')->default(1);

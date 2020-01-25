@@ -19,6 +19,7 @@ class CreateFavouriteApplicantsTable extends Migration {
 			$table->integer('job_id')->nullable();
 			$table->integer('company_id')->nullable();
 			$table->timestamps();
+            
 		});
 	}
 

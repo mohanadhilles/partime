@@ -18,6 +18,7 @@ class CreateProfileLanguagesTable extends Migration {
 			$table->integer('user_id')->nullable();
 			$table->integer('language_id')->nullable();
 			$table->integer('language_level_id')->nullable();
+            
 			$table->timestamps();
 		});
 	}

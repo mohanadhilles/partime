@@ -14,6 +14,7 @@ class CreateManageJobSkillsTable extends Migration {
 	{
 		Schema::create('manage_job_skills', function(Blueprint $table)
 		{
+		    
 			$table->increments('id');
 			$table->integer('job_id')->nullable()->default(0);
 			$table->integer('job_skill_id')->nullable();

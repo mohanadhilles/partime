@@ -20,6 +20,7 @@ class CreateSendToFriendMessagesTable extends Migration {
 			$table->text('job_url')->nullable();
 			$table->string('friend_name', 100)->nullable();
 			$table->string('friend_email', 100)->nullable();
+            
 			$table->timestamps();
 		});
 	}

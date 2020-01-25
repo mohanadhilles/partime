@@ -17,6 +17,8 @@ class CreateWorkTimesTable extends Migration {
 			$table->increments('id');
 			$table->integer('work_time_id')->nullable();
 			$table->string('work_time', 200)->nullable();
+
+            
 			$table->timestamps();
 		});
 	}

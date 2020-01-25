@@ -20,7 +20,7 @@ class CreateStatesTable extends Migration {
 
                 $table->unsignedInteger('country_id');
 
-    $table->foreign('country_id')->references('id')->on('countries');
+         $table->foreign('country_id')->references('id')->on('countries');
 
 
  			$table->boolean('is_default')->nullable()->default(0);

@@ -17,6 +17,7 @@ class CreateProfileSkillsTable extends Migration {
 			$table->increments('id');
 			$table->integer('user_id')->nullable();
 			$table->integer('job_skill_id')->nullable();
+            
 			$table->integer('job_experience_id')->nullable();
 			$table->timestamps();
 		});

@@ -18,6 +18,7 @@ class CreatePayrollsTable extends Migration {
 			$table->integer('payroll_id')->nullable();
 			$table->integer('company_id');
 			$table->integer('month');
+            
 			$table->integer('year')->nullable();
 			$table->dateTime('date')->nullable()->comment('Pay Date / Pay Day');
 			$table->integer('is_verified')->nullable()->default(0);

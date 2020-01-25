@@ -19,6 +19,7 @@ class CreateInvoiceStatusesTable extends Migration {
 			$table->string('name', 100)->nullable();
 			$table->string('en_name', 100)->nullable();
 			$table->timestamps();
+            
 		});
 	}
 

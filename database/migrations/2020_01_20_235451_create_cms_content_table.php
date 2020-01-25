@@ -17,7 +17,7 @@ class CreateCmsContentTable extends Migration {
 			$table->increments('id');
 			$table->integer('page_id')->nullable();
 			$table->text('page_title')->nullable();
-			$table->longText('page_content')->nullable();
+			$table->text('page_content')->nullable();
 			$table->timestamps();
 			$table->string('lang', 10)->nullable()->default('ar');
 		});

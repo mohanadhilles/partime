@@ -21,6 +21,8 @@ class CreateTicketStatusesTable extends Migration {
 			$table->boolean('is_active')->default(1);
 			$table->integer('sort_order')->default(9999);
 			$table->string('lang', 10)->default('ar');
+
+            
             	$table->timestamps();  
 		});
 	}

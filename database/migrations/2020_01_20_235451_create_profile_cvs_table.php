@@ -19,6 +19,7 @@ class CreateProfileCvsTable extends Migration {
 			$table->string('title', 100)->nullable();
 			$table->string('cv_file', 120)->nullable();
 			$table->boolean('is_default')->nullable();
+            
 			$table->timestamps();
 		});
 	}

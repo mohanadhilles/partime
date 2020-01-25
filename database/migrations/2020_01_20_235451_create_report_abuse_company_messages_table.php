@@ -17,7 +17,7 @@ class CreateReportAbuseCompanyMessagesTable extends Migration {
 			$table->increments('id');
 			$table->string('your_name', 100)->nullable();
 			$table->string('your_email', 100)->nullable();
-			$table->text('company_url', 16777215)->nullable();
+			$table->text('company_url')->nullable();
 			$table->timestamps();
 		});
 	}

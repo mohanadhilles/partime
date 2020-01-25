@@ -30,7 +30,7 @@ class CreateOrdersTable extends Migration {
 			$table->time('appropriate_work_time_to_3')->nullable();
 			$table->dateTime('expected_join_date')->nullable();
 			$table->string('interested_job')->nullable();
-			$table->text('notes', 65535)->nullable();
+			$table->text('notes')->nullable();
 			$table->timestamps();
 		});
 	}

@@ -14,7 +14,7 @@ class CreateQueueJobsTable extends Migration {
 	{
 		Schema::create('queue_jobs', function(Blueprint $table)
 		{
-				   	$table->increments('id');   
+				$table->increments('id');   
 			$table->string('queue');
 			$table->text('payload');
 			$table->boolean('attempts');

@@ -27,6 +27,7 @@ class CreateContractsTable extends Migration {
 			$table->integer('percentage_form_user')->default(25);
 			$table->dateTime('expires_at')->nullable();
 			$table->timestamps();
+            
 			$table->timestamp('date_from')->default(DB::raw('CURRENT_TIMESTAMP'));
 			$table->timestamp('date_to')->default(DB::raw('CURRENT_TIMESTAMP'));
 		});

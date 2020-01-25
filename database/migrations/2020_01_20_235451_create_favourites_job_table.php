@@ -18,6 +18,7 @@ class CreateFavouritesJobTable extends Migration {
 			$table->integer('user_id')->nullable();
 			$table->string('job_slug', 150)->nullable();
 			$table->timestamps();
+            
 		});
 	}
 

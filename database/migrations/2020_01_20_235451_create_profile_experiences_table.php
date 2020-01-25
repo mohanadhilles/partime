@@ -27,7 +27,7 @@ class CreateProfileExperiencesTable extends Migration {
 			$table->time('time_from')->nullable();
 			$table->time('time_to')->nullable();
 			$table->boolean('is_currently_working')->nullable();
-			$table->text('description', 65535)->nullable();
+			$table->text('description')->nullable();
 			$table->timestamps();
 		});
 	}

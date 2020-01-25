@@ -16,6 +16,7 @@ class CreateProfileSummariesTable extends Migration {
 		{
 			$table->increments('id');
 			$table->integer('user_id')->nullable();
+            
 			$table->text('summary')->nullable();
 			$table->timestamps();
 		});

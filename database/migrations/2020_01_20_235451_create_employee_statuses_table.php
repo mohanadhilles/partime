@@ -18,6 +18,7 @@ class CreateEmployeeStatusesTable extends Migration {
 			$table->integer('employee_status_id')->nullable();
 			$table->string('employee_status', 50)->nullable();
 			$table->timestamps();
+            
 		});
 	}
 
