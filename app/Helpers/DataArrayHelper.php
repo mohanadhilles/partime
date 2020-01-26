@@ -214,7 +214,8 @@ class DataArrayHelper
 
 	public static function langTicketDepartmentsArray()
     {
-        $array = TicketDepartment::select('ticket_departments.department', 'ticket_departments.department_id')->isDefault()->active()->sorted()->pluck('ticket_departments.department', 'ticket_departments.department_id')->toArray();
+        $array = TicketDepartment::select('ticket_departments.ticket_department', 'ticket_departments.ticket_department_id')
+        ->isDefault()->active()->sorted()->pluck('ticket_departments.ticket_department', 'ticket_departments.ticket_department_id')->toArray();
         return $array;
     }
 
@@ -222,16 +223,16 @@ class DataArrayHelper
 
 	public static function langTicketStatusesArray()
     {
-        $array = TicketStatus::select('ticket_statuses.status', 'ticket_statuses.status_id')
-        ->isDefault()->active()->sorted()->pluck('ticket_statuses.status', 'ticket_statuses.status_id')->toArray();
+        $array = TicketStatus::select('ticket_statuses.ticket_status', 'ticket_statuses.ticket_status_id')
+        ->isDefault()->active()->sorted()->pluck('ticket_statuses.ticket_status', 'ticket_statuses.ticket_status_id')->toArray();
         return $array;
     }
 
 
 	public static function langTicketPrioritesArray()
     {
-        $array = TicketPriority::select('ticket_priorites.priority', 'ticket_priorites.priority_id')
-        ->isDefault()->active()->sorted()->pluck('ticket_priorites.priority', 'ticket_priorites.priority_id')->toArray();
+        $array = TicketPriority::select('ticket_priorites.ticket_priority', 'ticket_priorites.ticket_priority_id')
+        ->isDefault()->active()->sorted()->pluck('ticket_priorites.ticket_priority', 'ticket_priorites.ticket_priority_id')->toArray();
         return $array;
     }
 

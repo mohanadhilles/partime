@@ -144,7 +144,7 @@
         </div>
     </div>
     </div>
-      <div id="menu1" class="container tab-pane fade {{($c_or_e == 'employer')? 'active':''}}"><br>
+      <div id="menu1" class="container tab-pane  {{($c_or_e == 'employer')? 'active':''}}"><br>
 
        <div class="row justify-content-center">
         <div class="col-md-8">

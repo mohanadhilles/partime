@@ -2,7 +2,7 @@
 
 @section('guest')
 <!--   <a href="{{ url('login/jobseeker/linkedin')}}" class="btn btn-info"><i class="fa fa-linkedin" aria-hidden="true"></i></a>
---><?php $c_or_e = old('candidate_or_employer', 'candidate');  ?>
+--><?php $c_or_e = old('candidate_or_employer', 'candidate');    ?>
 <section  class="features-section" >
 <div class="container">
      <ul class="nav nav-tabs" role="tablist">
@@ -90,7 +90,7 @@
     </div>
 
     </div>
-    <div id="menu1" class="container tab-pane fade {{($c_or_e == 'employer')? 'active':''}}"><br>
+    <div id="menu1" class="container tab-pane  {{($c_or_e == 'employer')? 'active in':''}}"><br>
      <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">

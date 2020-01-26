@@ -22,30 +22,33 @@
   </div>
 
   <div class="col-md-4">
-    <div class="formrow {!! APFrmErrHelp::hasError($errors, 'department_id') !!}"  >
+    <div class="formrow {!! APFrmErrHelp::hasError($errors, 'ticket_department_id') !!}"  >
      <span id="default_state_dd">
-         {!! Form::select('department_id', ['' => __('Select ticket department')]+$ticketDepartments, null, array('class'=>'form-control', 'id'=>'department_id')) !!}
+         {!! Form::select('ticket_department_id', ['' => __('Select ticket department')]+$ticketDepartments,
+          null, array('class'=>'form-control', 'id'=>'ticket_department_id')) !!}
 
 
-     </span> {!! APFrmErrHelp::showErrors($errors, 'department_id') !!} </div>
+     </span> {!! APFrmErrHelp::showErrors($errors, 'ticket_department_id') !!} </div>
   </div>
   <div class="col-md-4">
-    <div class="formrow {!! APFrmErrHelp::hasError($errors, 'priority_id') !!}"  >
+    <div class="formrow {!! APFrmErrHelp::hasError($errors, 'ticket_priority_id') !!}"  >
      <span id="default_city_dd">
 
-         {!! Form::select('priority_id', ['' => __('Select ticket priority')]+$ticketPriorites, null, array('class'=>'form-control', 'id'=>'priority_id')) !!}
+         {!! Form::select('ticket_priority_id', ['' => __('Select ticket priority')]+$ticketPriorites, null
+         , array('class'=>'form-control', 'id'=>'ticket_priority_id')) !!}
 
 
-     </span> {!! APFrmErrHelp::showErrors($errors, 'priority_id') !!} </div>
+     </span> {!! APFrmErrHelp::showErrors($errors, 'ticket_priority_id') !!} </div>
   </div>
 
       <div class="col-md-4">
-    <div class="formrow {!! APFrmErrHelp::hasError($errors, 'status_id') !!}"  >
-        {!! Form::select('status_id', ['' => __('Select ticket status')]+$ticketStatuses, null, array('class'=>'form-control', 'id'=>'status_id')) !!}
+    <div class="formrow {!! APFrmErrHelp::hasError($errors, 'ticket_status_id') !!}"  >
+        {!! Form::select('ticket_status_id', ['' => __('Select ticket status')]+$ticketStatuses,
+        null, array('class'=>'form-control', 'id'=>'ticket_status_id')) !!}
 
 
 
-       {!! APFrmErrHelp::showErrors($errors, 'status_id') !!} </div>
+       {!! APFrmErrHelp::showErrors($errors, 'ticket_status_id') !!} </div>
   </div>
 
 

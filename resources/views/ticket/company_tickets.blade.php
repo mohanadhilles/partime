@@ -61,9 +61,9 @@
         <td>{{$ticket->contract_id}}  </td>
         <td>{{$ticket->employee_id}}  </td>
         <td>{{$ticket->getEmployee('name')}}  </td>
-        <td>{{$ticket->getTicketStatus('status')}}  </td>
-        <td>{{$ticket->getTicketDepartment('department')}}  </td>
-        <td>{{$ticket->getTicketPriority('priority')}}  </td>
+        <td>{{$ticket->getTicketStatus('ticket_status')}}  </td>
+        <td>{{$ticket->getTicketDepartment('ticket_department')}}  </td>
+        <td>{{$ticket->getTicketPriority('ticket_priority')}}  </td>
 
             <td> <a href="{{route('company.edit.front.ticket', [ 'id' =>$ticket->id ])}}" ><i class="fa fa-file-text-o" ></i> عرض التذكرة </a>  </td>
      </tr>

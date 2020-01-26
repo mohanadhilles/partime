@@ -99,9 +99,9 @@ trait UserTicketTrait
         $ticket->contract_id = $contract->id;
         $ticket->employee_id = $contract->employee_id;
         $ticket->subject = $request->input('subject');
-        $ticket->priority_id = $request->input('priority_id');
-        $ticket->department_id = $request->input('department_id');
-        $ticket->status_id = $request->input('status_id');
+        $ticket->ticket_priority_id = $request->input('ticket_priority_id');
+        $ticket->ticket_department_id = $request->input('ticket_department_id');
+        $ticket->ticket_status_id = $request->input('ticket_status_id');
         $ticket->notes = $request->input('notes');
        // $ticket->user_id = $request->input('user_id');
       //  $ticket->responsible_id = $request->input('responsible_id');
@@ -148,9 +148,9 @@ trait UserTicketTrait
         $ticket = Ticket::findOrFail($id);
         $ticket->id = $request->input('id');
                $ticket->subject = $request->input('subject');
-        $ticket->priority_id = $request->input('priority_id');
-        $ticket->department_id = $request->input('department_id');
-        $ticket->status_id = $request->input('status_id');
+        $ticket->ticket_priority_id = $request->input('ticket_priority_id');
+        $ticket->ticket_department_id = $request->input('ticket_department_id');
+        $ticket->ticket_status_id = $request->input('ticket_status_id');
         $ticket->contract_id = $request->input('contract_id');
         $ticket->employee_id = $contract->employee_id;
         $ticket->notes = $request->input('notes');

@@ -20,10 +20,11 @@
              <table  class="table table-bordered text-right"   >
 
         <tr>
-        <th class="text-right" >رقم التذكرة </th>
+ 
+               <th class="text-right" >رقم الطلب </th>
         <th class="text-right"> تاريخ الاستفسار</th>
         <th class="text-right"> رقم العقد</th>
-
+        <th class="text-right">  رقم العامل</th>
         <th class="text-right"> إسم الموظف </th>
         <th class="text-right"> الحاله </th>
         <th class="text-right"> نوع التذكرة </th>
@@ -34,15 +35,14 @@
             @forelse($tickets as $ticket)
 
           <tr>
-        <td>{{$ticket->id}}  </td>
-        <td>{{$ticket->id}}  </td>
-        <td>{{$ticket->id}}  </td>
+       <td>{{$ticket->created_at}}  </td>
+        <td>{{$ticket->contract_id}}  </td>
+        <td>{{$ticket->employee_id}}  </td>
+        <td>{{$ticket->getEmployee('name')}}  </td>
+        <td>{{$ticket->getTicketStatus('ticket_status')}}  </td>
+        <td>{{$ticket->getTicketDepartment('ticket_department')}}  </td>
+        <td>{{$ticket->getTicketPriority('ticket_priority')}}  </td>
 
-        <td>{{$ticket->id}}  </td>
-        <td>{{$ticket->id}}  </td>
-        <td>{{$ticket->id}}  </td>
-        <td>{{$ticket->id}}  </td>
-        <td>{{$ticket->id}}  </td>
      </tr>
 
 
