@@ -20,7 +20,7 @@ $real_path = realpath(__DIR__).DIRECTORY_SEPARATOR.'front_routes'.DIRECTORY_SEPA
 
 
 
-
+Route::get('guest/jobs','IndexController@getJobs');
 
 /********** IndexController *************/
 Route::get('/', 'IndexController@index')->name('index');

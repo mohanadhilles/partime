@@ -2,155 +2,20 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d4633f9b-d552-4cf9-8d1a-759423465f26" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.ebextensions/init.config" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/guest.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.env" beforeDir="false" afterPath="$PROJECT_DIR$/.env" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/images/job_bg.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/images/jobs_bg.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/jobs.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Auth/RegisterController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Auth/RegisterController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/IndexController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/IndexController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Providers/AppServiceProvider.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Providers/AppServiceProvider.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app_1177_parttime.sql" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/config/database.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/database.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2020_01_20_235451_create_jobs_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_01_20_235451_create_jobs_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2020_01_20_235451_create_users_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_01_20_235451_create_users_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/web/css/animate.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/web/css/bootstrap-rtl.min.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/web/css/bootstrap.min.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/web/css/jquery.fancybox.min.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/web/css/main.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/web/css/main.css.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/web/css/owl.carousel.min.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/web/css/owl.theme.default.min.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/web/css/style.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/web/fontawesome5.10.2/css/all.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/web/fontawesome5.10.2/webfonts/fa-brands-400.eot" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/web/fontawesome5.10.2/webfonts/fa-brands-400.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/web/fontawesome5.10.2/webfonts/fa-brands-400.ttf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/web/fontawesome5.10.2/webfonts/fa-brands-400.woff" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/web/fontawesome5.10.2/webfonts/fa-brands-400.woff2" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/web/fontawesome5.10.2/webfonts/fa-regular-400.eot" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/web/fontawesome5.10.2/webfonts/fa-regular-400.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/web/fontawesome5.10.2/webfonts/fa-regular-400.ttf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/web/fontawesome5.10.2/webfonts/fa-regular-400.woff" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/web/fontawesome5.10.2/webfonts/fa-regular-400.woff2" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/web/fontawesome5.10.2/webfonts/fa-solid-900.eot" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/web/fontawesome5.10.2/webfonts/fa-solid-900.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/web/fontawesome5.10.2/webfonts/fa-solid-900.ttf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/web/fontawesome5.10.2/webfonts/fa-solid-900.woff" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/web/fontawesome5.10.2/webfonts/fa-solid-900.woff2" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/web/fonts/Almarai-Bold.eot" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/web/fonts/Almarai-Bold.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/web/fonts/Almarai-Bold.ttf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/web/fonts/Almarai-Bold.woff" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/web/fonts/Almarai-Light.eot" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/web/fonts/Almarai-Light.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/web/fonts/Almarai-Light.ttf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/web/fonts/Almarai-Light.woff" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/web/fonts/Almarai-Regular.eot" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/web/fonts/Almarai-Regular.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/web/fonts/Almarai-Regular.ttf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/web/fonts/Almarai-Regular.woff" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/web/fonts/Neo-Sans-W23-bold.ttf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/web/fonts/Neo-Sans-W23.ttf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/web/fonts/NeoSansW23-Bold.eot" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/web/fonts/NeoSansW23-Bold.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/web/fonts/NeoSansW23-Bold.woff" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/web/fonts/NeoSansW23.eot" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/web/fonts/NeoSansW23.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/web/fonts/NeoSansW23.woff" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/web/fonts/iranyekanwebbold.ttf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/web/fonts/iranyekanweblight.ttf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/web/fonts/iranyekanwebregular.ttf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/web/images/companies-feautres-image.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/web/images/company-feature-1.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/web/images/company-feature-2.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/web/images/company-feature-3.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/web/images/employee-feature-1.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/web/images/employee-feature-2.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/web/images/employee-feature-3.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/web/images/employees-feautres-image.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/web/images/experiences/200px-Almarai_Corporate_Logo.svg.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/web/images/experiences/26-3-209_0_54_05_GomhuriaOnline_553590445.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/web/images/experiences/Almarai-600x35w.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/web/images/experiences/Deloitte-Logo.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/web/images/experiences/Zain_logo_logotype.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/web/images/experiences/hmg-hospital-logo206.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/web/images/experiences/image.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/web/images/experiences/kisspng-logo-mcdonalds-sign-clip-art-im-lovin-it-mcdonalds-lgog-www-galleryhip-com-the-hippest-pi-5c77ae67b98cb9.992423635534730376.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/web/images/experiences/kisspng-logo-uber-brand-logo-uber-5b5c5cc0fb550.888960253277972990.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/web/images/experiences/kisspng-marriott-international-hotel-logo-starwood-courtya-hotel-5ac5572d32f243.775989665228823492087.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/web/images/experiences/noon.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/web/images/experiences/star.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/web/images/experiences/zain-logo-5A4745AD-seeklogo.com.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/web/images/experiences/شركة-كريم.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/web/images/experiences/هنقرستيشين-780x405.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/web/images/experiences1/1.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/web/images/experiences1/10.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/web/images/experiences1/2.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/web/images/experiences1/3.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/web/images/experiences1/4.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/web/images/experiences1/5.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/web/images/experiences1/6.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/web/images/experiences1/7.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/web/images/experiences1/8.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/web/images/experiences1/9.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/web/images/footer-logo.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/web/images/icon-apple.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/web/images/icon-google.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/web/images/logo.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/web/images/projects/1.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/web/images/projects/2.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/web/images/projects/3.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/web/images/projects/4.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/web/images/recruitment-solutions-.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/web/images/recruitment-solutions.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/web/images/statistices.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/web/images/team/abeer.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/web/images/team/alaa.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/web/images/team/hanady.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/web/images/team/hani.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/web/images/team/mohanad.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/web/images/team/ramy.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/web/images/team/suzan.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/web/images/team/walled.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/web/images/team/women.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/web/images/title-ic-left.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/web/images/title-ic-right.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/web/images/white-logo.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/web/images/white-logo1.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/web/images/رامي-20200115T011348Z-001.zip" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/web/images/رامي/رامي مقلل حجم.mp4" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/web/images/رامي/رامي.mp4" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/web/js/bootstrap.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/web/js/jquery-3.4.1.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/web/js/jquery.fancybox.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/web/js/lozad.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/web/js/main-.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/web/js/main.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/web/js/mixitup.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/web/js/popper.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/web/js/wow.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/web/media/video.mp4" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/web/media/video1.mp4" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/web/plugins/fancybox/jquery.fancybox.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/web/plugins/fancybox/jquery.fancybox.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/web/plugins/fancybox/jquery.fancybox.min.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/web/plugins/fancybox/jquery.fancybox.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/web/plugins/owlslider/assets/ajax-loader.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/web/plugins/owlslider/assets/owl.carousel.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/web/plugins/owlslider/assets/owl.carousel.min.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/web/plugins/owlslider/assets/owl.theme.default.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/web/plugins/owlslider/assets/owl.theme.default.min.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/web/plugins/owlslider/assets/owl.theme.green.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/web/plugins/owlslider/assets/owl.theme.green.min.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/web/plugins/owlslider/assets/owl.video.play.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/web/plugins/owlslider/owl.carousel.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/web/plugins/owlslider/owl.carousel.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/auth/login.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/auth/login.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/auth/passwords/email.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/auth/passwords/email.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/auth/passwords/reset.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/auth/passwords/reset.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/auth/register.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/auth/register.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/web/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/web/css/style.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/guest.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/guest.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/layouts/webapp.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/webapp.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/storage/logs/laravel.log" beforeDir="false" afterPath="$PROJECT_DIR$/storage/logs/laravel.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/wykaacom_app_1129_wsfa.sql" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -282,7 +147,7 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/public" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -293,6 +158,7 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/public/images" />
       <recent name="$PROJECT_DIR$/public" />
       <recent name="$PROJECT_DIR$" />
     </key>
@@ -328,6 +194,9 @@
       <workItem from="1579209079750" duration="1632000" />
       <workItem from="1579960449354" duration="2307000" />
       <workItem from="1579971037303" duration="8613000" />
+      <workItem from="1580032978464" duration="78000" />
+      <workItem from="1580070700181" duration="3322000" />
+      <workItem from="1580085514277" duration="2284000" />
     </task>
     <servers />
   </component>

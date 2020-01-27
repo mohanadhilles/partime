@@ -3,17 +3,14 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-
-    <link rel="stylesheet" type="text/css" href="web/css/bootstrap-rtl.min.css">
-    <link rel="stylesheet" type="text/css" href="web/css/animate.css">
-    <link rel="stylesheet" type="text/css" href="web/fontawesome5.10.2/css/all.css">
-    <!-- <link rel="stylesheet" type="text/css" href="css/jquery.fancybox.min.css"> -->
-    <link rel="stylesheet" type="text/css" href="web/plugins/owlslider/assets/owl.carousel.min.css">
-    <link rel="stylesheet" type="text/css" href="web/css/style.css">
-    <link rel="shortcut icon" href="web/images/logo.png" type="image/x-icon">
-    <link rel="icon" href="web/images/logo.png" type="image/x-icon">
+    <link rel="stylesheet" type="text/css" href="{{asset('web/css/bootstrap-rtl.min.css')}}">
+    <link rel="stylesheet" type="text/css" href="{{asset('web/css/animate.css')}}">
+    <link rel="stylesheet" type="text/css" href="{{asset('web/fontawesome5.10.2/css/all.css')}}">
+    <link rel="stylesheet" type="text/css" href="{{asset('web/plugins/owlslider/assets/owl.carousel.min.css')}}">
+    <link rel="stylesheet" type="text/css" href="{{asset('web/css/style.css')}}">
+    <link rel="shortcut icon" href="{{asset('web/images/logo.png')}}" type="image/x-icon">
+    <link rel="icon" href="{{asset('web/images/logo.png')}}" type="image/x-icon">
     <title>Par Time</title>
-    <!--	<link rel="icon" href="img/logo.png" type="image/png" >-->
 </head>
 <body>
 
@@ -54,8 +51,8 @@
                 <i class="fa fa-align-right fa-fw"></i>
             </button>
             <a class="navbar-brand" href="{{url('/')}}">
-                <img src="web/images/logo.png" class="img-fluid d-none d-lg-inline">
-                <img src="web/images/white-logo.png" class="img-fluid d-lg-none d-xl-none">
+                <img src="{{asset('web/images/logo.png')}}" class="img-fluid d-none d-lg-inline">
+                <img src="{{asset('web/images/white-logo.png')}}" class="img-fluid d-lg-none d-xl-none">
             </a>
             <div class="collapse navbar-collapse" id="main_menu">
                 <ul class="navbar-nav mr-2 main-menu">
@@ -90,7 +87,7 @@
                     <div class="w-about">
                         <div class="f-logo">
                             <a href="{{url('/')}}">
-                                <img src="web/images/footer-logo.png" class="img-fluid" alt="">
+                                <img src="{{asset('web/images/footer-logo.png')}}" class="img-fluid" alt="">
                             </a>
                         </div>
                         <p><i class="fas fa-map-marker-alt"></i> مركز منشأت - واجهة الرياض - مجمع  ريادة الأعمال  الرياض - المملكة العربية السعودية </p>
@@ -101,10 +98,10 @@
                         <p>التطبيق  قريبا ًمتاح علي منصات</p>
                         <div class="apps-links">
                             <a href="" onclick="return false;" target="_blank" title="">
-                                <img src="web/images/icon-google.png" alt="">
+                                <img src="{{asset('web/images/icon-google.png')}}" alt="">
                             </a>
                             <a href="" onclick="return false;" target="_blank" title="">
-                                <img src="web/images/icon-apple.png" alt="">
+                                <img src="{{asset('web/images/icon-apple.png')}}" alt="">
                             </a>
                         </div>
                     </div>
@@ -132,20 +129,16 @@
             <i class="fas fa-angle-up"></i>
         </a>
     </div>
-</footer><!-- /footer -->
+</footer>
+<!-- /footer -->
 
+<script src="{{asset('web/js/jquery-3.4.1.min.js')}}"></script>
+<script src="{{asset('web/js/popper.min.js')}}"></script>
+<script src="{{asset('web/js/wow.min.js')}}"></script>
+<script src="{{asset('web/js/bootstrap.min.js')}}"></script>
 
-<!-- Optional JavaScript -->
-<!-- jQuery first, then Popper.js, then Bootstrap JS -->
-<script src="web/js/jquery-3.4.1.min.js"></script>
-<script src="web/js/popper.min.js"></script>
-<script src="web/js/wow.min.js"></script>
-<script src="web/js/bootstrap.min.js"></script>
-
-<script src="web/plugins/owlslider/owl.carousel.min.js"></script>
-<!-- <script src="plugins/owlslider/owl.carousel.min.js"></script> -->
-<!-- <script src="plugins/fancybox/jquery.fancybox.min.js"></script> -->
-<script src="web/js/main.js"></script>
+<script src="{{asset('web/plugins/owlslider/owl.carousel.min.js')}}"></script>
+<script src="{{asset('web/js/main.js')}}"></script>
 <script type="text/javascript">
     $('.projects_slider').owlCarousel({
         // center: true,
@@ -219,7 +212,6 @@
     });
 
     $(document).ready(function () {
-        //Check to see if the window is top if not then display button
         $(window).scroll(function () {
             if ($(this).scrollTop() > 5) {
                 $('.scrollToTop').fadeIn();

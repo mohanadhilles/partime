@@ -36,6 +36,10 @@ class IndexController extends Controller
     {
         //$this->middleware('auth');
     }
+    public function getJobs(){
+
+        return view('jobs');
+    }
 
     /**
      * Show the application dashboard.

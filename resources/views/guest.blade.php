@@ -1,6 +1,8 @@
 @extends('layouts.webapp')
 @section('guest')
-
+<style>
+    .available_jobs_section::before{ background-image: url("{{asset('images/jobs_bg.png')}}");}
+</style>
     <!-- main-hero-section -->
     <section class="main-hero-section">
         <div class="container">
@@ -128,6 +130,202 @@
             </div>
         </div>
     </section><!-- /features-section -->
+
+    <!-- available jobs now -->
+    <div class="container">
+        <div class="section-title wow fadeInUp" data-wow-duration="1.5s" data-wow-delay=".3s">
+            <h2><span>مهن المرشحين البارتايم المتاحين</span></h2>
+            <p>لعرض الوظائف قم بتحديد  الدولة والمدينة التي ترغب بالتوظيف بها او تبحث عن وظيفة بها</p>
+        </div>
+    </div>
+    <section class="available_jobs_section">
+        <div class="container">
+            <div class="h_available_job_search">
+                <div class="search_wrap">
+                    <form>
+                        <div class="row">
+                            <div class="col-sm-4">
+                                <div class="cs-select">
+                                    <select class="form-control" placeholder="تحديد الدولة">
+                                        <option hidden>تحديد الدولة</option>
+                                        <option value="">السعودية</option>
+                                        <option value="">فلسطين</option>
+                                    </select>
+                                    <i class="fas fa-angle-down"></i>
+                                </div>
+                            </div>
+                            <div class="col-sm-4">
+                                <div class="cs-select">
+                                    <select class="form-control" placeholder="تحديد المدينة">
+                                        <option اhidden>تحديد المدينة</option>
+                                        <option value="">الرياض</option>
+                                        <option value="">جدة</option>
+                                    </select>
+                                    <i class="fas fa-angle-down"></i>
+                                </div>
+                            </div>
+                            <div class="col-sm-4">
+                                <a href="{{url('guest/jobs')}}" class="btn btn-block btn-blue-light">عرض</a>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+            <div class="available_jobs_list">
+                <div class="row justify-content-md-center">
+                    <div class="col-lg-3 col-md-4 col-6">
+                        <div class="available_job_item wow fadeInUp" data-wow-duration="1.5s" data-wow-delay=".3s">
+                            <div class="front">
+                                <div class="job_count d-flex justify-content-center align-items-center flex-column"
+                                     style='background: url("{{asset('images/job_bg.png')}}") '>
+                                    <span>250</span>
+                                    <p>مرشح بارتايم</p>
+                                </div>
+                                <div class="title d-flex justify-content-center align-items-center">
+                                    <h3>Quality and compliance officer</h3>
+                                </div>
+                            </div>
+                            <div class="overlay d-flex justify-content-center align-items-center flex-column">
+                                <a href="" class="btn btn-pink w-100 mb-2">وظف بارتايم</a>
+                                <a href="" class="btn btn-blue-light w-100">أنضم بارتايم</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-4 col-6">
+                        <div class="available_job_item wow fadeInUp" data-wow-duration="1.5s" data-wow-delay=".3s">
+                            <div class="front">
+                                <div class="job_count d-flex justify-content-center align-items-center flex-column"
+                                     style='background: url("{{asset('images/job_bg.png')}}") '>
+                                    <span>250</span>
+                                    <p>مرشح بارتايم</p>
+                                </div>
+                                <div class="title d-flex justify-content-center align-items-center">
+                                    <h3>CEO</h3>
+                                </div>
+                            </div>
+                            <div class="overlay d-flex justify-content-center align-items-center flex-column">
+                                <a href="" class="btn btn-pink w-100 mb-2">وظف بارتايم</a>
+                                <a href="" class="btn btn-blue-light w-100">أنضم بارتايم</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-4 col-6">
+                        <div class="available_job_item wow fadeInUp" data-wow-duration="1.5s" data-wow-delay=".3s">
+                            <div class="front">
+                                <div class="job_count d-flex justify-content-center align-items-center flex-column"
+                                     style='background: url("{{asset('images/job_bg.png')}}") '>
+                                    <span>250</span>
+                                    <p>مرشح بارتايم</p>
+                                </div>
+                                <div class="title d-flex justify-content-center align-items-center">
+                                    <h3>CTO</h3>
+                                </div>
+                            </div>
+                            <div class="overlay d-flex justify-content-center align-items-center flex-column">
+                                <a href="" class="btn btn-pink w-100 mb-2">وظف بارتايم</a>
+                                <a href="" class="btn btn-blue-light w-100">أنضم بارتايم</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-4 col-6">
+                        <div class="available_job_item wow fadeInUp" data-wow-duration="1.5s" data-wow-delay=".3s">
+                            <div class="front">
+                                <div class="job_count d-flex justify-content-center align-items-center flex-column"
+                                     style='background: url("{{asset('images/job_bg.png')}}") '>
+                                    <span>250</span>
+                                    <p>مرشح بارتايم</p>
+                                </div>
+                                <div class="title d-flex justify-content-center align-items-center">
+                                    <h3>CFO</h3>
+                                </div>
+                            </div>
+                            <div class="overlay d-flex justify-content-center align-items-center flex-column">
+                                <a href="" class="btn btn-pink w-100 mb-2">وظف بارتايم</a>
+                                <a href="" class="btn btn-blue-light w-100">أنضم بارتايم</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-4 col-6">
+                        <div class="available_job_item wow fadeInUp" data-wow-duration="1.5s" data-wow-delay=".3s">
+                            <div class="front">
+                                <div class="job_count d-flex justify-content-center align-items-center flex-column"
+                                     style='background: url("{{asset('images/job_bg.png')}}") '>
+                                    <span>250</span>
+                                    <p>مرشح بارتايم</p>
+                                </div>
+                                <div class="title d-flex justify-content-center align-items-center">
+                                    <h3>HR manager</h3>
+                                </div>
+                            </div>
+                            <div class="overlay d-flex justify-content-center align-items-center flex-column">
+                                <a href="" class="btn btn-pink w-100 mb-2">وظف بارتايم</a>
+                                <a href="" class="btn btn-blue-light w-100">أنضم بارتايم</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-4 col-6">
+                        <div class="available_job_item wow fadeInUp" data-wow-duration="1.5s" data-wow-delay=".3s">
+                            <div class="front">
+                                <div class="job_count d-flex justify-content-center align-items-center flex-column"
+                                     style='background: url("{{asset('images/job_bg.png')}}") '>
+                                    <span>250</span>
+                                    <p>مرشح بارتايم</p>
+                                </div>
+                                <div class="title d-flex justify-content-center align-items-center">
+                                    <h3>project manager</h3>
+                                </div>
+                            </div>
+                            <div class="overlay d-flex justify-content-center align-items-center flex-column">
+                                <a href="" class="btn btn-pink w-100 mb-2">وظف بارتايم</a>
+                                <a href="" class="btn btn-blue-light w-100">أنضم بارتايم</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-4 col-6">
+                        <div class="available_job_item wow fadeInUp" data-wow-duration="1.5s" data-wow-delay=".3s">
+                            <div class="front">
+                                <div class="job_count d-flex justify-content-center align-items-center flex-column"
+                                     style='background: url("{{asset('images/job_bg.png')}}") '>
+                                    <span>250</span>
+                                    <p>مرشح بارتايم</p>
+                                </div>
+                                <div class="title d-flex justify-content-center align-items-center">
+                                    <h3>financial analyst</h3>
+                                </div>
+                            </div>
+                            <div class="overlay d-flex justify-content-center align-items-center flex-column">
+                                <a href="" class="btn btn-pink w-100 mb-2">وظف بارتايم</a>
+                                <a href="" class="btn btn-blue-light w-100">أنضم بارتايم</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-4 col-6">
+                        <div class="available_job_item wow fadeInUp" data-wow-duration="1.5s" data-wow-delay=".3s">
+                            <div class="front">
+                                <div class="job_count d-flex justify-content-center align-items-center flex-column"
+                                     style='background: url("{{asset('images/job_bg.png')}}") '>
+                                    <span>250</span>
+                                    <p>مرشح بارتايم</p>
+                                </div>
+                                <div class="title d-flex justify-content-center align-items-center">
+                                    <h3>accountant</h3>
+                                </div>
+                            </div>
+                            <div class="overlay d-flex justify-content-center align-items-center flex-column">
+                                <a href="" class="btn btn-pink w-100 mb-2">وظف بارتايم</a>
+                                <a href="" class="btn btn-blue-light w-100">أنضم بارتايم</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <div class="text-center view-jobs-btn">
+        <a href="{{url('guest/jobs')}}" class="btn btn-pink">عرض جميع المهن <i class="fas fa-angle-double-left"></i></a>
+    </div>
+    <!-- features for employee -->
 
     <!-- features for employee -->
     <section class="features-section">

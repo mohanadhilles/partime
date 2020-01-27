@@ -49,7 +49,6 @@ use VerifiesUsers;
 
     public function register(UserFrontRegisterFormRequest $request)
     {
-        dd($request->all());
         $user = new User();
         $user->first_name = $request->input('first_name');
 		$user->middle_name = $request->input('middle_name');
