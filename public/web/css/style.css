@@ -472,7 +472,7 @@ svg {
 
 /* header */
 .main-header{
-    margin-bottom: 15px;
+    /* margin-bottom: 15px; */
 }
 .navbar-brand img{
     max-width: 170px;
@@ -907,17 +907,17 @@ svg {
 
 }
 .h_available_job_search .search_wrap{
-    max-width: 100%;
+    max-width: 75%;
     margin-right: auto;
     margin-left: auto;
-    border-radius: 10px;
+    border-radius: 35px;
     padding: 8px;
     background-color: #fff;
     -webkit-box-shadow: 0 6px 24px rgba(45, 39, 99, 0.09);
     box-shadow: 0 6px 24px rgba(45, 39, 99, 0.09);
 }
 .search_wrap .btn{
-    border-radius: 10px;
+    border-radius: 25px;
     font-size: 16px;
 }
 .cs-select{
@@ -927,7 +927,7 @@ svg {
     -webkit-appearance: none;
     -moz-appearance: none;
     appearance: none;
-    border-radius: 10px;
+    border-radius: 25px;
     background-color: #F3F3F3;
     padding-left: 40px;
     border: none;
@@ -961,7 +961,7 @@ svg {
     right: 0;
     bottom: 0;
     left: 0;
-    background-image: url("{{asset('images/jobs_bg.png')}}");
+    background-image: url('../images/jobs_bg.png');
     -webkit-background-size: cover;
     background-size: cover;
     background-repeat: no-repeat;
@@ -983,6 +983,7 @@ svg {
     height: 100%;
 }
 .available_job_item .job_count{
+    background-image: url('../images/job_bg.png');
     -webkit-background-size: cover;
     background-size: cover;
     background-repeat: no-repeat;
@@ -1037,7 +1038,7 @@ svg {
     margin-bottom: 35px;
 }
 .view-jobs-btn .btn{
-    border-radius: 10px;
+    border-radius: 25px;
 }
 .view-jobs-btn .btn i{
     margin-right: 5px;
@@ -1047,6 +1048,9 @@ svg {
 /* ./available_jobs_section */
 
 /* available-jobs-page */
+.header-wrapper{
+    background-color: #fff;
+}
 .page-content{
     padding: 50px 0 40px;
 }
@@ -1111,6 +1115,21 @@ svg {
     min-width: 40%;
 }
 /* page-bar */
+
+/* pagination */
+.page-link{
+    color: var(--mainFontColor);
+    border-color: var(--mainFontColor);
+    font-size: 16px;
+    border: #f1f1f1;
+}
+.page-item.active .page-link,
+.page-link:hover{
+    color: #fff;
+    background-color: var(--pink);
+    border-color: var(--pink);
+}
+/* end pagination */
 
 /* resposnive */
 @media screen and (max-width: 1199px){

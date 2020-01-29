@@ -1,6 +1,6 @@
 @extends('layouts.webapp')
 @section('guest')
-    <div class="page-bar sticky-top">
+    <div class="page-bar sticky-top1">
         <div class="container">
             <div class="page-bar-wrap d-flex justify-content-between align-items-center">
                 <ol class="breadcrumb">
@@ -335,6 +335,23 @@
                         </div>
                     </div>
                 </div>
+                <nav aria-label="Page navigation" class="mt-4">
+                    <ul class="pagination justify-content-center">
+                        <li class="page-item">
+                            <a class="page-link" href="#" aria-label="Previous">
+                                <span aria-hidden="true">&laquo;</span>
+                            </a>
+                        </li>
+                        <li class="page-item"><a class="page-link" href="#">1</a></li>
+                        <li class="page-item active"><a class="page-link" href="#">2</a></li>
+                        <li class="page-item"><a class="page-link" href="#">3</a></li>
+                        <li class="page-item">
+                            <a class="page-link" href="#" aria-label="Next">
+                                <span aria-hidden="true">&raquo;</span>
+                            </a>
+                        </li>
+                    </ul>
+                </nav>
             </div>
         </div>
     </div>

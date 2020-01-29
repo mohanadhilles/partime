@@ -44,6 +44,7 @@
 </aside>
 <div class="side-overlay"></div>
 <!-- Side Menu -->
+<div class="header-wrapper sticky-top">
 <header id="header" class="main-header wow slideInDown" data-wow-duration="1s" data-wow-delay=".3s">
     <div class="container">
         <nav class="navbar navbar-expand-lg">
@@ -75,7 +76,7 @@
     </div>
 </header><!-- /header -->
 
-
+</div>
 @yield('guest')
 
 
