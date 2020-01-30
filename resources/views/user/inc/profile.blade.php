@@ -3,11 +3,11 @@
             <h6>{{__('Profile Image')}}</h6>
             <div class="row">
               <div class="col-md-6">
-                <div class="formrow"> {{ ImgUploader::print_image("user_images/$user->image", 100, 100) }} </div>
+                <div class="form-group"> {{ ImgUploader::print_image("user_images/$user->image", 100, 100) }} </div>
               </div>
 
               <div class="col-md-6">
-                <div class="formrow">
+                <div class="form-group">
                   <div id="thumbnail"></div>
                   <label class="btn btn-default"> {{__('Select Profile Image')}}
                     <input type="file" name="image" id="image" style="display: none;">
@@ -17,39 +17,39 @@
             </div>
             <div class="row">
               <div class="col-md-6">
-                <div class="formrow {!! APFrmErrHelp::hasError($errors, 'first_name') !!}"> {!! Form::text('first_name', null, array('class'=>'form-control', 'id'=>'first_name', 'placeholder'=>__('First Name'))) !!}
+                <div class="form-group {!! APFrmErrHelp::hasError($errors, 'first_name') !!}"> {!! Form::text('first_name', null, array('class'=>'form-control', 'id'=>'first_name', 'placeholder'=>__('First Name'))) !!}
                   {!! APFrmErrHelp::showErrors($errors, 'first_name') !!} </div>
               </div>
               <div class="col-md-6">
-                <div class="formrow {!! APFrmErrHelp::hasError($errors, 'middle_name') !!}"> {!! Form::text('middle_name', null, array('class'=>'form-control', 'id'=>'middle_name', 'placeholder'=>__('Middle Name'))) !!}
+                <div class="form-group {!! APFrmErrHelp::hasError($errors, 'middle_name') !!}"> {!! Form::text('middle_name', null, array('class'=>'form-control', 'id'=>'middle_name', 'placeholder'=>__('Middle Name'))) !!}
                   {!! APFrmErrHelp::showErrors($errors, 'middle_name') !!}</div>
               </div>
               <div class="col-md-6">
-                <div class="formrow {!! APFrmErrHelp::hasError($errors, 'last_name') !!}"> {!! Form::text('last_name', null, array('class'=>'form-control', 'id'=>'last_name', 'placeholder'=>__('Last Name'))) !!}
+                <div class="form-group {!! APFrmErrHelp::hasError($errors, 'last_name') !!}"> {!! Form::text('last_name', null, array('class'=>'form-control', 'id'=>'last_name', 'placeholder'=>__('Last Name'))) !!}
                   {!! APFrmErrHelp::showErrors($errors, 'last_name') !!}</div>
               </div>
               <div class="col-md-6">
-                <div class="formrow {!! APFrmErrHelp::hasError($errors, 'father_name') !!}"> {!! Form::text('father_name', null, array('class'=>'form-control', 'id'=>'father_name', 'placeholder'=>__('Father Name'))) !!}
+                <div class="form-group {!! APFrmErrHelp::hasError($errors, 'father_name') !!}"> {!! Form::text('father_name', null, array('class'=>'form-control', 'id'=>'father_name', 'placeholder'=>__('Father Name'))) !!}
                   {!! APFrmErrHelp::showErrors($errors, 'father_name') !!} </div>
               </div>
               <div class="col-md-6">
-                <div class="formrow {!! APFrmErrHelp::hasError($errors, 'email') !!}"> {!! Form::text('email', null, array('class'=>'form-control', 'id'=>'email', 'placeholder'=>__('Email'))) !!}
+                <div class="form-group {!! APFrmErrHelp::hasError($errors, 'email') !!}"> {!! Form::text('email', null, array('class'=>'form-control', 'id'=>'email', 'placeholder'=>__('Email'))) !!}
                   {!! APFrmErrHelp::showErrors($errors, 'email') !!} </div>
               </div>
               <div class="col-md-6">
-                <div class="formrow {!! APFrmErrHelp::hasError($errors, 'password') !!}"> {!! Form::password('password', array('class'=>'form-control', 'id'=>'password', 'placeholder'=>__('Password'))) !!}
+                <div class="form-group {!! APFrmErrHelp::hasError($errors, 'password') !!}"> {!! Form::password('password', array('class'=>'form-control', 'id'=>'password', 'placeholder'=>__('Password'))) !!}
                   {!! APFrmErrHelp::showErrors($errors, 'password') !!} </div>
               </div>
               <div class="col-md-6">
-                <div class="formrow {!! APFrmErrHelp::hasError($errors, 'gender_id') !!}"> {!! Form::select('gender_id', [''=>__('Select Gender')]+$genders, null, array('class'=>'form-control', 'id'=>'gender_id')) !!}
+                <div class="form-group {!! APFrmErrHelp::hasError($errors, 'gender_id') !!}"> {!! Form::select('gender_id', [''=>__('Select Gender')]+$genders, null, array('class'=>'form-control', 'id'=>'gender_id')) !!}
                   {!! APFrmErrHelp::showErrors($errors, 'gender_id') !!} </div>
               </div>
               <div class="col-md-6">
-                <div class="formrow {!! APFrmErrHelp::hasError($errors, 'marital_status_id') !!}"> {!! Form::select('marital_status_id', [''=>__('Select Marital Status')]+$maritalStatuses, null, array('class'=>'form-control', 'id'=>'marital_status_id')) !!}
+                <div class="form-group {!! APFrmErrHelp::hasError($errors, 'marital_status_id') !!}"> {!! Form::select('marital_status_id', [''=>__('Select Marital Status')]+$maritalStatuses, null, array('class'=>'form-control', 'id'=>'marital_status_id')) !!}
                   {!! APFrmErrHelp::showErrors($errors, 'marital_status_id') !!} </div>
               </div>
               <div class="col-md-6">
-                <div class="formrow {!! APFrmErrHelp::hasError($errors, 'country_id') !!}">
+                <div class="form-group {!! APFrmErrHelp::hasError($errors, 'country_id') !!}">
                 <?php $country_id = old('country_id', (isset($user) && (int)$user->country_id > 0)? $user->country_id:$siteSetting->default_country_id); ?>
              {!! Form::select('country_id', [''=>__('Select Country')]+$countries, $country_id, array('class'=>'form-control', 'id'=>'country_id')) !!}
                   {!! APFrmErrHelp::showErrors($errors, 'country_id') !!} </div>
@@ -61,16 +61,16 @@
 
              ?>
 
-                <div class="formrow {!! APFrmErrHelp::hasError($errors, 'city_id') !!}">
+                <div class="form-group {!! APFrmErrHelp::hasError($errors, 'city_id') !!}">
                 <span id="city_dd"> {!! Form::select('city_id', [''=>__('Select City')]+$cities, $city_id, array('class'=>'form-control', 'id'=>'city_id')) !!} </span> {!! APFrmErrHelp::showErrors($errors, 'city_id') !!} </div>
               </div>
                <div class="col-md-6">
-                <div class="formrow {!! APFrmErrHelp::hasError($errors, 'neighborhood') !!}">
+                <div class="form-group {!! APFrmErrHelp::hasError($errors, 'neighborhood') !!}">
                  {!! Form::text('neighborhood', null, array('class'=>'form-control', 'id'=>'neighborhood', 'placeholder'=> 'حي السكن'  ))!!}
                   {!! APFrmErrHelp::showErrors($errors, 'neighborhood') !!} </div>
               </div>
               <div class="col-md-6">
-                <div class="formrow {!! APFrmErrHelp::hasError($errors, 'nationality_id') !!}"> {!! Form::select('nationality_id', [''=>__('Select Nationality')]+$nationalities, null, array('class'=>'form-control', 'id'=>'nationality_id')) !!}
+                <div class="form-group {!! APFrmErrHelp::hasError($errors, 'nationality_id') !!}"> {!! Form::select('nationality_id', [''=>__('Select Nationality')]+$nationalities, null, array('class'=>'form-control', 'id'=>'nationality_id')) !!}
                   {!! APFrmErrHelp::showErrors($errors, 'nationality_id') !!} </div>
               </div>
               <div class="col-md-6">

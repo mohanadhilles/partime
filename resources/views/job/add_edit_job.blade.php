@@ -9,7 +9,7 @@
 @include('includes.inner_page_title', ['page_title'=>__('Job Details')]) 
 <!-- Inner Page Title end -->
 
-<div class="listpgWraper">
+
   <div class="container">
     <div class="row">
       @include('includes.company_dashboard_menu')
@@ -28,7 +28,7 @@
       </div>
     </div>
   </div>
-</div>
+ 
 @include('includes.footer')
 @endsection
 @push('styles')

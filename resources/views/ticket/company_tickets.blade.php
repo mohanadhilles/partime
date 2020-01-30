@@ -30,16 +30,19 @@
 
 
 
-      <div class="col-md-9 col-sm-8">
 
-        <div class="myads">
 
-          <h3>{{__('My Tickets')}}
-            <small class="pull-left" >
+          <div class="card">
+                            <div class="card-header">
+                                <i class="fa fa-align-justify"></i> {{__('My Tickets')}}
+
+                                 <small class="pull-left" >
            <a class="btn btn-info" href="{{ route('company.new.ticket') }}"><i class="fa fa-file" aria-hidden="true"></i> {{__('New Ticket')}}</a>
           </small>
-          </h3>
-            <table  class="table table-bordered text-right"   >
+                            </div>
+                            <div class="card-block">
+             <table  class="table table-bordered text-right"   >
+             <thead>
 
         <tr>
         <th class="text-right" >رقم الطلب </th>
@@ -52,7 +55,8 @@
         <th class="text-right"> الأهمية </th>
         <th class="text-right" >خياراتي</th>
         </tr>
-
+                </thead>
+                                    <tbody>
             @forelse($tickets as $ticket)
 
           <tr>
@@ -77,6 +81,7 @@
 
 @endforelse
 
+        </tbody>
         </table>
 
 

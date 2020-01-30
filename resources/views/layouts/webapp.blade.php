@@ -140,6 +140,11 @@
 
 <script src="{{asset('web/plugins/owlslider/owl.carousel.min.js')}}"></script>
 <script src="{{asset('web/js/main.js')}}"></script>
+
+      <!-- App scripts -->
+        @stack('scripts')
+
+
 <script type="text/javascript">
     $('.projects_slider').owlCarousel({
         // center: true,

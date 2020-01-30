@@ -20,8 +20,6 @@
 
 
 
-<div class="listpgWraper">
-
   <div class="container">
 
     <div class="row">
@@ -30,19 +28,19 @@
 
 
 
-      <div class="col-md-9 col-sm-8">
 
-        <div class="myads">
+              <div class="card">
+                            <div class="card-header">
+                                <i class="fa fa-align-justify"></i> {{__('Contracts')}}
 
-          <h3>{{__('Contracts')}}   <small class="pull-left" >
-          <a class="btn btn-info" href="{{ route('posted.jobs',['job_status_id' => 1]) }}"><i class="fa fa-file-text" aria-hidden="true"></i> {{__('Pending Contracts')}} </a>
+                                 <small class="pull-left" >
+   <a class="btn btn-info" href="{{ route('posted.jobs',['job_status_id' => 1]) }}"><i class="fa fa-file-text" aria-hidden="true"></i> {{__('Pending Contracts')}} </a>
           <a class="btn btn-info" href="{{ route('post.job') }}"><i class="fa fa-file" aria-hidden="true"></i> {{__('New Contract')}}</a>
-          </small>   </h3>
-
-
-
-            <table  class="table table-bordered text-right"   >
-
+                   </small>
+                            </div>
+                            <div class="card-block">
+             <table  class="table table-bordered text-right"   >
+             <thead>
         <tr>
         <th class="text-right" >رقم العقد</th>
         <th class="text-right">تاريخ العقد </th>
@@ -54,6 +52,8 @@
         <th class="text-right" >خياراتي</th>
 
         </tr>
+           </thead>
+                                    <tbody>
            @forelse ($contracts as $contract)
              <tr>
         <td>{{$contract->id}}  </td>
@@ -78,6 +78,7 @@
 
 
 
+        </tbody>
         </table>
 
 
@@ -91,7 +92,7 @@
 
   </div>
 
-</div>
+
 
 @include('includes.footer')
 

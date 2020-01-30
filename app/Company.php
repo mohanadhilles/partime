@@ -51,6 +51,9 @@ class Company extends Authenticatable
     }
 
 
+
+
+
           	public function contracts()
     {
         return $this->hasMany('App\Contract', 'company_id', 'id');

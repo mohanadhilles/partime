@@ -30,13 +30,15 @@
 
 
 
-      <div class="col-md-9 col-sm-8">
+          <div class="card">
+                            <div class="card-header">
+                                <i class="fa fa-align-justify"></i> {{__('My Payments')}}
 
-        <div class="myads">
 
-          <h3>{{__('My Payments')}}</h3>
-            <table  class="table table-bordered text-right"   >
-
+                            </div>
+                            <div class="card-block">
+             <table  class="table table-bordered text-right"   >
+             <thead>
         <tr>
         <th class="text-right" >رقم مستند الدفع  </th>
 
@@ -47,7 +49,8 @@
 
         <th class="text-right" >خياراتي</th>
         </tr>
-
+                </thead>
+                                    <tbody>
             @forelse($payments as $payment)
 
            <tr>
@@ -68,6 +71,7 @@
 
 @endforelse
 
+        </tbody>
         </table>
 
 

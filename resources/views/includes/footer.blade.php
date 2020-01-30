@@ -1,26 +1,24 @@
-<!--Copyright-->
-<div class="copyright">
+             </div>
+                <!--/.row-->
+            </div>
 
-  <div class="container">
-	<div class="row">
-		<div class="col-md-8">
-			<div class="bttxt">{{__('Copyright')}} &copy;
+        </div>
+        <!--/.container-fluid-->
+    </main>
+  
+
+   @include('includes.aside')
+
+<footer class="footer">
+        <span class="text-left">
+           &copy;
 
             <?php
                              $year = 2020;
                               echo (date("Y") == $year) ? $year : "{$year} - ". date("Y");
-                              ?>
+                              ?>   {{ $siteSetting->site_name }}. {{__('All Rights Reserved')}}.
+        </span>
+        <span class="pull-right">
 
-
-             {{ $siteSetting->site_name }}. {{__('All Rights Reserved')}}. {{__('Design by')}}: <a href="https://www.linkedin.com/in/haniusif/" target="_blank">Par Time</a></div>
-		</div>
-		<div class="col-md-4">
-			<div class="paylogos"><img src="{{asset('/')}}images/payment-icons.png" alt="" /></div>
-		</div>
-	</div>
-
-
-  </div>
-
-</div>
-
+        </span>
+    </footer>

@@ -1,77 +1,82 @@
-<ul class="row profilestat">
+
+              <div class="col-sm-6 col-lg-3">
+                     <a style="text-decoration: none" href="{{route('posted.jobs',['job_status_id'=> 1])}}" >
+                        <div class="card card-inverse card-primary">
+                            <div class="card-block">
+                                <div class="h1 text-muted text-xs-right m-b-2">
+                                    <i class="fa fa-file-text"></i>
+                                </div>
+                                <div class="h4 m-b-0">{{__('Pending Contracts')}} </div>
+                                <small class="text-muted text-uppercase font-weight-bold">{{Auth::guard('company')->user()->countPendingContracts()}}</small>
+                             </div>
+                        </div>
+                        </a>
+                    </div>
 
 
-             <li class="col-md-4 col-sm-4 col-xs-6">
-            <div class="inbox"> <i class="fa fa-user" aria-hidden="true"></i>
-              <h6><a href="{{route('company.profile')}}">%  {{Auth::guard('company')->user()->calculate_profile()}} </a></h6>
-              <strong>{{__('Profile Completion')}}</strong> </div>
-          </li>
-
-
-
-          <li class="col-md-4 col-sm-4 col-xs-6">
-            <div class="inbox"> <i class="fa fa-file-text-o" aria-hidden="true"></i>
-              <h6><a href="{{route('posted.jobs',['job_status_id'=> 1])}}">{{Auth::guard('company')->user()->countPendingContracts()}}</a></h6>
-              <strong>{{__('Pending Contracts')}}</strong> </div>
-          </li>
-
-
-          <li class="col-md-4 col-sm-4 col-xs-6">
-            <div class="inbox"> <i class="fa fa-file-text-o" aria-hidden="true"></i>
-              <h6><a href="{{route('posted.jobs',['job_status_id'=> 2])}}">{{Auth::guard('company')->user()->countWaitingForSelection()}}</a></h6>
-              <strong>{{__('Waiting For Selection')}}</strong> </div>
-          </li>
-
-
-                    <li class="col-md-4 col-sm-4 col-xs-6">
-            <div class="inbox"> <i class="fa fa-money" aria-hidden="true"></i>
-              <h6><a href="{{route('posted.jobs')}}">{{Auth::guard('company')->user()->countPendingPayments()}}</a></h6>
-              <strong>{{__('Pending Payments')}}</strong> </div>
-          </li>
-
-
-                    <li class="col-md-4 col-sm-4 col-xs-6">
-            <div class="inbox"> <i class="fa fa-file" aria-hidden="true"></i>
-              <h6><a href="{{route('posted.jobs')}}">{{Auth::guard('company')->user()->countExpiredContract()}}</a></h6>
-              <strong>{{__('Expired Contract')}}</strong> </div>
-          </li>
-
-
-                    <li class="col-md-4 col-sm-4 col-xs-6">
-            <div class="inbox"> <i class="fa fa-file" aria-hidden="true"></i>
-              <h6><a href="{{route('posted.jobs')}}">{{Auth::guard('company')->user()->countNeartoExpire()}}</a></h6>
-              <strong>{{__('Near to Expire')}}</strong> </div>
-          </li>
-
-
-                      <li class="col-md-4 col-sm-4 col-xs-6">
-            <div class="inbox"> <i class="fa fa-user-plus" aria-hidden="true"></i>
-              <h6><a class="btn btn-info" href="{{route('company.new.contract')}}">{{__('New Contract')}}</a></h6>
-                </div>
-          </li>
+                  <div class="col-sm-6 col-lg-3">
+                     <a style="text-decoration: none" href="{{route('posted.jobs',['job_status_id'=> 2])}}" >
+                        <div class="card card-inverse card-success">
+                            <div class="card-block">
+                                <div class="h1 text-muted text-xs-right m-b-2">
+                                    <i class="fa fa-file-text"></i>
+                                </div>
+                                <div class="h4 m-b-0">{{__('Waiting For Selection')}} </div>
+                                <small class="text-muted text-uppercase font-weight-bold">{{Auth::guard('company')->user()->countWaitingForSelection()}}</small>
+                             </div>
+                        </div>
+                        </a>
+                    </div>
 
 
 
-                       <li class="col-md-4 col-sm-4 col-xs-6">
-            <div class="inbox"> <i class="fa fa-ticket" aria-hidden="true"></i>
-              <h6><a class="btn btn-info" href="{{route('company.new.ticket')}}">{{__('New Ticket')}}</a></h6>
-                </div>
-          </li>
+                  <div class="col-sm-6 col-lg-3">
+                     <a style="text-decoration: none" href="{{route('company.my.payments')}}" >
+                        <div class="card card-inverse card-info">
+                            <div class="card-block">
+                                <div class="h1 text-muted text-xs-right m-b-2">
+                                    <i class="fa fa-money"></i>
+                                </div>
+                                <div class="h4 m-b-0">{{__('Pending Payments')}} </div>
+                                <small class="text-muted text-uppercase font-weight-bold">{{Auth::guard('company')->user()->countPendingPayments()}}</small>
+                             </div>
+                        </div>
+                        </a>
+                    </div>
 
-                         <li class="col-md-4 col-sm-4 col-xs-6">
-            <div class="inbox"> <i class="fa fa-plus" aria-hidden="true"></i>
-              <h6><a class="btn btn-info" href="{{route('post.job')}}">{{__('New Post Job')}}</a></h6>
-               </div>
-          </li>
 
-     <!--     <li class="col-md-2 col-sm-4 col-xs-6">
-            <div class="inbox"> <i class="fa fa-user-o" aria-hidden="true"></i>
-              <h6><a href="{{route('company.followers')}}">{{Auth::guard('company')->user()->countFollowers()}}</a></h6>
-              <strong>{{__('Followers')}}</strong> </div>
-          </li>
-          <li class="col-md-2 col-sm-4 col-xs-6">
-            <div class="inbox"> <i class="fa fa-envelope-o" aria-hidden="true"></i>
-              <h6><a href="{{route('company.messages')}}">{{Auth::guard('company')->user()->countCompanyMessages()}}</a></h6>
-              <strong>{{__('Messages')}}</strong> </div>
-          </li>-->
-        </ul>
+
+
+
+                  <div class="col-sm-6 col-lg-3">
+                     <a style="text-decoration: none" href="{{route('company.my.contracts')}}" >
+                        <div class="card card-inverse card-danger">
+                            <div class="card-block">
+                                <div class="h1 text-muted text-xs-right m-b-2">
+                                    <i class="fa fa-money"></i>
+                                </div>
+                                <div class="h4 m-b-0">{{__('Expired Contract')}} </div>
+                                <small class="text-muted text-uppercase font-weight-bold">{{Auth::guard('company')->user()->countExpiredContract()}}</small>
+                             </div>
+                        </div>
+                        </a>
+                    </div>
+
+
+
+                 <div class="col-sm-6 col-lg-3">
+                     <a style="text-decoration: none" href="{{route('company.my.contracts')}}" >
+                        <div class="card card-inverse card-warning">
+                            <div class="card-block">
+                                <div class="h1 text-muted text-xs-right m-b-2">
+                                    <i class="fa fa-file"></i>
+                                </div>
+                                <div class="h4 m-b-0">{{__('Near to Expire')}} </div>
+                                <small class="text-muted text-uppercase font-weight-bold">{{Auth::guard('company')->user()->countNeartoExpire()}}</small>
+                             </div>
+                        </div>
+                        </a>
+                    </div>
+
+
+

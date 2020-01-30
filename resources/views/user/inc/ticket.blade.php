@@ -7,13 +7,13 @@
 @endif
 <div class="row">
     <div class="col-md-8">
-    <div class="formrow {!! APFrmErrHelp::hasError($errors, 'subject') !!}">
+    <div class="form-group {!! APFrmErrHelp::hasError($errors, 'subject') !!}">
      {!! Form::text('subject', null, array('class'=>'form-control', 'id'=>'subject', 'placeholder'=>__('Ticket Subject'))) !!}
       {!! APFrmErrHelp::showErrors($errors, 'subject') !!} </div>
   </div>
 
     <div class="col-md-4">
-    <div class="formrow {!! APFrmErrHelp::hasError($errors, 'contract_id') !!}"  >
+    <div class="form-group {!! APFrmErrHelp::hasError($errors, 'contract_id') !!}"  >
      <span id="default_state_dd">
          {!! Form::select('contract_id', ['' => __('Select Contract Num')]+$contracts, null, array('class'=>'form-control', 'id'=>'contract_id')) !!}
 
@@ -22,7 +22,7 @@
   </div>
 
   <div class="col-md-4">
-    <div class="formrow {!! APFrmErrHelp::hasError($errors, 'department_id') !!}"  >
+    <div class="form-group {!! APFrmErrHelp::hasError($errors, 'department_id') !!}"  >
      <span id="default_state_dd">
          {!! Form::select('department_id', ['' => __('Select ticket department')]+$ticketDepartments, null, array('class'=>'form-control', 'id'=>'department_id')) !!}
 
@@ -30,7 +30,7 @@
      </span> {!! APFrmErrHelp::showErrors($errors, 'department_id') !!} </div>
   </div>
   <div class="col-md-4">
-    <div class="formrow {!! APFrmErrHelp::hasError($errors, 'priority_id') !!}"  >
+    <div class="form-group {!! APFrmErrHelp::hasError($errors, 'priority_id') !!}"  >
      <span id="default_city_dd">
 
          {!! Form::select('priority_id', ['' => __('Select ticket priority')]+$ticketPriorites, null, array('class'=>'form-control', 'id'=>'priority_id')) !!}
@@ -40,7 +40,7 @@
   </div>
 
       <div class="col-md-4">
-    <div class="formrow {!! APFrmErrHelp::hasError($errors, 'status_id') !!}"  >
+    <div class="form-group {!! APFrmErrHelp::hasError($errors, 'status_id') !!}"  >
         {!! Form::select('status_id', ['' => __('Select ticket status')]+$ticketStatuses, null, array('class'=>'form-control', 'id'=>'status_id')) !!}
 
 
@@ -50,7 +50,7 @@
 
 
   <div class="col-md-12">
-    <div class="formrow {!! APFrmErrHelp::hasError($errors, 'notes') !!}">
+    <div class="form-group {!! APFrmErrHelp::hasError($errors, 'notes') !!}">
     {!! Form::textarea('notes', null, array('class'=>'form-control', 'id'=>'notes', 'placeholder'=>__('ticket note'))) !!}
       {!! APFrmErrHelp::showErrors($errors, 'notes') !!} </div>
   </div>
@@ -60,7 +60,7 @@
 
 
   <div class="col-md-12">
-    <div class="formrow">
+    <div class="form-group">
       <button type="submit" class="btn">{{__('Update ticket')}} <i class="fa fa-arrow-circle-left" aria-hidden="true"></i></button>
     </div>
   </div>

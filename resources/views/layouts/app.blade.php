@@ -3,78 +3,67 @@ if (!isset($seo)) {
     $seo = (object) array('seo_title' => $siteSetting->site_name, 'seo_description' => $siteSetting->site_name, 'seo_keywords' => $siteSetting->site_name, 'seo_other' => '');
 }
 ?>
-
 <!DOCTYPE html>
-<html lang="{{ app()->getLocale() }}" class="{{ (session('localeDir', 'rtl'))}}" dir="{{ (session('localeDir', 'rtl'))}}">
+<html lang="ar" dir="rtl">
+
 <head>
-<meta charset="utf-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>{{ config('app.name', 'Laravel') }} | {{ $seo->seo_title }}</title>
-<meta name="Description" content="{!! $seo->seo_description !!}">
-<meta name="Keywords" content="{!! $seo->seo_keywords !!}">
-{!! $seo->seo_other !!}
-
-<!-- Fav Icon -->
-<link rel="shortcut icon" href="{{asset('/')}}favicon.ico">
-<!-- Owl carousel -->
-<link href="{{asset('/')}}css/owl.carousel.css" rel="stylesheet">
-<!-- Bootstrap -->
-<link href="{{asset('/')}}css/bootstrap.min.css" rel="stylesheet">
-<!-- Font Awesome -->
-<link href="{{asset('/')}}css/font-awesome.css" rel="stylesheet">
-<!-- Custom Style -->
-<link href="{{asset('/')}}css/main.css" rel="stylesheet">
-@if((session('localeDir', 'rtl') == 'rtl'))
-<!-- Rtl Style -->
-<link href="{{asset('/')}}css/rtl-style.css" rel="stylesheet">
-@endif
-<link href="{{ asset('/') }}admin_assets/global/plugins/bootstrap-datepicker/css/bootstrap-datepicker3.min.css" rel="stylesheet" type="text/css" />
-<link href="{{ asset('/') }}admin_assets/global/plugins/select2/css/select2.min.css" rel="stylesheet" type="text/css" />
-<link href="{{ asset('/') }}admin_assets/global/plugins/select2/css/select2-bootstrap.min.css" rel="stylesheet" type="text/css" />
-
-<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
-<!--[if lt IE 9]>
-  <script src="{{asset('/')}}js/html5shiv.min.js"></script>
-  <script src="{{asset('/')}}js/respond.min.js"></script>
-<![endif]-->
-@stack('styles')
-        <style>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="par-time">
+    <meta name="author" content="par-time">
+    <meta name="keyword" content="par-time">
+    <!-- <link rel="shortcut icon" href="assets/ico/favicon.png"> -->
+    <title>{{ config('app.name', 'Laravel') }} | {{ $seo->seo_title }}</title>
+    <!-- Icons -->
+    <link href="{{asset('tamplate/css/font-awesome.min.css')}}" rel="stylesheet">
+    <link href="{{asset('tamplate/css/simple-line-icons.css')}}" rel="stylesheet">
+    <!-- Main styles for this application -->
+    <link href="{{asset('tamplate/dest/style.css')}}" rel="stylesheet">
+            <style>
      @import url({{ asset('fonts/droidarabickufi.css') }});
 *,html,body , h1 , h2 , h3, h4, h5 {
   font-family: 'Droid Arabic Kufi', serif;
-
-  
   word-spacing: 1px;
 }
     </style>
 </head>
-<body>
-@yield('content') 
-<!-- Bootstrap's JavaScript --> 
-<script src="{{asset('/')}}js/jquery-2.1.4.min.js"></script> 
-<script src="{{asset('/')}}js/bootstrap.min.js"></script> 
-<!-- Owl carousel --> 
-<script src="{{asset('/')}}js/owl.carousel.js"></script> 
-<script src="{{ asset('/') }}admin_assets/global/plugins/bootstrap-datepicker/js/bootstrap-datepicker.min.js" type="text/javascript"></script> 
-<script src="{{ asset('/') }}admin_assets/global/plugins/Bootstrap-3-Typeahead/bootstrap3-typeahead.min.js" type="text/javascript"></script> 
-<!-- END PAGE LEVEL PLUGINS --> 
-<script src="{{ asset('/') }}admin_assets/global/plugins/select2/js/select2.full.min.js" type="text/javascript"></script> 
+<!-- BODY options, add following classes to body to change options
+		1. 'compact-nav'     	  - Switch sidebar to minified version (width 50px)
+		2. 'sidebar-nav'		  - Navigation on the left
+			2.1. 'sidebar-off-canvas'	- Off-Canvas
+				2.1.1 'sidebar-off-canvas-push'	- Off-Canvas which move content
+				2.1.2 'sidebar-off-canvas-with-shadow'	- Add shadow to body elements
+		3. 'fixed-nav'			  - Fixed navigation
+		4. 'navbar-fixed'		  - Fixed navbar
+	-->
 
-<!-- Custom js --> 
-<script src="{{asset('/')}}js/script.js"></script> 
-<script src="{{ asset('/') }}admin_assets/global/plugins/jquery.scrollTo.min.js" type="text/javascript"></script> 
-{!! NoCaptcha::renderJs() !!}
+<body class="navbar-fixed sidebar-nav fixed-nav">
 
-@stack('scripts') 
-<script type="text/JavaScript">
-	$(document).ready(function(){
-	$(document).scrollTo('.has-error', 2000);
-	});
-	function showProcessingForm(btn_id){		
-	$("#"+btn_id).val( 'Processing .....' );
-	$("#"+btn_id).attr('disabled','disabled');		
-	}
-</script>
+
+
+  @yield('content')
+
+
+    <!-- Bootstrap and necessary plugins -->
+    <script src="{{asset('tamplate/js/libs/jquery.min.js') }}"></script>
+    <script src="{{asset('tamplate/js/libs/tether.min.js') }}"></script>
+    <script src="{{asset('tamplate/js/libs/bootstrap.min.js') }}"></script>
+    <script src="{{asset('tamplate/js/libs/pace.min.js') }}"></script>
+
+    <!-- Plugins and scripts required by all views -->
+    <script src="{{asset('tamplate/js/libs/Chart.min.js') }}"></script>
+
+    <!-- CoreUI main scripts -->
+
+    <script src="{{asset('tamplate/js/app.js') }}"></script>
+
+    <!-- Plugins and scripts required by this views -->
+    <!-- Custom scripts required by this view -->
+    <script src="{{asset('tamplate/js/views/main.js') }}"></script>
+
+    <!-- Grunt watch plugin -->
+    <script src="//localhost:35729/livereload.js"></script>
 </body>
+
 </html>

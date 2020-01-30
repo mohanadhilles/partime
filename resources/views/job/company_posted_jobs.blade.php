@@ -8,7 +8,7 @@
 
 @include('includes.header')
 
-<!-- Header end --> 
+<!-- Header end -->
 
 
 
@@ -20,28 +20,26 @@
 
 
 
-<div class="listpgWraper">
-
   <div class="container">
 
     <div class="row">
 
       @include('includes.company_dashboard_menu')
 
-      
 
-      <div class="col-md-9 col-sm-8"> 
 
-        <div class="myads">
 
-          <h3>{{__('Company Posted Jobs')}}
+          <div class="card">
+                            <div class="card-header">
+                                <i class="fa fa-align-justify"></i> {{__('Company Posted Jobs')}}
 
-          <small class="pull-left" >
+                                 <small class="pull-left" >
            <a class="btn btn-info" href="{{ route('post.job') }}"><i class="fa fa-file" aria-hidden="true"></i> {{__('New Post Job')}}</a>
           </small>
-          </h3>
-            <table  class="table table-bordered text-right"   >
-
+                            </div>
+                            <div class="card-block">
+             <table  class="table table-bordered text-right"   >
+             <thead>
         <tr>
         <th class="text-right" >رقم الطلب </th>
         <th class="text-right">الوظيفة المطلوبة</th>
@@ -51,20 +49,23 @@
         <th class="text-right"> المفضلة </th>
         <th class="text-right"> المرشحين </th>
         <th class="text-right" >خياراتي</th>
+
         </tr>
+           </thead>
+                                    <tbody>
         @forelse($jobs as $job)
             @php $company = $job->getCompany(); @endphp
             @php $getAppliedUserIdsArray = $job->getAppliedUserIdsArray() @endphp
             @php $getFavouriteAppliedUserIdsArray = $job->getFavouriteAppliedUserIdsArray() @endphp
 
-        
+
           <tr>
 
 
         <td>{{$job->id}}  </td>
         <td>{{$job->title}} </td>
         <td><label class="fulltime"  style="background: #{{$job->getJobStatus('code')}}" >{{$job->getJobStatus('job_status')}}</label> </td>
-        <td><label class="fulltime"  style="background: #{{$job->getJobShift('code')}}" >{{$job->getJobShift('job_shift')}}</label> </td>
+        <td><label class="fulltime"  style="background: #{{$job->getJobShift('code')}};color:#fff" >{{$job->getJobShift('job_shift')}}</label> </td>
 
         <td>{{$job->getCity('city')}} </td>
         <td><a href="{{route('list.favourite.applied.users', [$job->id])}}" title="{{ __('List Short Listed Candidates')}}" >
@@ -80,7 +81,7 @@
         </tr>
 
 @endforelse
-
+         </tbody>
         </table>
 
 
@@ -91,10 +92,12 @@
       </div>
 
     </div>
+    </div>
 
-  </div>
 
-</div>
+
+
+
 
 @include('includes.footer')
 

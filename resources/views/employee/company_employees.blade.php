@@ -19,9 +19,6 @@
 <!-- Inner Page Title end -->
 
 
-
-<div class="listpgWraper">
-
   <div class="container">
 
     <div class="row">
@@ -30,13 +27,15 @@
 
 
 
-      <div class="col-md-9 col-sm-8">
+                <div class="card">
+                            <div class="card-header">
+                                <i class="fa fa-align-justify"></i> {{__('Employees')}}
 
-        <div class="myads">
 
-          <h3>{{__('Employees')}}</h3>
-            <table  class="table table-bordered text-right"   >
-
+                            </div>
+                            <div class="card-block">
+             <table  class="table table-bordered text-right"   >
+             <thead>
         <tr>
         <th class="text-right" >رقم الموظف</th>
         <th class="text-right"> إسم الموظف</th>
@@ -47,7 +46,8 @@
 
         <th class="text-right" >خياراتي</th>
         </tr>
-
+                 </thead>
+                                    <tbody>
             @forelse($employees as $employee)
              @php    $user = $employee->getUser();  @endphp
 
@@ -64,12 +64,13 @@
 
        @empty
       <tr>
-        <td colspan="6" class="text-center" > لا يوجد بيانات  </td>
+        <td colspan="7" class="text-center" > لا يوجد بيانات  </td>
 
         </tr>
 
 @endforelse
 
+        </tbody>
         </table>
 
 
@@ -83,7 +84,7 @@
 
   </div>
 
-</div>
+
 
 @include('includes.footer')
 

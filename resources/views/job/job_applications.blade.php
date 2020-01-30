@@ -82,7 +82,7 @@
 
 
             </div>
-            <p>{{str_limit($user->getProfileSummary('summary'),150,'...')}}</p>
+           <!-- <p>{{str_limit($user->getProfileSummary('summary'),150,'...')}}</p>    -->
           </li>
             <!-- job end -->
             @endif

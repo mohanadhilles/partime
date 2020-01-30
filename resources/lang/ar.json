@@ -1,5 +1,6 @@
 {
 "A world of oppertunity in your hand":"عالم من oppertunity في يدك",
+"Join Parttime Partner app partners close to your career and get additional income":"انضم إلى شركاء تطبيق بارتايم بدوام جزئي قريب من عملك الاساسي وأحصل على دخل إضافي",
 "About Company":"عن الشركة",
 "About me":"عني",
 "About us":"معلومات عنا",
@@ -126,6 +127,8 @@
 "Education Updated successfully":"تم تحديث التعليم بنجاح",
 "Email":"البريد الإلكتروني",
 "Email Address":"عنوان البريد الإلكتروني",
+"Candidate E-Mail Address":"البريد الألكتروني للباحث عن العمل",
+"Employer E-Mail Address":" البريد الألكتروني للمنشأة",
 "E-mail address is required":"عنوان البريد الإلكتروني مطلوب",
 "Email has been sent to your friend":"تم إرسال البريد الإلكتروني إلى صديقك",
 "Email is required":"البريد الالكتروني مطلوب",
@@ -511,7 +514,7 @@
 "Update Order":"تحديث الطلب",
 
 "order has been updated":"تم تحديث طلبك بنجاح",
-"Part Time job applications":" عروض العمل بدوام جزئي",
+"Part Time job applications":"عروضي",
 "Documents":" المستندات الوثائق ",
 "New Job Application":"طلب توظيف جديد",
 
