@@ -12,6 +12,7 @@
     <div class="col-md-9 col-sm-8">
       <div class="myads">
         <h3>{{__('My Contracts')}}</h3>
+              <div class="table-responsive">
       <table  class="table table-bordered text-right"   >
 
         <tr>
@@ -57,6 +58,7 @@
 @endforelse
 
         </table>
+      </div>
       </div>
     </div>
   </div>

@@ -27,7 +27,7 @@ class Ticket extends Model
 
 	public function ticket_statuses()
     {
-        return $this->belongsTo('App\TicketStatus', 'status_id', 'status_id');
+        return $this->belongsTo('App\TicketStatus', 'ticket_status_id', 'ticket_status_id');
     }
 
     public function getTicketStatus($field = '')
@@ -45,7 +45,7 @@ class Ticket extends Model
     }
  	public function ticket_departments()
     {
-        return $this->belongsTo('App\TicketDepartment', 'department_id', 'department_id');
+        return $this->belongsTo('App\TicketDepartment', 'ticket_department_id', 'ticket_department_id');
     }
 
     public function getTicketDepartment($field = '')
@@ -63,7 +63,7 @@ class Ticket extends Model
     }
 	public function ticket_priorites()
     {
-        return $this->belongsTo('App\TicketPriority', 'priority_id', 'priority_id');
+        return $this->belongsTo('App\TicketPriority', 'ticket_priority_id', 'ticket_priority_id');
     }
 
     public function getTicketPriority($field = '')

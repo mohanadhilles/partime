@@ -1,95 +1,109 @@
 @extends('layouts.webapp')
-
 @section('guest')
-<?php $c_or_e = old('candidate_or_employer', 'candidate');      ?>
-<section  class="features-section" >
-<div class="container">
-     <ul class="nav nav-tabs" role="tablist">
-    <li class="nav-item">
-      <a class="nav-link {{($c_or_e == 'candidate')? 'active':''}}" data-toggle="tab" href="#home">{{ __('Candidate') }} </a>
-    </li>
-    <li class="nav-item">
-      <a class="nav-link {{($c_or_e == 'employer')? 'active':''}}" data-toggle="tab" href="#menu1">{{ __('Employer') }}</a>
-    </li>
-  </ul>
-     <!-- Tab panes -->
-  <div class="tab-content">
-    <div id="home" class="container tab-pane {{($c_or_e == 'candidate')? 'active':''}}"><br>
-    <div class="row justify-content-center">
-        <div class="col-md-8">
-            <div class="card">
-                <div class="card-header">{{ __('Candidate') }}</div>
+  <?php $c_or_e = old('candidate_or_employer', 'candidate');    ?>
 
-                <div class="card-body">
-                    <form method="POST" action="{{ route('register') }}" aria-label="{{ __('Candidate') }}">
+    <link href="{{asset('tamplate/css/simple-line-icons.css')}}" rel="stylesheet">
+    <link href="{{asset('tamplate/dest/style.css')}}" rel="stylesheet">
+
+    <div class="container py-md-5" >
+        <div class="row py-md-5">
+            <div class="col-md-8 m-x-auto pull-xs-none vamiddle">
+                <div class="card-group ">
+                    <div class="card p-a-2">
+                        <div class="card-block">
+                            <h2>{{ __('Register') }}   </h2>
+
+                              <form method="POST" id="login_form" action="/register" aria-label="{{ __('Candidate') }}">
+                              <div class="form-check text-muted">
+   <input class="form-check-input" type="radio" name="candidate_or_employer"
+   checked="checked" {{($c_or_e == 'candidate')? 'checked="checked"':''}}  value="candidate" />&nbsp; &nbsp;&nbsp;
+
+  <label class="form-check-label" for="candidate_or_employer">
+ {{ __('Candidate') }}
+  </label>
+</div>
+
+                              <div class="form-check text-muted ">
+   <input class="form-check-input" type="radio" name="candidate_or_employer"
+   {{($c_or_e == 'employer')? 'checked="checked"':''}}  value="employer" />&nbsp; &nbsp;&nbsp;
+
+  <label class="form-check-label" for="candidate_or_employer">
+ {{ __('Employer') }}
+  </label>
+</div>
+
+
+
                         @csrf
-                         <input type="hidden" name="candidate_or_employer" value="candidate" />
-                        <div class="form-group row">
-                            <label for="first_name" class="col-md-4 col-form-label text-md-right">{{ __('First Name') }}</label>
 
-                            <div class="col-md-6">
-                                <input id="first_name" type="text" placeholder="{{ __('First Name') }}" class="form-control{{ $errors->has('first_name') ? ' is-invalid' : '' }} text-right" name="first_name" value="{{ old('first_name') }}"required autofocus>
+                           <div class="input-group m-b-1 employer">
+                                <span class="input-group-addon"><i class="icon-user"></i>
+                                </span>
+                         <input id="name" type="text" placeholder="{{ __('CompanyName') }}" class="form-control employer ar {{ $errors->has('name') ? ' is-invalid' : '' }} text-right"   name="name" value="{{ old('name') }}"   autofocus>
 
-                                @if ($errors->has('first_name'))
+                          @if ($errors->has('name'))
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $errors->first('name') }}</strong>
+                                    </span>
+                                @endif
+                         </div>
+
+
+                                  <div class="input-group m-b-1 candidate">
+                                <span class="input-group-addon"><i class="icon-user"></i>
+                                </span>
+                         <input id="first_name" type="text" placeholder="{{ __('First Name') }}" class="form-control candidate ar {{ $errors->has('first_name') ? ' is-invalid' : '' }} text-right"   name="first_name" value="{{ old('first_name') }}"   autofocus>
+
+                          @if ($errors->has('first_name'))
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $errors->first('first_name') }}</strong>
                                     </span>
                                 @endif
-                            </div>
-                        </div>
+                         </div>
 
 
-                           <div class="form-group row">
-                            <label for="middle_name" class="col-md-4 col-form-label text-md-right">{{ __('Middle Name') }}</label>
+                                  <div class="input-group m-b-1 candidate">
+                                <span class="input-group-addon"><i class="icon-user"></i>
+                                </span>
+                         <input id="middle_name" type="text" placeholder="{{ __('Middle Name') }}" class="form-control candidate ar {{ $errors->has('middle_name') ? ' is-invalid' : '' }} text-right"   name="middle_name" value="{{ old('middle_name') }}"   autofocus>
 
-                            <div class="col-md-6">
-                                <input id="middle_name" type="text" placeholder="{{ __('Middle Name') }}"class="form-control{{ $errors->has('middle_name') ? ' is-invalid' : '' }} text-right" name="middle_name" value="{{ old('middle_name') }}"required autofocus>
-
-                                @if ($errors->has('middle_name'))
+                          @if ($errors->has('middle_name'))
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $errors->first('middle_name') }}</strong>
                                     </span>
                                 @endif
-                            </div>
-                        </div>
+                         </div>
 
 
+                                  <div class="input-group m-b-1 candidate">
+                                <span class="input-group-addon"><i class="icon-user"></i>
+                                </span>
+                         <input id="last_name" type="text" placeholder="{{ __('Last Name') }}" class="form-control candidate ar {{ $errors->has('last_name') ? ' is-invalid' : '' }} text-right"   name="last_name" value="{{ old('last_name') }}"  autofocus>
 
-                                                <div class="form-group row">
-                            <label for="last_name" class="col-md-4 col-form-label text-md-right">{{ __('Last Name') }}</label>
-
-                            <div class="col-md-6">
-                                <input id="last_name" type="text" placeholder="{{ __('Last Name') }}" class="form-control{{ $errors->has('last_name') ? ' is-invalid' : '' }} text-right" name="last_name" value="{{ old('last_name') }}" required autofocus>
-
-                                @if ($errors->has('last_name'))
+                          @if ($errors->has('last_name'))
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $errors->first('last_name') }}</strong>
                                     </span>
                                 @endif
-                            </div>
-                        </div>
+                         </div>
 
 
-                        <div class="form-group row">
-                            <label for="email" class="col-md-4 col-form-label text-md-right">{{ __('E-Mail Address') }}</label>
 
-                            <div class="col-md-6">
-                                <input id="email" type="email" placeholder="{{ __('E-Mail Address') }}"
-                                 class="form-control{{ $errors->has('email') ? ' is-invalid' : '' }} text-right" name="email" value="{{ old('email') }}" required>
+                             <div class="input-group m-b-1">
+                                <span class="input-group-addon">@
+                                </span>
+                         <input id="email" type="email" placeholder="{{ __('E-Mail Address') }}" class="form-control ar {{ $errors->has('email') ? ' is-invalid' : '' }} text-right"   name="email" value="{{ old('email') }}" required autofocus>
 
-                                @if ($errors->has('email'))
+                          @if ($errors->has('email'))
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $errors->first('email') }}</strong>
                                     </span>
                                 @endif
-                            </div>
-                        </div>
-
-                        <div class="form-group row">
-                            <label for="password" class="col-md-4 col-form-label text-md-right">{{ __('Password') }}</label>
-
-                            <div class="col-md-6">
-                                <input id="password" type="password" placeholder="{{ __('Password') }}" class="form-control{{ $errors->has('password') ? ' is-invalid' : '' }} text-right" name="password" required>
+                         </div>
+                            <div class="input-group m-b-2">
+                                <span class="input-group-addon"><i class="icon-lock"></i>
+                                </span>
+                                 <input id="password" type="password" placeholder="{{ __('Password') }}" class="form-control ar {{ $errors->has('password') ? ' is-invalid' : '' }} text-right" name="password" required>
 
                                 @if ($errors->has('password'))
                                     <span class="invalid-feedback" role="alert">
@@ -97,160 +111,133 @@
                                     </span>
                                 @endif
                             </div>
-                        </div>
 
-                        <div class="form-group row">
-                            <label for="password-confirm" class="col-md-4 col-form-label text-md-right">{{ __('Confirm Password') }}</label>
+                               <div class="input-group m-b-2">
+                                <span class="input-group-addon"><i class="icon-lock"></i>
+                                </span>
+                                 <input id="password-confirm" type="password" placeholder="{{ __('Confirm Password') }}" class="form-control ar {{ $errors->has('password_confirmation') ? ' is-invalid' : '' }} text-right" name="password_confirmation" required>
 
-                            <div class="col-md-6">
-                                <input id="password-confirm" placeholder="{{ __('Confirm Password') }}" type="password" class="form-control text-right " name="password_confirmation" required>
+                                @if ($errors->has('password_confirmation'))
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $errors->first('password_confirmation') }}</strong>
+                                    </span>
+                                @endif
                             </div>
-                        </div>
 
 
-                              <div class="form-group row">
-                            <div class="col-md-6 offset-md-4">
+                               <div class="input-group m-b-2">
                                 <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" name="terms_of_use" id="terms_of_use" {{ old('terms_of_use') ? 'checked' : '' }} required>
+                                    <input  class="form-check-input" type="checkbox" name="terms_of_use" id="terms_of_use" {{ old('terms_of_use') ? 'checked' : '' }} required>
                                            @if ($errors->has('terms_of_use'))
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $errors->first('terms_of_use') }}</strong>
                                     </span>
                                 @endif
                                     <label class="form-check-label" for="terms_of_use">
-                                        {{ __('I accept Terms of Use') }}
-                                    </label>
-
-                                </div>
-                            </div>
-                        </div>
-
-
-                        <div class="form-group row mb-0">
-                            <div class="col-md-6 offset-md-4">
-                                <button type="submit" class="btn btn-primary">
-                                    {{ __('Register') }}
-                                </button>
-                            </div>
-                        </div>
-                    </form>
-                    <hr>
-
-                        <!-- sign up form -->
-          <div class="newuser"><i class="fa fa-user" aria-hidden="true"></i> {{__('Have Account')}}? <a href="{{route('login')}}">{{__('Sign in')}}</a></div>
-          <!-- sign up form end-->
-                </div>
-            </div>
-        </div>
-    </div>
-    </div>
-      <div id="menu1" class="container tab-pane  {{($c_or_e == 'employer')? 'active':''}}"><br>
-
-       <div class="row justify-content-center">
-        <div class="col-md-8">
-            <div class="card">
-                <div class="card-header">{{ __('Employer') }}</div>
-
-                <div class="card-body">
-                    <form method="POST" action="{{ route('company.register') }}" aria-label="{{ __('Employer') }}">
-                        @csrf
-                      <input type="hidden" name="candidate_or_employer" value="employer" />
-                        <div class="form-group row">
-                            <label for="name" class="col-md-4 col-form-label text-md-right">{{ __('CompanyName') }}</label>
-
-                            <div class="col-md-6">
-                                <input id="name" type="text" placeholder="{{ __('CompanyName') }}" class="form-control{{ $errors->has('name') ? ' is-invalid' : '' }} text-right" name="name" value="{{ old('name') }}"required autofocus>
-
-                                @if ($errors->has('name'))
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $errors->first('name') }}</strong>
-                                    </span>
-                                @endif
-                            </div>
-                        </div>
-
-
-
-
-
-
-
-                        <div class="form-group row">
-                            <label for="email" class="col-md-4 col-form-label text-md-right">{{ __('E-Mail Address') }}</label>
-
-                            <div class="col-md-6">
-                                <input id="email" type="email" placeholder="{{ __('E-Mail Address') }}"
-                                 class="form-control{{ $errors->has('email') ? ' is-invalid' : '' }} text-right" name="email" value="{{ old('email') }}" required>
-
-                                @if ($errors->has('email'))
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $errors->first('email') }}</strong>
-                                    </span>
-                                @endif
-                            </div>
-                        </div>
-
-                        <div class="form-group row">
-                            <label for="password" class="col-md-4 col-form-label text-md-right">{{ __('Password') }}</label>
-
-                            <div class="col-md-6">
-                                <input id="password" type="password" placeholder="{{ __('Password') }}" class="form-control{{ $errors->has('password') ? ' is-invalid' : '' }} text-right" name="password" required>
-
-                                @if ($errors->has('password'))
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $errors->first('password') }}</strong>
-                                    </span>
-                                @endif
-                            </div>
-                        </div>
-
-                        <div class="form-group row">
-                            <label for="password-confirm" class="col-md-4 col-form-label text-md-right">{{ __('Confirm Password') }}</label>
-
-                            <div class="col-md-6">
-                                <input id="password-confirm" placeholder="{{ __('Confirm Password') }}" type="password" class="form-control text-right " name="password_confirmation" required>
-                            </div>
-                        </div>
-
-
-                             <div class="form-group row">
-                            <div class="col-md-6 offset-md-4">
-                                <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" name="terms_of_use" id="terms_of_use" {{ old('terms_of_use') ? 'checked' : '' }} required>
-                                               @if ($errors->has('terms_of_use'))
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $errors->first('terms_of_use') }}</strong>
-                                    </span>
-                                @endif
-                                    <label class="form-check-label" for="terms_of_use">
-                                        {{ __('I accept Terms of Use') }}
+                                         {{ __('I accept Terms of Use') }}
                                     </label>
                                 </div>
-                            </div>
+
                         </div>
 
 
-                        <div class="form-group row mb-0">
-                            <div class="col-md-6 offset-md-4">
-                                <button type="submit" class="btn btn-primary">
-                                    {{ __('Register') }}
-                                </button>
+                            <div class="row">
+                                <div class="col-xs-12 col-md-6">
+                                    <button type="submit" class="btn btn-primary p-x-2">
+                                        <i class="icon-login"></i>
+                                         {{ __('Register') }}  </button>
+                                </div>
+                                <div class="col-xs-12 col-md-6  ">
+
+                                    <a href="{{ route('login') }}" class="btn btn-link p-x-0"> &nbsp;{{__('Have Account')}}? {{__('Sign in')}} &nbsp;  </a>
+                                </div>
+                            </div>
+                            </form>
+                        </div>
+                    </div>
+                    <div class="card card-inverse card-primary p-y-3"  >
+                        <div class="card-block text-xs-center">
+                            <div>
+                                <h2>{{__('Have Account')}}? </h2>
+                                <p> {{__('Join Parttime Partner app partners close to your career and get additional income')}} </p>
+                                <a  href="{{route('login')}}"   class="btn btn-primary active m-t-1"> {{__('Sign in')}}</a>
                             </div>
                         </div>
-                    </form>
-                    <hr>
-
-                        <!-- sign up form -->
-          <div class="newuser"><i class="fa fa-user" aria-hidden="true"></i> {{__('Have Account')}}? <a href="{{route('login')}}">{{__('Sign in')}}</a></div>
-          <!-- sign up form end-->
+                    </div>
                 </div>
             </div>
         </div>
     </div>
 
 
-</div>
-</div>
-</div>
-</section>
 @endsection
+@push('scripts')
+ @if($c_or_e == 'candidate')
+<script>
+$("#login_form").attr('action', '/register');
+$("input[name='email']").attr('placeholder', '{{__("Candidate E-Mail Address")}}');
+
+
+  $("input[name='name']").attr('required', false);
+
+  $("input[name='first_name']").attr('required', true);
+  $("input[name='middle_name']").attr('required', true);
+  $("input[name='last_name']").attr('required', true);
+
+$(".candidate").show();
+$(".employer").hide();
+
+ </script>
+ @else
+ <script>
+  $("#login_form").attr('action', '/company/register');
+  $("input[name='email']").attr('placeholder', '{{__("Employer E-Mail Address")}}');
+
+
+     $("input[name='name']").attr('required', true);
+
+  $("input[name='first_name']").attr('required', false);
+  $("input[name='middle_name']").attr('required', false);
+  $("input[name='last_name']").attr('required', false);
+
+
+
+
+   $(".candidate").hide();
+$(".employer").show();
+
+   </script>
+ @endif
+<script>
+
+            $(function(){
+            $('input:radio[name="candidate_or_employer"]').change(function() {
+            if(this.value == "candidate") {
+            $("#login_form").attr('action', '/register');
+            $("input[name='email']").attr('placeholder', '{{__("Candidate E-Mail Address")}}');
+            $(".candidate").show();
+            $(".employer").hide();
+            $("input[name='name']").attr('required', false);
+
+            $("input[name='first_name']").attr('required', true);
+            $("input[name='middle_name']").attr('required', true);
+            $("input[name='last_name']").attr('required', true);
+            }   else {
+            $("#login_form").attr('action', '/company/register');
+            $("input[name='email']").attr('placeholder', '{{__("Employer E-Mail Address")}}');
+            $(".candidate").hide();
+            $(".employer").show();
+
+            $("input[name='name']").attr('required', true);
+
+            $("input[name='first_name']").attr('required', false);
+            $("input[name='middle_name']").attr('required', false);
+            $("input[name='last_name']").attr('required', false);
+            }
+            });
+            });
+</script>
+@endpush
+
+
+

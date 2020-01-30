@@ -11,13 +11,29 @@
                 <div class="card-group ">
                     <div class="card p-a-2">
                         <div class="card-block">
-                            <h1>{{ __('Login') }}   </h1>
+                            <h2>{{ __('Login') }}   </h2>
 
                               <form method="POST" id="login_form" action="/login" aria-label="{{ __('Candidate') }}">
-                                 <p class="text-muted">
-                            <input type="radio" name="candidate_or_employer"  checked="checked" {{($c_or_e == 'candidate')? 'checked="checked"':''}}  value="candidate" />&nbsp;{{ __('Candidate') }} &nbsp;&nbsp;
-                            <input type="radio"  name="candidate_or_employer" value="employer" {{($c_or_e == 'employer')? 'checked="checked"':''}} />&nbsp;{{ __('Employer') }}
-                              </p>
+                              <div class="form-check text-muted">
+   <input class="form-check-input" type="radio" name="candidate_or_employer"
+   checked="checked" {{($c_or_e == 'candidate')? 'checked="checked"':''}}  value="candidate" />&nbsp; &nbsp;&nbsp;
+
+  <label class="form-check-label" for="candidate_or_employer">
+ {{ __('Candidate') }}
+  </label>
+</div>
+
+                              <div class="form-check text-muted ">
+   <input class="form-check-input" type="radio" name="candidate_or_employer"
+   {{($c_or_e == 'employer')? 'checked="checked"':''}}  value="employer" />&nbsp; &nbsp;&nbsp;
+
+  <label class="form-check-label" for="candidate_or_employer">
+ {{ __('Employer') }}
+  </label>
+</div>
+
+
+
                         @csrf
                              <div class="input-group m-b-1">
                                 <span class="input-group-addon"><i class="icon-user"></i>
@@ -59,19 +75,19 @@
 
 
                             <div class="row">
-                                <div class="col-xs-6">
+                                <div class="col-xs-12 col-md-6">
                                     <button type="submit" class="btn btn-primary p-x-2">
                                         <i class="icon-login"></i>
                                          {{ __('Login') }}  </button>
                                 </div>
-                                <div class="col-xs-6 text-xs-right">
-                                    <a href="{{ route('password.request') }}" class="btn btn-link p-x-0"> {{ __('Forgot Your Password') }}  </a>
+                                <div class="col-xs-12 col-md-6  ">
+                                    <a href="{{ route('password.request') }}" class="btn btn-link p-x-0"> &nbsp;&nbsp;{{ __('Forgot Your Password') }} &nbsp;&nbsp; </a>
                                 </div>
                             </div>
                             </form>
                         </div>
                     </div>
-                    <div class="card card-inverse card-primary p-y-3" style="width:44%">
+                    <div class="card card-inverse card-primary p-y-3"  >
                         <div class="card-block text-xs-center">
                             <div>
                                 <h2>{{__('New User')}} ؟ </h2>

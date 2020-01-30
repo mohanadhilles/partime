@@ -41,6 +41,7 @@
           </small>
                             </div>
                             <div class="card-block">
+                             <div class="table-responsive">
              <table  class="table table-bordered text-right"   >
              <thead>
 
@@ -87,6 +88,7 @@
 
 
 
+        </div>
         </div>
 
       </div>

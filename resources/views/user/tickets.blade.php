@@ -17,6 +17,7 @@
           </small>
 
         </h3>
+              <div class="table-responsive">
              <table  class="table table-bordered text-right"   >
 
         <tr>
@@ -55,6 +56,7 @@
 @endforelse
 
         </table>
+      </div>
       </div>
     </div>
   </div>

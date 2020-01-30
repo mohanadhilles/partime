@@ -26,6 +26,7 @@ return $new_width;
     <div class="col-md-9 col-sm-8">
       <div class="myads">
         <h3>{{__('My Payroll')}}</h3>
+              <div class="table-responsive">
       <table  class="table table-bordered text-right"   >
 
         <tr>
@@ -74,6 +75,7 @@ return $new_width;
 @endforelse
 
         </table>
+      </div>
       </div>
     </div>
   </div>

@@ -16,6 +16,7 @@
            <a class="btn btn-info" href="{{ route('my.new.bank.account') }}"><i class="fa fa-file" aria-hidden="true"></i> {{__('New Bank Account')}}</a>
           </small>
         </h3>
+              <div class="table-responsive">
              <table  class="table table-bordered text-right"   >
 
         <tr>
@@ -50,6 +51,7 @@
 @endforelse
 
         </table>
+      </div>
       </div>
     </div>
   </div>

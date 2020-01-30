@@ -44,6 +44,8 @@ trait TicketTrait
     {
 
 		$tickets = Auth::guard('company')->user()->tickets()->paginate(10);
+
+        
 		return view('ticket.company_tickets')
 				->with('tickets', $tickets);
     }
