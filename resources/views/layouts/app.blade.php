@@ -18,8 +18,10 @@ if (!isset($seo)) {
     <!-- Icons -->
     <link href="{{asset('tamplate/css/font-awesome.min.css')}}" rel="stylesheet">
     <link href="{{asset('tamplate/css/simple-line-icons.css')}}" rel="stylesheet">
+
     <!-- Main styles for this application -->
     <link href="{{asset('tamplate/dest/style.css')}}" rel="stylesheet">
+      
             <style>
      @import url({{ asset('fonts/droidarabickufi.css') }});
 *,html,body , h1 , h2 , h3, h4, h5 {
@@ -64,6 +66,8 @@ if (!isset($seo)) {
 
     <!-- Grunt watch plugin -->
     <script src="//localhost:35729/livereload.js"></script>
+
+    @stack('scripts')
 </body>
 
 </html>

@@ -14,7 +14,7 @@
     <div class="row">
       @include('includes.company_dashboard_menu')
       
-      <div class="col-md-9 col-sm-8"> 
+      <div class="col-md-10 col-sm-10"> 
         <div class="row">
       <div class="col-md-12">
         <div class="userccount">
@@ -28,7 +28,7 @@
       </div>
     </div>
   </div>
- 
+
 @include('includes.footer')
 @endsection
 @push('styles')

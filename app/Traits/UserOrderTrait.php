@@ -377,7 +377,7 @@ trait UserOrderTrait
 
          $order->update();
 
-         flash('order has been updated')->success();
+         flash('تم تحديث طلبك بنجاح')->success();
         return \Redirect::route('my.edit.front.order', array($order->id));
     }
 

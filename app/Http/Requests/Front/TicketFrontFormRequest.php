@@ -32,9 +32,9 @@ class TicketFrontFormRequest extends Request
 
                     return [
 						"subject" => "required|max:180",
-                        "department_id" => "required",
-                        "priority_id" => "required",
-                        "status_id" => "required",
+                        "ticket_department_id" => "required",
+                        "ticket_priority_id" => "required",
+                        "ticket_status_id" => "required",
                         "contract_id" => "required",
 
                         "notes" => "required|max:4000",
@@ -51,9 +51,9 @@ class TicketFrontFormRequest extends Request
         return [
             'subject.required' => __('Please enter ticket subject'),
             'subject.max' => __('max ticket subject char'),
-            'department_id.required' => __('Please select ticket department'),
-            'priority_id.required' => __('Please select ticket priority'),
-            'status_id.required' => __('Please select ticket status'),
+            'ticket_department_id.required' => __('Please select ticket department'),
+            'ticket_priority_id.required' => __('Please select ticket priority'),
+            'ticket_status_id.required' => __('Please select ticket status'),
 			'notes.required' => __('Please enter ticket notes'),
 			'notes.max' => __('max ticket notes char'),
 

@@ -89,7 +89,7 @@
   </div>
       <div class="col-md-6">
     <div class="form-group {!! APFrmErrHelp::hasError($errors, 'expected_date') !!}">
-    {!! Form::text('expected_date', null, array('class'=>'form-control text-right datepicker', 'id'=>'expected_date', 'placeholder'=>__('Job expected date'), 'autocomplete'=>'off')) !!}
+    {!! Form::date('expected_date', null, array('class'=>'form-control text-right datepicker', 'id'=>'expected_date', 'placeholder'=>__('Job expected date'), 'autocomplete'=>'off')) !!}
       {!! APFrmErrHelp::showErrors($errors, 'expected_date') !!} </div>
   </div>
 
@@ -189,10 +189,7 @@
 <script type="text/javascript">
 $(document).ready(function() {
 
-    $('.select2-multiple').select2({
-    	placeholder: "{{__('Select Required Skills')}}",
-    	allowClear: true
-	});
+
 	$(".datepicker").datepicker({
 		autoclose: true,
 		format:'yyyy-m-d'

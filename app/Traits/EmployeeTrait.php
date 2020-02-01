@@ -10,6 +10,7 @@ use Carbon\Carbon;
 use App\Employee;
 use App\Company;
 
+
 use App\Helpers\MiscHelper;
 use App\Helpers\DataArrayHelper;
 use App\Http\Requests;
@@ -98,9 +99,11 @@ trait EmployeeTrait
 
     public function editFrontEmployee($id)
     {
+               
 
-
-         $employee = Employee::findOrFail($id);
+         $employee = Employee::select('employees.*','users.linkedin_link')->
+        leftjoin('users','users.id','=','employees.user_id')->
+        where('employees.id',$id)->first();
    	   //	$employeeDepartments = DataArrayHelper::langemployeeDepartmentsArray();
 	   //	$employeeStatuses = DataArrayHelper::langemployeeStatusesArray();
 	  //	$employeePriorites = DataArrayHelper::langemployeePrioritesArray();

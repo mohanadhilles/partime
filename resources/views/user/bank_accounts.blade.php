@@ -6,16 +6,23 @@
 <!-- Inner Page Title start -->
 @include('includes.inner_page_title', ['page_title'=>__('My Bank Accounts')])
 <!-- Inner Page Title end -->
-<div class="listpgWraper">
+
+
 <div class="container">
   <div class="row"> @include('includes.user_dashboard_menu')
-    <div class="col-md-9 col-sm-8">
-      <div class="myads">
-        <h3>{{__('My Bank Accounts')}}
-                  <small class="pull-left" >
-           <a class="btn btn-info" href="{{ route('my.new.bank.account') }}"><i class="fa fa-file" aria-hidden="true"></i> {{__('New Bank Account')}}</a>
+    <div class="col-md-10 col-sm-10">
+
+
+
+                <div class="card">
+                            <div class="card-header">
+                                <i class="fa fa-align-justify"></i> {{__('My Bank Accounts')}}
+
+                                    <small class="pull-left" >
+           <a class="btn btn-info" href="{{ route('my.new.bank.account') }}"><i class="fa fa-plus" aria-hidden="true"></i> {{__('New Bank Account')}}</a>
           </small>
-        </h3>
+                            </div>
+                            <div class="card-block">
               <div class="table-responsive">
              <table  class="table table-bordered text-right"   >
 

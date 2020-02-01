@@ -61,23 +61,12 @@ trait UserTicketTrait
     {
 
               $user = User::findOrFail(Auth::user()->id);
-		$contracts = Contract::select('contracts.*'
-        ,'jobs.title as job_title'
-        ,'contract_statuses.contract_status'
-        ,'contract_statuses.code as color_code'
-        ,'companies.name as company_name')->
-        where('contracts.user_id', '=', $user->id)
-          ->join('companies' , 'companies.id' , '=' ,'contracts.company_id')
-          ->join('contract_statuses' , 'contract_statuses.contract_status_id' , '=' ,'contracts.contract_status_id')
-           ->join('jobs' , 'jobs.id' , '=' ,'contracts.job_id')
-						->orderBy('created_at', 'desc')
-						->get()->toArray();
 
 
 		$ticketDepartments = DataArrayHelper::langTicketDepartmentsArray();
 		$ticketStatuses = DataArrayHelper::langTicketStatusesArray();
 		$ticketPriorites = DataArrayHelper::langTicketPrioritesArray();
-	  //	$contracts = DataArrayHelper::langContractArray(18);
+	    $contracts = DataArrayHelper::UserContractArray($user->id);
 
 
         return view('user.add_edit_ticket')
@@ -90,12 +79,13 @@ trait UserTicketTrait
 
     public function storeFrontTicket(TicketFrontFormRequest $request)
     {
-		$company = Auth::guard('company')->user();
-		$contract = Contract::find($request->input('contract_id'));
+
+         $user = User::findOrFail(Auth::user()->id);
+ 		$contract = Contract::find($request->input('contract_id'));
 
         $ticket = new Ticket();
-        $ticket->id = $request->input('id');
-        $ticket->company_id = $company->id;
+
+        $ticket->company_id = $contract->company_id;
         $ticket->contract_id = $contract->id;
         $ticket->employee_id = $contract->employee_id;
         $ticket->subject = $request->input('subject');
@@ -103,7 +93,7 @@ trait UserTicketTrait
         $ticket->ticket_department_id = $request->input('ticket_department_id');
         $ticket->ticket_status_id = $request->input('ticket_status_id');
         $ticket->notes = $request->input('notes');
-       // $ticket->user_id = $request->input('user_id');
+         $ticket->user_id = $user->id;
       //  $ticket->responsible_id = $request->input('responsible_id');
       //  $ticket = $this->assignJobValues($ticket, $request);
 		$ticket->save();
@@ -111,24 +101,24 @@ trait UserTicketTrait
 	   //	event(new JobPosted($ticket));
 
         flash('ticket has been added!')->success();
-        return \Redirect::route('company.edit.front.ticket', array($ticket->id));
+        return \Redirect::route('my.edit.front.ticket', array($ticket->id));
     }
 
 
 
     public function editFrontTicket($id)
     {
-         		$company = Auth::guard('company')->user();
+         	    $user = User::findOrFail(Auth::user()->id);
 
 
          $ticket = Ticket::findOrFail($id);
    		$ticketDepartments = DataArrayHelper::langTicketDepartmentsArray();
 		$ticketStatuses = DataArrayHelper::langTicketStatusesArray();
 		$ticketPriorites = DataArrayHelper::langTicketPrioritesArray();
-        		$contracts = DataArrayHelper::langContractArray($company->id);
+        	   $contracts = DataArrayHelper::UserContractArray($user->id);
 
 
-        return view('ticket.add_edit_ticket')
+        return view('user.add_edit_ticket')
 
                         ->with('contracts', $contracts)
                         ->with('ticket', $ticket)
@@ -146,7 +136,7 @@ trait UserTicketTrait
 
 
         $ticket = Ticket::findOrFail($id);
-        $ticket->id = $request->input('id');
+
                $ticket->subject = $request->input('subject');
         $ticket->ticket_priority_id = $request->input('ticket_priority_id');
         $ticket->ticket_department_id = $request->input('ticket_department_id');
@@ -168,7 +158,7 @@ trait UserTicketTrait
 		/*         * ************************************ */
 
         flash('ticket has been updated!')->success();
-        return \Redirect::route('company.edit.front.ticket', array($ticket->id));
+        return \Redirect::route('my.edit.front.ticket', array($ticket->id));
     }
 
    }

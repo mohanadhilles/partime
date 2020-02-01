@@ -29,9 +29,9 @@
                 @endif
             </ul>
             <ul class="nav navbar-nav pull-left hidden-md-down">
-                <li class="nav-item">
+             <!--   <li class="nav-item">
                     <a class="nav-link" href="#"><i class="icon-bell"></i><span class="tag tag-pill tag-danger">5</span></a>
-                </li>
+                </li>-->
              <!--   <li class="nav-item">
                     <a class="nav-link" href="#"><i class="icon-list"></i></a>
                 </li>-->

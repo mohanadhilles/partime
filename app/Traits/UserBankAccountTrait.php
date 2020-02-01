@@ -58,7 +58,7 @@ trait UserBankAccountTrait
 
 
 
-        flash('bank accounts has been added!')->success();
+        flash('تمت العملية بنجاح')->success();
         return \Redirect::route('my.edit.front.account', array($bank_accounts->id));
 
     }
@@ -84,7 +84,7 @@ trait UserBankAccountTrait
 
 	  $bank_accounts->update();
 
-        flash('bank accounts has been updated successfully!')->success();
+        flash('تمت العملية بنجاح')->success();
         return \Redirect::route('my.edit.front.account', array($bank_accounts->id));
     }
 

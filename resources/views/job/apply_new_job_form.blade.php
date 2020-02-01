@@ -8,10 +8,10 @@
 @include('includes.inner_page_title', ['page_title'=>__('New Job Application')])
 <!-- Inner Page Title end -->
 <div class="listpgWraper">
-  <div class="container"> @include('flash::message')
+  <div class="container"> 
     <div class="row">
       @include('includes.user_dashboard_menu')
-      <div class="col-md-9 col-sm-8">
+      <div class="col-md-10 col-sm-10">
         <div class="row">
       <div class="col-md-12">
         <div class="userccount">

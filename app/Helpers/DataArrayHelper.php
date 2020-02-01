@@ -67,6 +67,15 @@ class DataArrayHelper
     }
 
 
+        	public static function UserContractArray($user_id)
+    {
+        $array = Contract::select('contracts.id', 'contracts.id')
+        ->where('contracts.user_id',$user_id)
+
+         ->pluck('contracts.id', 'contracts.id')->toArray();
+        return $array;
+    }
+
 	/*******************************/
 	public static function langStatesArray($country_id)
     {

@@ -100,6 +100,7 @@ trait ContractTrait
     {
 
          $contract = Contract::findOrFail($id);
+
         return view('contract.add_edit_contract')->with('contract', $contract);
 
     }
