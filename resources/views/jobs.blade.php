@@ -24,8 +24,7 @@
                                             <select class="form-control" placeholder="تحديد الدولة">
                                                 <option hidden>تحديد الدولة</option>
                                                 <option value="">السعودية</option>
-                                                <option value="">فلسطين</option>
-                                            </select>
+                                             </select>
                                             <i class="fas fa-angle-down"></i>
                                         </div>
                                     </div>
@@ -33,8 +32,14 @@
                                         <div class="cs-select">
                                             <select class="form-control" placeholder="تحديد المدينة">
                                                 <option اhidden>تحديد المدينة</option>
-                                                <option value="">الرياض</option>
-                                                <option value="">جدة</option>
+                                                     <option value="">الرياض </option>
+                                        <option value="">جدة</option>
+                                        <option value="">مكة المكرمة</option>
+                                        <option value=""> المدينة المنورة</option>
+                                        <option value="">ينبع</option>
+                                        <option value="">الدمام</option>
+                                        <option value="">الخبر</option>
+                                        <option value="">الجبيل</option>
                                             </select>
                                             <i class="fas fa-angle-down"></i>
                                         </div>
@@ -59,66 +64,17 @@
 
             <div class="available_jobs_list">
                 <div class="row justify-content-md-center">
+
+                   @forelse($functional_areas as $functional_area)
                     <div class="col-lg-3 col-md-4 col-6">
                         <div class="available_job_item wow fadeInUp" data-wow-duration="1.5s" data-wow-delay=".3s">
                             <div class="front">
                                 <div class="job_count d-flex justify-content-center align-items-center flex-column">
-                                    <span>250</span>
+                                    <span>{{ $functional_area->count_jobs  }}</span>
                                     <p>مرشح بارتايم</p>
                                 </div>
                                 <div class="title d-flex justify-content-center align-items-center">
-                                    <h3>Quality and compliance officer</h3>
-                                </div>
-                            </div>
-                            <div class="overlay d-flex justify-content-center align-items-center flex-column">
-                                <a href="" class="btn btn-pink w-100 mb-2">وظف بارتايم</a>
-                                <a href="" class="btn btn-blue-light w-100">أنضم بارتايم</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 col-md-4 col-6">
-                        <div class="available_job_item wow fadeInUp" data-wow-duration="1.5s" data-wow-delay=".3s">
-                            <div class="front">
-                                <div class="job_count d-flex justify-content-center align-items-center flex-column">
-                                    <span>250</span>
-                                    <p>مرشح بارتايم</p>
-                                </div>
-                                <div class="title d-flex justify-content-center align-items-center">
-                                    <h3>CEO</h3>
-                                </div>
-                            </div>
-                            <div class="overlay d-flex justify-content-center align-items-center flex-column">
-                                <a href="" class="btn btn-pink w-100 mb-2">وظف بارتايم</a>
-                                <a href="" class="btn btn-blue-light w-100">أنضم بارتايم</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 col-md-4 col-6">
-                        <div class="available_job_item wow fadeInUp" data-wow-duration="1.5s" data-wow-delay=".3s">
-                            <div class="front">
-                                <div class="job_count d-flex justify-content-center align-items-center flex-column">
-                                    <span>250</span>
-                                    <p>مرشح بارتايم</p>
-                                </div>
-                                <div class="title d-flex justify-content-center align-items-center">
-                                    <h3>CTO</h3>
-                                </div>
-                            </div>
-                            <div class="overlay d-flex justify-content-center align-items-center flex-column">
-                                <a href="" class="btn btn-pink w-100 mb-2">وظف بارتايم</a>
-                                <a href="" class="btn btn-blue-light w-100">أنضم بارتايم</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 col-md-4 col-6">
-                        <div class="available_job_item wow fadeInUp" data-wow-duration="1.5s" data-wow-delay=".3s">
-                            <div class="front">
-                                <div class="job_count d-flex justify-content-center align-items-center flex-column">
-                                    <span>250</span>
-                                    <p>مرشح بارتايم</p>
-                                </div>
-                                <div class="title d-flex justify-content-center align-items-center">
-                                    <h3>CFO</h3>
+                                    <h3>{{ $functional_area->functional_area  }}</h3>
                                 </div>
                             </div>
                             <div class="overlay d-flex justify-content-center align-items-center flex-column">
@@ -128,229 +84,19 @@
                         </div>
                     </div>
 
-                    <div class="col-lg-3 col-md-4 col-6">
-                        <div class="available_job_item wow fadeInUp" data-wow-duration="1.5s" data-wow-delay=".3s">
-                            <div class="front">
-                                <div class="job_count d-flex justify-content-center align-items-center flex-column">
-                                    <span>250</span>
-                                    <p>مرشح بارتايم</p>
-                                </div>
-                                <div class="title d-flex justify-content-center align-items-center">
-                                    <h3>HR manager</h3>
-                                </div>
-                            </div>
-                            <div class="overlay d-flex justify-content-center align-items-center flex-column">
-                                <a href="" class="btn btn-pink w-100 mb-2">وظف بارتايم</a>
-                                <a href="" class="btn btn-blue-light w-100">أنضم بارتايم</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 col-md-4 col-6">
-                        <div class="available_job_item wow fadeInUp" data-wow-duration="1.5s" data-wow-delay=".3s">
-                            <div class="front">
-                                <div class="job_count d-flex justify-content-center align-items-center flex-column">
-                                    <span>250</span>
-                                    <p>مرشح بارتايم</p>
-                                </div>
-                                <div class="title d-flex justify-content-center align-items-center">
-                                    <h3>project manager</h3>
-                                </div>
-                            </div>
-                            <div class="overlay d-flex justify-content-center align-items-center flex-column">
-                                <a href="" class="btn btn-pink w-100 mb-2">وظف بارتايم</a>
-                                <a href="" class="btn btn-blue-light w-100">أنضم بارتايم</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 col-md-4 col-6">
-                        <div class="available_job_item wow fadeInUp" data-wow-duration="1.5s" data-wow-delay=".3s">
-                            <div class="front">
-                                <div class="job_count d-flex justify-content-center align-items-center flex-column">
-                                    <span>250</span>
-                                    <p>مرشح بارتايم</p>
-                                </div>
-                                <div class="title d-flex justify-content-center align-items-center">
-                                    <h3>financial analyst</h3>
-                                </div>
-                            </div>
-                            <div class="overlay d-flex justify-content-center align-items-center flex-column">
-                                <a href="" class="btn btn-pink w-100 mb-2">وظف بارتايم</a>
-                                <a href="" class="btn btn-blue-light w-100">أنضم بارتايم</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 col-md-4 col-6">
-                        <div class="available_job_item wow fadeInUp" data-wow-duration="1.5s" data-wow-delay=".3s">
-                            <div class="front">
-                                <div class="job_count d-flex justify-content-center align-items-center flex-column">
-                                    <span>250</span>
-                                    <p>مرشح بارتايم</p>
-                                </div>
-                                <div class="title d-flex justify-content-center align-items-center">
-                                    <h3>accountant</h3>
-                                </div>
-                            </div>
-                            <div class="overlay d-flex justify-content-center align-items-center flex-column">
-                                <a href="" class="btn btn-pink w-100 mb-2">وظف بارتايم</a>
-                                <a href="" class="btn btn-blue-light w-100">أنضم بارتايم</a>
-                            </div>
-                        </div>
-                    </div>
+                                @empty
 
-                    <div class="col-lg-3 col-md-4 col-6">
-                        <div class="available_job_item wow fadeInUp" data-wow-duration="1.5s" data-wow-delay=".3s">
-                            <div class="front">
-                                <div class="job_count d-flex justify-content-center align-items-center flex-column">
-                                    <span>250</span>
-                                    <p>مرشح بارتايم</p>
-                                </div>
-                                <div class="title d-flex justify-content-center align-items-center">
-                                    <h3>Quality and compliance officer</h3>
-                                </div>
-                            </div>
-                            <div class="overlay d-flex justify-content-center align-items-center flex-column">
-                                <a href="" class="btn btn-pink w-100 mb-2">وظف بارتايم</a>
-                                <a href="" class="btn btn-blue-light w-100">أنضم بارتايم</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 col-md-4 col-6">
-                        <div class="available_job_item wow fadeInUp" data-wow-duration="1.5s" data-wow-delay=".3s">
-                            <div class="front">
-                                <div class="job_count d-flex justify-content-center align-items-center flex-column">
-                                    <span>250</span>
-                                    <p>مرشح بارتايم</p>
-                                </div>
-                                <div class="title d-flex justify-content-center align-items-center">
-                                    <h3>CEO</h3>
-                                </div>
-                            </div>
-                            <div class="overlay d-flex justify-content-center align-items-center flex-column">
-                                <a href="" class="btn btn-pink w-100 mb-2">وظف بارتايم</a>
-                                <a href="" class="btn btn-blue-light w-100">أنضم بارتايم</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 col-md-4 col-6">
-                        <div class="available_job_item wow fadeInUp" data-wow-duration="1.5s" data-wow-delay=".3s">
-                            <div class="front">
-                                <div class="job_count d-flex justify-content-center align-items-center flex-column">
-                                    <span>250</span>
-                                    <p>مرشح بارتايم</p>
-                                </div>
-                                <div class="title d-flex justify-content-center align-items-center">
-                                    <h3>CTO</h3>
-                                </div>
-                            </div>
-                            <div class="overlay d-flex justify-content-center align-items-center flex-column">
-                                <a href="" class="btn btn-pink w-100 mb-2">وظف بارتايم</a>
-                                <a href="" class="btn btn-blue-light w-100">أنضم بارتايم</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 col-md-4 col-6">
-                        <div class="available_job_item wow fadeInUp" data-wow-duration="1.5s" data-wow-delay=".3s">
-                            <div class="front">
-                                <div class="job_count d-flex justify-content-center align-items-center flex-column">
-                                    <span>250</span>
-                                    <p>مرشح بارتايم</p>
-                                </div>
-                                <div class="title d-flex justify-content-center align-items-center">
-                                    <h3>CFO</h3>
-                                </div>
-                            </div>
-                            <div class="overlay d-flex justify-content-center align-items-center flex-column">
-                                <a href="" class="btn btn-pink w-100 mb-2">وظف بارتايم</a>
-                                <a href="" class="btn btn-blue-light w-100">أنضم بارتايم</a>
-                            </div>
-                        </div>
-                    </div>
+   <center>      لا يوجد بيانات      </center>
 
-                    <div class="col-lg-3 col-md-4 col-6">
-                        <div class="available_job_item wow fadeInUp" data-wow-duration="1.5s" data-wow-delay=".3s">
-                            <div class="front">
-                                <div class="job_count d-flex justify-content-center align-items-center flex-column">
-                                    <span>250</span>
-                                    <p>مرشح بارتايم</p>
-                                </div>
-                                <div class="title d-flex justify-content-center align-items-center">
-                                    <h3>HR manager</h3>
-                                </div>
-                            </div>
-                            <div class="overlay d-flex justify-content-center align-items-center flex-column">
-                                <a href="" class="btn btn-pink w-100 mb-2">وظف بارتايم</a>
-                                <a href="" class="btn btn-blue-light w-100">أنضم بارتايم</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 col-md-4 col-6">
-                        <div class="available_job_item wow fadeInUp" data-wow-duration="1.5s" data-wow-delay=".3s">
-                            <div class="front">
-                                <div class="job_count d-flex justify-content-center align-items-center flex-column">
-                                    <span>250</span>
-                                    <p>مرشح بارتايم</p>
-                                </div>
-                                <div class="title d-flex justify-content-center align-items-center">
-                                    <h3>project manager</h3>
-                                </div>
-                            </div>
-                            <div class="overlay d-flex justify-content-center align-items-center flex-column">
-                                <a href="" class="btn btn-pink w-100 mb-2">وظف بارتايم</a>
-                                <a href="" class="btn btn-blue-light w-100">أنضم بارتايم</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 col-md-4 col-6">
-                        <div class="available_job_item wow fadeInUp" data-wow-duration="1.5s" data-wow-delay=".3s">
-                            <div class="front">
-                                <div class="job_count d-flex justify-content-center align-items-center flex-column">
-                                    <span>250</span>
-                                    <p>مرشح بارتايم</p>
-                                </div>
-                                <div class="title d-flex justify-content-center align-items-center">
-                                    <h3>financial analyst</h3>
-                                </div>
-                            </div>
-                            <div class="overlay d-flex justify-content-center align-items-center flex-column">
-                                <a href="" class="btn btn-pink w-100 mb-2">وظف بارتايم</a>
-                                <a href="" class="btn btn-blue-light w-100">أنضم بارتايم</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 col-md-4 col-6">
-                        <div class="available_job_item wow fadeInUp" data-wow-duration="1.5s" data-wow-delay=".3s">
-                            <div class="front">
-                                <div class="job_count d-flex justify-content-center align-items-center flex-column">
-                                    <span>250</span>
-                                    <p>مرشح بارتايم</p>
-                                </div>
-                                <div class="title d-flex justify-content-center align-items-center">
-                                    <h3>accountant</h3>
-                                </div>
-                            </div>
-                            <div class="overlay d-flex justify-content-center align-items-center flex-column">
-                                <a href="" class="btn btn-pink w-100 mb-2">وظف بارتايم</a>
-                                <a href="" class="btn btn-blue-light w-100">أنضم بارتايم</a>
-                            </div>
-                        </div>
-                    </div>
+
+@endforelse
                 </div>
-                <nav aria-label="Page navigation" class="mt-4">
-                    <ul class="pagination justify-content-center">
-                        <li class="page-item">
-                            <a class="page-link" href="#" aria-label="Previous">
-                                <span aria-hidden="true">&laquo;</span>
-                            </a>
-                        </li>
-                        <li class="page-item"><a class="page-link" href="#">1</a></li>
-                        <li class="page-item active"><a class="page-link" href="#">2</a></li>
-                        <li class="page-item"><a class="page-link" href="#">3</a></li>
-                        <li class="page-item">
-                            <a class="page-link" href="#" aria-label="Next">
-                                <span aria-hidden="true">&raquo;</span>
-                            </a>
-                        </li>
-                    </ul>
+              <nav aria-label="Page navigation" class="mt-4">
+                 <div class="row justify-content-center">
+
+                    {{ $functional_areas->links() }}
+                    </div>
+
                 </nav>
             </div>
         </div>

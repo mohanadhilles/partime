@@ -149,7 +149,7 @@
                                     <select class="form-control" placeholder="تحديد الدولة">
                                         <option hidden>تحديد الدولة</option>
                                         <option value="">السعودية</option>
-                                        <option value="">فلسطين</option>
+
                                     </select>
                                     <i class="fas fa-angle-down"></i>
                                 </div>
@@ -157,9 +157,15 @@
                             <div class="col-sm-4">
                                 <div class="cs-select">
                                     <select class="form-control" placeholder="تحديد المدينة">
-                                        <option اhidden>تحديد المدينة</option>
-                                        <option value="">الرياض</option>
+                                        <option hidden>تحديد المدينة</option>
+                                        <option value="">الرياض </option>
                                         <option value="">جدة</option>
+                                        <option value="">مكة المكرمة</option>
+                                        <option value=""> المدينة المنورة</option>
+                                        <option value="">ينبع</option>
+                                        <option value="">الدمام</option>
+                                        <option value="">الخبر</option>
+                                        <option value="">الجبيل</option>
                                     </select>
                                     <i class="fas fa-angle-down"></i>
                                 </div>
@@ -174,150 +180,9 @@
 
             <div class="available_jobs_list">
                 <div class="row justify-content-md-center">
-                    <div class="col-lg-3 col-md-4 col-6">
-                        <div class="available_job_item wow fadeInUp" data-wow-duration="1.5s" data-wow-delay=".3s">
-                            <div class="front">
-                                <div class="job_count d-flex justify-content-center align-items-center flex-column"
-                                     style='background: url("{{asset('images/job_bg.png')}}") '>
-                                    <span>250</span>
-                                    <p>مرشح بارتايم</p>
-                                </div>
-                                <div class="title d-flex justify-content-center align-items-center">
-                                    <h3>Quality and compliance officer</h3>
-                                </div>
-                            </div>
-                            <div class="overlay d-flex justify-content-center align-items-center flex-column">
-                                <a href="" class="btn btn-pink w-100 mb-2">وظف بارتايم</a>
-                                <a href="" class="btn btn-blue-light w-100">أنضم بارتايم</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 col-md-4 col-6">
-                        <div class="available_job_item wow fadeInUp" data-wow-duration="1.5s" data-wow-delay=".3s">
-                            <div class="front">
-                                <div class="job_count d-flex justify-content-center align-items-center flex-column"
-                                     style='background: url("{{asset('images/job_bg.png')}}") '>
-                                    <span>250</span>
-                                    <p>مرشح بارتايم</p>
-                                </div>
-                                <div class="title d-flex justify-content-center align-items-center">
-                                    <h3>CEO</h3>
-                                </div>
-                            </div>
-                            <div class="overlay d-flex justify-content-center align-items-center flex-column">
-                                <a href="" class="btn btn-pink w-100 mb-2">وظف بارتايم</a>
-                                <a href="" class="btn btn-blue-light w-100">أنضم بارتايم</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 col-md-4 col-6">
-                        <div class="available_job_item wow fadeInUp" data-wow-duration="1.5s" data-wow-delay=".3s">
-                            <div class="front">
-                                <div class="job_count d-flex justify-content-center align-items-center flex-column"
-                                     style='background: url("{{asset('images/job_bg.png')}}") '>
-                                    <span>250</span>
-                                    <p>مرشح بارتايم</p>
-                                </div>
-                                <div class="title d-flex justify-content-center align-items-center">
-                                    <h3>CTO</h3>
-                                </div>
-                            </div>
-                            <div class="overlay d-flex justify-content-center align-items-center flex-column">
-                                <a href="" class="btn btn-pink w-100 mb-2">وظف بارتايم</a>
-                                <a href="" class="btn btn-blue-light w-100">أنضم بارتايم</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 col-md-4 col-6">
-                        <div class="available_job_item wow fadeInUp" data-wow-duration="1.5s" data-wow-delay=".3s">
-                            <div class="front">
-                                <div class="job_count d-flex justify-content-center align-items-center flex-column"
-                                     style='background: url("{{asset('images/job_bg.png')}}") '>
-                                    <span>250</span>
-                                    <p>مرشح بارتايم</p>
-                                </div>
-                                <div class="title d-flex justify-content-center align-items-center">
-                                    <h3>CFO</h3>
-                                </div>
-                            </div>
-                            <div class="overlay d-flex justify-content-center align-items-center flex-column">
-                                <a href="" class="btn btn-pink w-100 mb-2">وظف بارتايم</a>
-                                <a href="" class="btn btn-blue-light w-100">أنضم بارتايم</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 col-md-4 col-6">
-                        <div class="available_job_item wow fadeInUp" data-wow-duration="1.5s" data-wow-delay=".3s">
-                            <div class="front">
-                                <div class="job_count d-flex justify-content-center align-items-center flex-column"
-                                     style='background: url("{{asset('images/job_bg.png')}}") '>
-                                    <span>250</span>
-                                    <p>مرشح بارتايم</p>
-                                </div>
-                                <div class="title d-flex justify-content-center align-items-center">
-                                    <h3>HR manager</h3>
-                                </div>
-                            </div>
-                            <div class="overlay d-flex justify-content-center align-items-center flex-column">
-                                <a href="" class="btn btn-pink w-100 mb-2">وظف بارتايم</a>
-                                <a href="" class="btn btn-blue-light w-100">أنضم بارتايم</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 col-md-4 col-6">
-                        <div class="available_job_item wow fadeInUp" data-wow-duration="1.5s" data-wow-delay=".3s">
-                            <div class="front">
-                                <div class="job_count d-flex justify-content-center align-items-center flex-column"
-                                     style='background: url("{{asset('images/job_bg.png')}}") '>
-                                    <span>250</span>
-                                    <p>مرشح بارتايم</p>
-                                </div>
-                                <div class="title d-flex justify-content-center align-items-center">
-                                    <h3>project manager</h3>
-                                </div>
-                            </div>
-                            <div class="overlay d-flex justify-content-center align-items-center flex-column">
-                                <a href="" class="btn btn-pink w-100 mb-2">وظف بارتايم</a>
-                                <a href="" class="btn btn-blue-light w-100">أنضم بارتايم</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 col-md-4 col-6">
-                        <div class="available_job_item wow fadeInUp" data-wow-duration="1.5s" data-wow-delay=".3s">
-                            <div class="front">
-                                <div class="job_count d-flex justify-content-center align-items-center flex-column"
-                                     style='background: url("{{asset('images/job_bg.png')}}") '>
-                                    <span>250</span>
-                                    <p>مرشح بارتايم</p>
-                                </div>
-                                <div class="title d-flex justify-content-center align-items-center">
-                                    <h3>financial analyst</h3>
-                                </div>
-                            </div>
-                            <div class="overlay d-flex justify-content-center align-items-center flex-column">
-                                <a href="" class="btn btn-pink w-100 mb-2">وظف بارتايم</a>
-                                <a href="" class="btn btn-blue-light w-100">أنضم بارتايم</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 col-md-4 col-6">
-                        <div class="available_job_item wow fadeInUp" data-wow-duration="1.5s" data-wow-delay=".3s">
-                            <div class="front">
-                                <div class="job_count d-flex justify-content-center align-items-center flex-column"
-                                     style='background: url("{{asset('images/job_bg.png')}}") '>
-                                    <span>250</span>
-                                    <p>مرشح بارتايم</p>
-                                </div>
-                                <div class="title d-flex justify-content-center align-items-center">
-                                    <h3>accountant</h3>
-                                </div>
-                            </div>
-                            <div class="overlay d-flex justify-content-center align-items-center flex-column">
-                                <a href="" class="btn btn-pink w-100 mb-2">وظف بارتايم</a>
-                                <a href="" class="btn btn-blue-light w-100">أنضم بارتايم</a>
-                            </div>
-                        </div>
-                    </div>
+
+                     @include('includes.functional_areas')
+
                 </div>
             </div>
         </div>

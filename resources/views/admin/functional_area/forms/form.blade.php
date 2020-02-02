@@ -15,9 +15,9 @@ $queryString = MiscHelper::getLangQueryStr();
         {!! APFrmErrHelp::showErrors($errors, 'lang') !!}                                       
     </div>
     <div class="form-group {!! APFrmErrHelp::hasError($errors, 'functional_area') !!}">
-        {!! Form::label('functional_area', 'Functional Area', ['class' => 'bold']) !!}                    
+        {!! Form::label('functional_area', 'Functional Area', ['class' => 'bold']) !!}
         {!! Form::text('functional_area', null, array('class'=>'form-control', 'id'=>'functional_area', 'placeholder'=>'Functional Area', 'dir'=>$direction)) !!}
-        {!! APFrmErrHelp::showErrors($errors, 'functional_area') !!}                                       
+        {!! APFrmErrHelp::showErrors($errors, 'functional_area') !!}
     </div>
     <div class="form-group {!! APFrmErrHelp::hasError($errors, 'is_default') !!}">
         {!! Form::label('is_default', 'Is Default?', ['class' => 'bold']) !!}
@@ -64,6 +64,58 @@ $queryString = MiscHelper::getLangQueryStr();
         </div>
         {!! APFrmErrHelp::showErrors($errors, 'is_active') !!}
     </div>
+
+
+             <div class="form-group {!! APFrmErrHelp::hasError($errors, 'count_jobs') !!}">
+        {!! Form::label('count_jobs', 'count jobs', ['class' => 'bold']) !!}
+        {!! Form::number('count_jobs', null, array('class'=>'form-control', 'id'=>'count_jobs', 'placeholder'=>'count jobs', 'dir'=>$direction)) !!}
+        {!! APFrmErrHelp::showErrors($errors, 'count_jobs') !!}
+    </div>
+
+        <div class="form-group {!! APFrmErrHelp::hasError($errors, 'show_in_home') !!}">
+        {!! Form::label('show_in_home', 'show in home?', ['class' => 'bold']) !!}
+        <div class="radio-list">
+            <?php
+            $show_in_home_1 = 'checked="checked"';
+            $show_in_home_2 = '';
+            if (old('show_in_home', ((isset($functionalArea)) ? $functionalArea->show_in_home : 1)) == 0) {
+                $show_in_home_1 = '';
+                $show_in_home_2 = 'checked="checked"';
+            }
+            ?>
+            <label class="radio-inline">
+                <input id="show_in_home" name="show_in_home" type="radio" value="1" {{$show_in_home_1}}  >
+                Yes </label>
+            <label class="radio-inline">
+                <input id="not_show_in_home" name="show_in_home" type="radio" value="0" {{$show_in_home_2}}  >
+                No </label>
+        </div>
+        {!! APFrmErrHelp::showErrors($errors, 'show_in_home') !!}
+    </div>
+
+
+        <div class="form-group {!! APFrmErrHelp::hasError($errors, 'show_in_jobs') !!}">
+        {!! Form::label('show_in_jobs', 'show in jobs?', ['class' => 'bold']) !!}
+        <div class="radio-list">
+            <?php
+            $show_in_jobs_1 = 'checked="checked"';
+            $show_in_jobs_2 = '';
+            if (old('is_default', ((isset($functionalArea)) ? $functionalArea->show_in_jobs : 1)) == 0) {
+                $show_in_jobs_1 = '';
+                $show_in_jobs_2 = 'checked="checked"';
+            }
+            ?>
+            <label class="radio-inline">
+                <input id="show_in_jobs" name="show_in_jobs" type="radio" value="1" {{$show_in_jobs_1}}  >
+                Yes </label>
+            <label class="radio-inline">
+                <input id="not_show_in_jobs" name="show_in_jobs" type="radio" value="0" {{$show_in_jobs_2}}  >
+                No </label>
+        </div>
+        {!! APFrmErrHelp::showErrors($errors, 'show_in_jobs') !!}
+    </div>
+
+
     <div class="form-actions">
         {!! Form::button('Update <i class="fa fa-arrow-circle-right" aria-hidden="true"></i>', array('class'=>'btn btn-large btn-primary', 'type'=>'submit')) !!}
     </div>

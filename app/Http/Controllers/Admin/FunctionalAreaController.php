@@ -57,6 +57,11 @@ class FunctionalAreaController extends Controller
         $functionalArea->lang = $request->input('lang');
         $functionalArea->is_default = $request->input('is_default');
 
+
+        $functionalArea->count_jobs = $request->input('count_jobs');
+        $functionalArea->show_in_home = $request->input('show_in_home');
+        $functionalArea->show_in_jobs = $request->input('show_in_jobs');
+
         $functionalArea->save();
 
         /*         * ************************************ */
@@ -94,6 +99,10 @@ class FunctionalAreaController extends Controller
         $functionalArea->is_active = $request->input('is_active');
         $functionalArea->lang = $request->input('lang');
         $functionalArea->is_default = $request->input('is_default');
+                $functionalArea->count_jobs = $request->input('count_jobs');
+        $functionalArea->show_in_home = $request->input('show_in_home');
+        $functionalArea->show_in_jobs = $request->input('show_in_jobs');
+        
         if ((int) $request->input('is_default') == 1) {
             $functionalArea->functional_area_id = $functionalArea->id;
         } else {

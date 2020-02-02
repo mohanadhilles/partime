@@ -1,6 +1,6 @@
 <div class="section greybg">
 
-  <div class="container"> 
+  <div class="container">
 
     <!-- title start -->
 
@@ -14,7 +14,7 @@
 
     <!-- title end -->
 
-    
+
 
     <ul class="jobslist row">
 

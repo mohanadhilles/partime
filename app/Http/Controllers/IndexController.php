@@ -38,7 +38,9 @@ class IndexController extends Controller
     }
     public function getJobs(){
 
-        return view('jobs');
+
+    	$functional_areas = FunctionalArea::whereIsActive(1)->whereShowInJobs(1)->whereLang('ar')->paginate(20);
+        return view('jobs')->with('functional_areas',$functional_areas);
     }
 
     /**
@@ -55,6 +57,7 @@ class IndexController extends Controller
 		$topCityIds = $this->getCityIdsAndNumJobs(32);
 		$featuredJobs = Job::active()->featured()->notExpire()->limit(12)->get();
 		$latestJobs = Job::active()->notExpire()->orderBy('id', 'desc')->limit(12)->get();
+		$functional_areas = FunctionalArea::whereIsActive(1)->whereShowInHome(1)->whereLang('ar')->get();
 		$video = Video::getVideo();
 		$testimonials = Testimonial::langTestimonials();
 		
@@ -64,6 +67,7 @@ class IndexController extends Controller
         $seo = SEO::where('seo.page_title', 'like', 'front_index_page')->first();
         return view('guest')
                         ->with('topCompanyIds', $topCompanyIds)
+                        ->with('functional_areas', $functional_areas)
 						->with('topFunctionalAreaIds', $topFunctionalAreaIds)
 						->with('topCityIds', $topCityIds)
 						->with('topIndustryIds', $topIndustryIds)
