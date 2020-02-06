@@ -23,7 +23,7 @@
                                 <a href="https://partime.typeform.com/to/Au1uWK"  target="_blank" class="btn btn-deep-blue">انضم كمستثمر لرحلتنا العالمية </a>
                             </div>
                         </div>
-                        <h2 class="wow fadeInUp" data-wow-duration="1.5s" data-wow-delay=".5s">تواجهك صعوبة بتوظيف المهنيين المحترفين ؟</h2>
+                        <h2 class="wow fadeInUp" data-wow-duration="1.5s" data-wow-delay=".5s">تواجهك صعوبة بالتوظيف بنظام الدوام الجزئي  ؟</h2>
                         <h1 class="wow fadeInUp" data-wow-duration="1.5s" data-wow-delay=".7s">بارتايم هو الحل</h1>
                     </div>
                 </div>
@@ -79,7 +79,7 @@
                 <div class="col-md-8">
                     <div class="info mt-3">
                         <div class="content  wow fadeInUp" data-wow-duration="1.5s" data-wow-delay=".4s">
-                            <p>منصة بارتايم ربط المنشآت مع المهنيين الباحثين عن العمل الجزئي والمرن لزيادة الانتاجية والدخل ورفع مستوى الامتثال والشفافية</p>
+                            <p>منصة بارتايم ربط المنشآت مع المهنيين الباحثين عن العمل الجزئي والمرن لزيادة الإنتاجية والدخل ورفع مستوى الإمتثال والشفافية.</p>
                         </div>
                         <div class="actions wow fadeInUp" data-wow-duration="1.5s" data-wow-delay=".7s">
                             <a href="https://partime.typeform.com/to/iT9Im4" target="_blank" class="btn btn-pink ml-md-2">للباحثين عن فرص عمل بارتايم</a>
@@ -107,7 +107,7 @@
                             <div class="img">
                                 <img src="web/images/company-feature-1.png" class="img-fluid mx-auto" alt="">
                             </div>
-                            <h3>نسهل لك العثور على مرشحين رائعين للعمل</h3>
+                            <h3>ابحث عن بارتايمرز مؤهلين بضغطة زر.</h3>
                         </article>
                     </div>
                     <div class="col-sm-4">
@@ -115,7 +115,7 @@
                             <div class="img">
                                 <img src="web/images/company-feature-2.png" class="img-fluid mx-auto" alt="">
                             </div>
-                            <h3>نوفر وقتك بتوحيد وسيلة التواصل مع المرشحين عبر المنصة</h3>
+                            <h3>  نظام إدارة الرواتب عبر المنصة.</h3>
                         </article>
                     </div>
                     <div class="col-sm-4">
@@ -123,7 +123,7 @@
                             <div class="img">
                                 <img src="web/images/company-feature-3.png" class="img-fluid mx-auto" alt="">
                             </div>
-                            <h3>نقلل المدة الزمنية لاختيار المرشح المثالي  للوظيفة</h3>
+                            <h3>فريق متخصص من المستشارين لتحصل على توظيف أسرع وأكثر نجاحًا</h3>
                         </article>
                     </div>
                 </div>
@@ -208,7 +208,7 @@
                             <div class="img">
                                 <img src="web/images/employee-feature-1.png" class="img-fluid mx-auto" alt="">
                             </div>
-                            <h3>إٍستغل خبراتك ومواهبك في المكان والوقت المناسب لك</h3>
+                            <h3>فرص وظيفية تناسب خبراتك المهنية.</h3>
                         </article>
                     </div>
                     <div class="col-sm-4">
@@ -216,7 +216,7 @@
                             <div class="img">
                                 <img src="web/images/employee-feature-2.png" class="img-fluid mx-auto" alt="">
                             </div>
-                            <h3>بسهولة أنشئ سيرتك الذاتية واظهر بشكل احترافي</h3>
+                            <h3>طوّر خبراتك، وزد من دخلك في أكثر من وظيفة.</h3>
                         </article>
                     </div>
                     <div class="col-sm-4">
@@ -224,7 +224,7 @@
                             <div class="img">
                                 <img src="web/images/employee-feature-3.png" class="img-fluid mx-auto" alt="">
                             </div>
-                            <h3>بضغطة وحدة قدّم على وظائف</h3>
+                            <h3>فرص وظيفية قريبة منك</h3>
                         </article>
                     </div>
                 </div>

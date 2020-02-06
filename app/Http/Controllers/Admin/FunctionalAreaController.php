@@ -58,6 +58,8 @@ class FunctionalAreaController extends Controller
         $functionalArea->is_default = $request->input('is_default');
 
 
+        $functionalArea->range_price_from = $request->input('range_price_from');
+        $functionalArea->range_price_to = $request->input('range_price_to');
         $functionalArea->count_jobs = $request->input('count_jobs');
         $functionalArea->show_in_home = $request->input('show_in_home');
         $functionalArea->show_in_jobs = $request->input('show_in_jobs');
@@ -102,7 +104,9 @@ class FunctionalAreaController extends Controller
                 $functionalArea->count_jobs = $request->input('count_jobs');
         $functionalArea->show_in_home = $request->input('show_in_home');
         $functionalArea->show_in_jobs = $request->input('show_in_jobs');
-        
+        $functionalArea->range_price_from = $request->input('range_price_from');
+        $functionalArea->range_price_to = $request->input('range_price_to');
+
         if ((int) $request->input('is_default') == 1) {
             $functionalArea->functional_area_id = $functionalArea->id;
         } else {

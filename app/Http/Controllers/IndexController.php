@@ -39,7 +39,7 @@ class IndexController extends Controller
     public function getJobs(){
 
 
-    	$functional_areas = FunctionalArea::whereIsActive(1)->whereShowInJobs(1)->whereLang('ar')->paginate(20);
+    	$functional_areas = FunctionalArea::whereIsActive(1)->whereShowInJobs(1)->whereLang('ar')->orderBy('sort_order')->paginate(20);
         return view('jobs')->with('functional_areas',$functional_areas);
     }
 
@@ -57,7 +57,7 @@ class IndexController extends Controller
 		$topCityIds = $this->getCityIdsAndNumJobs(32);
 		$featuredJobs = Job::active()->featured()->notExpire()->limit(12)->get();
 		$latestJobs = Job::active()->notExpire()->orderBy('id', 'desc')->limit(12)->get();
-		$functional_areas = FunctionalArea::whereIsActive(1)->whereShowInHome(1)->whereLang('ar')->get();
+		$functional_areas = FunctionalArea::whereIsActive(1)->whereShowInHome(1)->whereLang('ar')->orderBy('sort_order')->get();
 		$video = Video::getVideo();
 		$testimonials = Testimonial::langTestimonials();
 		

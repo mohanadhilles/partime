@@ -72,6 +72,18 @@ $queryString = MiscHelper::getLangQueryStr();
         {!! APFrmErrHelp::showErrors($errors, 'count_jobs') !!}
     </div>
 
+                 <div class="form-group {!! APFrmErrHelp::hasError($errors, 'range_price_from') !!}">
+        {!! Form::label('range_price_from', 'range price from', ['class' => 'bold']) !!}
+        {!! Form::number('range_price_from', null, array('class'=>'form-control', 'id'=>'range_price_from', 'placeholder'=>'range price from', 'dir'=>$direction)) !!}
+        {!! APFrmErrHelp::showErrors($errors, 'range_price_from') !!}
+    </div>
+
+                 <div class="form-group {!! APFrmErrHelp::hasError($errors, 'range_price_to') !!}">
+        {!! Form::label('range_price_to', 'range price to', ['class' => 'bold']) !!}
+        {!! Form::number('range_price_to', null, array('class'=>'form-control', 'id'=>'range_price_to', 'placeholder'=>'range price to', 'dir'=>$direction)) !!}
+        {!! APFrmErrHelp::showErrors($errors, 'range_price_to') !!}
+    </div>
+
         <div class="form-group {!! APFrmErrHelp::hasError($errors, 'show_in_home') !!}">
         {!! Form::label('show_in_home', 'show in home?', ['class' => 'bold']) !!}
         <div class="radio-list">

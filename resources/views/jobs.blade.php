@@ -72,9 +72,13 @@
                                 <div class="job_count d-flex justify-content-center align-items-center flex-column">
                                     <span>{{ $functional_area->count_jobs  }}</span>
                                     <p>مرشح بارتايم</p>
+                                    <br><br>
+                                   <p> {{ $functional_area->range_price_from  }} - {{ $functional_area->range_price_to  }}    ريال سعودي </p>
+
                                 </div>
                                 <div class="title d-flex justify-content-center align-items-center">
                                     <h3>{{ $functional_area->functional_area  }}</h3>
+
                                 </div>
                             </div>
                             <div class="overlay d-flex justify-content-center align-items-center flex-column">

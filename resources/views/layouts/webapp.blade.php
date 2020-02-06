@@ -91,7 +91,7 @@
                                 <img src="{{asset('web/images/footer-logo.png')}}" class="img-fluid" alt="">
                             </a>
                         </div>
-                        <p><i class="fas fa-map-marker-alt"></i> مركز منشأت - واجهة الرياض - مجمع  ريادة الأعمال  الرياض - المملكة العربية السعودية </p>
+                        <p><i class="fas fa-map-marker-alt"></i> مركز منشأت - واجهة الرياض - مجمع  ريادة الأعمال  الرياض -<br> المملكة العربية السعودية </p>
                     </div>
                 </div>
                 <div class="col-lg-4  col-md-6">
