@@ -10,8 +10,9 @@
                                      style='background: url("{{asset('images/job_bg.png')}}") '>
                                     <span>{{ $functional_area->count_jobs  }}</span>
                                     <p>مرشح بارتايم</p>
-                                        <br><br>
-                                   <p> {{ $functional_area->range_price_from  }} - {{ $functional_area->range_price_to  }}    ريال سعودي </p>
+
+                                   <p> متوسط سعر الساعة </p>
+                                   <p> {{ $functional_area->average_partime_cost  }}      ريال سعودي </p>
 
                                 </div>
                                 <div class="title d-flex justify-content-center align-items-center">

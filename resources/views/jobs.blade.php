@@ -19,19 +19,23 @@
                         <div class="search_wrap">
                             <form>
                                 <div class="row">
-                                    <div class="col-sm-4">
-                                        <div class="cs-select">
+
+
+                                    <div class="col-sm-3">
+                                        <div class="cs-select"title="تحديد الدولة">
                                             <select class="form-control" placeholder="تحديد الدولة">
                                                 <option hidden>تحديد الدولة</option>
+                                                <option disabled="disabled" >تحديد الدولة</option>
                                                 <option value="">السعودية</option>
                                              </select>
                                             <i class="fas fa-angle-down"></i>
                                         </div>
                                     </div>
-                                    <div class="col-sm-4">
-                                        <div class="cs-select">
+                                    <div class="col-sm-3">
+                                        <div class="cs-select" title="تحديد المدينة">
                                             <select class="form-control" placeholder="تحديد المدينة">
-                                                <option اhidden>تحديد المدينة</option>
+                                                <option hidden>تحديد المدينة</option>
+                                                <option disabled="disabled">تحديد المدينة</option>
                                                      <option value="">الرياض </option>
                                         <option value="">جدة</option>
                                         <option value="">مكة المكرمة</option>
@@ -44,7 +48,20 @@
                                             <i class="fas fa-angle-down"></i>
                                         </div>
                                     </div>
-                                    <div class="col-sm-4">
+                                         <div class="col-sm-3">
+                                <div class="cs-select" title="تحديد مستوي الموظفين">
+                                    <select class="form-control" placeholder="تحديد مستوي الموظفين">
+                                        <option hidden>تحديد مستوي الموظفين</option>
+                                        <option disabled="disabled">تحديد مستوي الموظفين</option>
+                                        <option value="">White-collar workers </option>
+                                        <option value="">Blue-collar workers</option>
+                                        <option value="">Pink-collar workers </option>
+
+                                    </select>
+                                    <i class="fas fa-angle-down"></i>
+                                </div>
+                            </div>
+                                    <div class="col-sm-3">
                                         <button type="submit" class="btn btn-block btn-pink">عرض</button>
                                     </div>
                                 </div>
@@ -71,12 +88,12 @@
                             <div class="front">
                                 <div class="job_count d-flex justify-content-center align-items-center flex-column">
                                     <span>{{ $functional_area->count_jobs  }}</span>
-                                    <p>مرشح بارتايم</p>
-                                    <br><br>
-                                   <p> {{ $functional_area->range_price_from  }} - {{ $functional_area->range_price_to  }}    ريال سعودي </p>
+                                       <p> متوسط سعر الساعة </p>
+                                   <p> {{ $functional_area->average_partime_cost  }}      ريال سعودي </p>
 
                                 </div>
                                 <div class="title d-flex justify-content-center align-items-center">
+                                 
                                     <h3>{{ $functional_area->functional_area  }}</h3>
 
                                 </div>
