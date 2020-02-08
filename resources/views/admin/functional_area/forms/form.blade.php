@@ -84,6 +84,14 @@ $queryString = MiscHelper::getLangQueryStr();
         {!! APFrmErrHelp::showErrors($errors, 'range_price_to') !!}
     </div>
 
+                     <div class="form-group {!! APFrmErrHelp::hasError($errors, 'average_partime_cost') !!}">
+        {!! Form::label('average_partime_cost', 'Average partime cost par hour', ['class' => 'bold']) !!}
+        {!! Form::number('average_partime_cost', null, array('class'=>'form-control', 'id'=>'average_partime_cost', 'placeholder'=>'Average partime cost par hour', 'dir'=>$direction)) !!}
+        {!! APFrmErrHelp::showErrors($errors, 'average_partime_cost') !!}
+    </div>
+
+
+
         <div class="form-group {!! APFrmErrHelp::hasError($errors, 'show_in_home') !!}">
         {!! Form::label('show_in_home', 'show in home?', ['class' => 'bold']) !!}
         <div class="radio-list">

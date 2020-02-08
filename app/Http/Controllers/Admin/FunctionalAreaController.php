@@ -63,6 +63,7 @@ class FunctionalAreaController extends Controller
         $functionalArea->count_jobs = $request->input('count_jobs');
         $functionalArea->show_in_home = $request->input('show_in_home');
         $functionalArea->show_in_jobs = $request->input('show_in_jobs');
+        $functionalArea->average_partime_cost = $request->input('average_partime_cost');
 
         $functionalArea->save();
 
@@ -106,6 +107,7 @@ class FunctionalAreaController extends Controller
         $functionalArea->show_in_jobs = $request->input('show_in_jobs');
         $functionalArea->range_price_from = $request->input('range_price_from');
         $functionalArea->range_price_to = $request->input('range_price_to');
+        $functionalArea->average_partime_cost = $request->input('average_partime_cost');
 
         if ((int) $request->input('is_default') == 1) {
             $functionalArea->functional_area_id = $functionalArea->id;
