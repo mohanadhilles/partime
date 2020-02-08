@@ -144,20 +144,22 @@
                 <div class="search_wrap">
                     <form>
                         <div class="row">
-                            <div class="col-sm-4">
-                                <div class="cs-select">
+                            <div class="col-sm-3">
+                                <div class="cs-select" title="تحديد الدولة" >
                                     <select class="form-control" placeholder="تحديد الدولة">
                                         <option hidden>تحديد الدولة</option>
+                                        <option disabled="disabled">تحديد الدولة</option>
                                         <option value="">السعودية</option>
 
                                     </select>
                                     <i class="fas fa-angle-down"></i>
                                 </div>
                             </div>
-                            <div class="col-sm-4">
-                                <div class="cs-select">
+                            <div class="col-sm-3">
+                                <div class="cs-select" title="تحديد المدينة" >
                                     <select class="form-control" placeholder="تحديد المدينة">
                                         <option hidden>تحديد المدينة</option>
+                                        <option disabled="disabled">تحديد المدينة</option>
                                         <option value="">الرياض </option>
                                         <option value="">جدة</option>
                                         <option value="">مكة المكرمة</option>
@@ -170,7 +172,23 @@
                                     <i class="fas fa-angle-down"></i>
                                 </div>
                             </div>
-                            <div class="col-sm-4">
+
+                              <div class="col-sm-3">
+                                <div class="cs-select" title="تحديد مستوي الموظفين">
+                                    <select class="form-control" placeholder="تحديد مستوي الموظفين">
+                                        <option hidden>تحديد مستوي الموظفين</option>
+                                        <option disabled="disabled">تحديد مستوي الموظفين</option>
+                                        <option value="">White-collar workers </option>
+                                        <option value="">Blue-collar workers</option>
+                                        <option value="">Pink-collar workers </option>
+
+                                    </select>
+                                    <i class="fas fa-angle-down"></i>
+                                </div>
+                            </div>
+
+
+                            <div class="col-sm-3">
                                 <a href="{{url('guest/jobs')}}" class="btn btn-block btn-blue-light">عرض</a>
                             </div>
                         </div>
