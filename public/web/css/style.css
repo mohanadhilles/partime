@@ -1467,4 +1467,7 @@ svg {
     margin-left: initial !important;
     margin-right: auto !important;
 }
+.front .job_count span{
+    padding-top: 5%;
+}
 /* ./customize bootstrap classess
