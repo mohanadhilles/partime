@@ -441,7 +441,7 @@
                     <h3>Waleed Alhazmi</h3>
                     <p>Founder</p>
                     <div class="social-team  text-center">
-                        <a href="#" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="https://www.linkedin.com/in/waleed-alhazmi-3273657a" target="_blank"><i class="fab fa-linkedin-in"></i></a>
                     </div>
                 </div>
             </div>
@@ -453,7 +453,7 @@
                     <h3>Aladdin Faisal</h3>
                     <p>Operation</p>
                     <div class="social-team  text-center">
-                        <a href="#" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="https://www.linkedin.com/in/aladdin-faisal-65aa21148" target="_blank"><i class="fab fa-linkedin-in"></i></a>
                     </div>
                 </div>
             </div>
@@ -465,7 +465,7 @@
                     <h3>Mohanad Hilles</h3>
                     <p>IT Technology</p>
                     <div class="social-team  text-center">
-                        <a href="#" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="https://www.linkedin.com/in/mohannadhilles" target="_blank"><i class="fab fa-linkedin-in"></i></a>
                     </div>
                 </div>
             </div>
@@ -477,7 +477,7 @@
                     <h3>Hanady Al Saqqa</h3>
                     <p>Compliance</p>
                     <div class="social-team  text-center">
-                        <a href="#" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+                        <a href=" https://www.linkedin.com/in/hanady-alsaqqa-a43097193" target="_blank"><i class="fab fa-linkedin-in"></i></a>
                     </div>
                 </div>
             </div>
@@ -489,7 +489,7 @@
                     <h3>Rahaf Al Amri</h3>
                     <p>Finance</p>
                     <div class="social-team  text-center">
-                        <a href="#" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="https://www.linkedin.com/in/rahaf-alamri-966b18160" target="_blank"><i class="fab fa-linkedin-in"></i></a>
                     </div>
                 </div>
             </div>
@@ -501,7 +501,7 @@
                     <h3>Hani yousif</h3>
                     <p>IT technology</p>
                     <div class="social-team  text-center">
-                        <a href="#" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="https://www.linkedin.com/in/haniusif/" target="_blank"><i class="fab fa-linkedin-in"></i></a>
                     </div>
                 </div>
             </div>
@@ -513,7 +513,7 @@
                     <h3>Abeer Abu Zarifa</h3>
                     <p>Customer Care</p>
                     <div class="social-team  text-center">
-                        <a href="#" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="https://www.linkedin.com/in/abeer-zarifa-a3a2b819b" target="_blank"><i class="fab fa-linkedin-in"></i></a>
                     </div>
                 </div>
             </div>
@@ -525,7 +525,7 @@
                     <h3>Fitoon Alshayie</h3>
                     <p>Marketing</p>
                     <div class="social-team  text-center">
-                        <a href="#" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="http://linkedin.com/in/fitoon-alshayie-432998168" target="_blank"><i class="fab fa-linkedin-in"></i></a>
                     </div>
                 </div>
             </div>
@@ -537,7 +537,19 @@
                     <h3>Suzan Salem</h3>
                     <p>Social media</p>
                     <div class="social-team  text-center">
-                        <a href="#" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="https://www.linkedin.com/in/sozana-jamal-960a13153" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+            </div>
+                <div class="item">
+                <div class="team-item">
+                    <div class="img">
+                        <img src="web/images/team/mohalzharni.jpeg" class="img-fluid" alt="">
+                    </div>
+                    <h3>Mohammad AlZahrani</h3>
+                    <p> Business  Development </p>
+                    <div class="social-team  text-center">
+                        <a href="http://linkedin.com/in/mohammad-al-zahrani-91964452" target="_blank"><i class="fab fa-linkedin-in"></i></a>
                     </div>
                 </div>
             </div>
@@ -563,7 +575,7 @@
                     <h3>NEMAH NASER </h3>
                     <p>Talent Acquisition</p>
                     <div class="social-team  text-center">
-                        <a href="#" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="https://www.linkedin.com/in/nemah-naser-41888518b" target="_blank"><i class="fab fa-linkedin-in"></i></a>
                     </div>
                 </div>
             </div>
