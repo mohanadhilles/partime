@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 06, 2020 at 07:46 PM
+-- Generation Time: Feb 08, 2020 at 05:44 PM
 -- Server version: 10.4.6-MariaDB
 -- PHP Version: 7.3.9
 
@@ -39,6 +39,7 @@ CREATE TABLE `functional_areas` (
   `count_jobs` int(11) DEFAULT NULL,
   `range_price_from` int(11) DEFAULT NULL,
   `range_price_to` int(11) DEFAULT NULL,
+  `average_partime_cost` int(11) DEFAULT NULL,
   `show_in_home` tinyint(1) NOT NULL DEFAULT 0,
   `show_in_jobs` tinyint(1) NOT NULL DEFAULT 1,
   `created_at` timestamp NOT NULL DEFAULT current_timestamp(),
