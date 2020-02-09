@@ -8,7 +8,7 @@ use App\Traits\IsDefault;
 use App\Traits\Active;
 use App\Traits\Sorted;
 use Illuminate\Database\Eloquent\Model;
-
+use Illuminate\Support\Str;
 class FunctionalArea extends Model
 {
 	use Lang;
@@ -27,5 +27,12 @@ class FunctionalArea extends Model
 		$functionalAreaIds = App\Job::select('functional_area_id')->pluck('functional_area_id')->toArray();
         return App\FunctionalArea::whereIn('functional_area_id', $functionalAreaIds)->lang()->active()->inRandomOrder()->paginate($limit);
 	}
+
+
+     public function getFunctionalAreaAttribute($value)
+    {
+       // return Str::camel($value);
+        return  $value;
+    }
 
 }

@@ -23,8 +23,8 @@
                                 <a href="https://partime.typeform.com/to/Au1uWK"  target="_blank" class="btn btn-deep-blue">انضم كمستثمر لرحلتنا العالمية </a>
                             </div>
                         </div>
-                        <h2 class="wow fadeInUp" data-wow-duration="1.5s" data-wow-delay=".5s">تواجهك صعوبة بالتوظيف بنظام الدوام الجزئي  ؟</h2>
-                        <h1 class="wow fadeInUp" data-wow-duration="1.5s" data-wow-delay=".7s">بارتايم هو الحل</h1>
+                        <h2 class="wow fadeInUp" data-wow-duration="1.5s" data-wow-delay=".5s">تواجهك صعوبة بالتوظيف بنظام العمل المرن ؟</h2>
+                        <h1 class="wow fadeInUp" data-wow-duration="1.5s" data-wow-delay=".7s"># بارتايم هو الحل</h1>
                     </div>
                 </div>
                 <div class="col-lg-6 text-center">
@@ -174,10 +174,10 @@
                             </div>
 
                               <div class="col-sm-3">
-                                <div class="cs-select" title="تحديد مستوي الموظفين">
-                                    <select class="form-control" placeholder="تحديد مستوي الموظفين">
-                                        <option hidden>تحديد مستوي الموظفين</option>
-                                        <option disabled="disabled">تحديد مستوي الموظفين</option>
+                                <div class="cs-select" title="تحديد مستوي المرشحين">
+                                    <select class="form-control" placeholder="تحديد مستوي المرشحين">
+                                        <option hidden>تحديد مستوي المرشحين</option>
+                                        <option disabled="disabled">تحديد مستوي المرشحين</option>
                                         <option value="">White-collar workers </option>
                                         <option value="">Blue-collar workers</option>
                                         <option value="">Pink-collar workers </option>
@@ -379,7 +379,7 @@
         <div class="container">
             <div class="section-title wow fadeInUp" data-wow-duration="1.5s" data-wow-delay=".3s">
                 <p class="top_subheader">+1000</p>
-                <h2><span>موظفينا خبرات بأهم الشركات العالمية</span></h2>
+                <h2><span>مرشحينا خبرات بأهم الشركات العالمية</span></h2>
             </div>
             <div class="experiences-list">
                 <div class="d-flex justify-content-center align-items-center flex-wrap">

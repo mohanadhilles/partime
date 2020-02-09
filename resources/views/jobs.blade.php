@@ -49,10 +49,10 @@
                                         </div>
                                     </div>
                                          <div class="col-sm-3">
-                                <div class="cs-select" title="تحديد مستوي الموظفين">
-                                    <select class="form-control" placeholder="تحديد مستوي الموظفين">
-                                        <option hidden>تحديد مستوي الموظفين</option>
-                                        <option disabled="disabled">تحديد مستوي الموظفين</option>
+                                <div class="cs-select" title="تحديد مستوي المرشحين">
+                                    <select class="form-control" placeholder="تحديد مستوي المرشحين">
+                                        <option hidden>تحديد مستوي المرشحين</option>
+                                        <option disabled="disabled">تحديد مستوي المرشحين</option>
                                         <option value="">White-collar workers </option>
                                         <option value="">Blue-collar workers</option>
                                         <option value="">Pink-collar workers </option>
@@ -87,9 +87,11 @@
                         <div class="available_job_item wow fadeInUp" data-wow-duration="1.5s" data-wow-delay=".3s">
                             <div class="front">
                                 <div class="job_count d-flex justify-content-center align-items-center flex-column">
+
                                     <span>{{ $functional_area->count_jobs  }}</span>
+                                     <p>مرشح بارتايم</p>
                                        <p> Average partime cost par hour </p>
-                                   <p> {{ $functional_area->average_partime_cost  }}     SR  </p>
+                                   <p style="color: var(--mainFontColor);font-family: 'main-bold';font-size:  large;"> {{ $functional_area->average_partime_cost  }}     SR  </p>
 
                                 </div>
                                 <div class="title d-flex justify-content-center align-items-center">
