@@ -10,9 +10,8 @@
                                      style='background: url("{{asset('images/job_bg.png')}}") '>
                                     <span>{{ $functional_area->count_jobs  }}</span>
                                     <p>مرشح بارتايم</p>
-
-                                   <p>Average partime cost par hour </p>
-                                   <p> {{ $functional_area->average_partime_cost  }}  SR</p>
+                                   <p> Average partime cost par hour </p>
+                                   <p style="color: var(--mainFontColor);font-family: 'main-bold';font-size:  large;"> {{ $functional_area->average_partime_cost  }}     SR  </p>
 
                                 </div>
                                 <div class="title d-flex justify-content-center align-items-center">

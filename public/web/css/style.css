@@ -993,6 +993,7 @@ svg {
     font-size: 36px;
     color: var(--mainFontColor);
     font-family: 'main-bold';
+    padding-top: 10%;
 }
 .available_job_item .job_count p{
     margin-bottom: 0;
