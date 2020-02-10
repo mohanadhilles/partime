@@ -88,8 +88,8 @@
                             <div class="front">
                                 <div class="job_count d-flex justify-content-center align-items-center flex-column">
                                     <span>{{ $functional_area->count_jobs  }}</span>
-                                       <p> متوسط سعر الساعة </p>
-                                   <p> {{ $functional_area->average_partime_cost  }}      ريال سعودي </p>
+                                       <p>Average partime cost par hour</p>
+                                   <p> {{ $functional_area->average_partime_cost  }}   SR</p>
 
                                 </div>
                                 <div class="title d-flex justify-content-center align-items-center">
