@@ -57,7 +57,7 @@ class IndexController extends Controller
 		$topCityIds = $this->getCityIdsAndNumJobs(32);
 		$featuredJobs = Job::active()->featured()->notExpire()->limit(12)->get();
 		$latestJobs = Job::active()->notExpire()->orderBy('id', 'desc')->limit(12)->get();
-		$functional_areas = FunctionalArea::whereIsActive(1)->whereShowInHome(1)->whereLang('ar')->orderBy('sort_order')->get();
+		$functional_areas = FunctionalArea::whereIsActive(1)->whereShowInHome(1)->whereLang('ar')->orderBy('count_jobs','sort_order')->limit(8)->get();  
 		$video = Video::getVideo();
 		$testimonials = Testimonial::langTestimonials();
 		
